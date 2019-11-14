@@ -1,0 +1,5 @@
+.admin--form--box{flex:1 1 660px;}
+.contents--admin--form{width:100%;max-width:380px}
+@media(max-width:920px) {
+    .admin--form--box{max-width:380px;margin-left:auto;margin-right:auto;}
+}

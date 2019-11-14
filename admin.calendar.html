@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!--SEO, 스타일 등등 공통적으로 쓰이는 건 여기에 있음.-->
+<meta charset="utf-8">
+<meta name="msapplication-tap-highlight" content="no" />
+<!--구글애널리틱스-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125256449-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-125256449-1');
+</script>
+<meta name="referrer" content="always">
+<!--IE 대신 엣지를 권장한다.-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"/>
+<!--확대/축소 방지. 물론 유저가 강제 확대/축소사용 옵션 켜면 소용없음-->
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">
+<!--og(open graph) : 다른 곳에 url 붙여넣기 했을 때 나오는 이름, 설명, 사진 등등-->
+<meta property="og:site_name" content="메이저맵" />
+<meta property="og:type" content="website"/>
+<!--크롬/파이어폭스/사파리 주소창에서 탭으로 검색하는 기능-->
+<link rel="search" type="application/opensearchdescription+xml" href="./assets/files_for_root/openSearch.xml" title="MajorMap">
+<!--바로가기 아이콘-->
+<link rel="shortcut icon" type="image/x-icon" href="./assets/img/majorMap/favicon256.png"/>
+<link rel="icon" type="image/x-icon" href="./assets/img/majorMap/favicon256.png"/>
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/majorMap/favicon76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="./assets/img/majorMap/favicon120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="./assets/img/majorMap/favicon152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="./assets/img/majorMap/favicon167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/img/majorMap/favicon180.png">
+<link rel="apple-touch-icon" href="./assets/img/majorMap/favicon256.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-startup-image" href="./assets/img/majorMap/logo-blue-icon.png"/>
+<!--아이폰 상태바 색-->
+<meta name="apple-mobile-web-app-status-bar-style" content="#0F75BC"/>
+<!--모바일 브라우저 주소창 색-->
+<meta name="theme-color" content="#0F75BC"/>
+<!--@todo 나중에 'vue-material-design-icons'으로 바꾸기.-->
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/common.css">
+<link rel="stylesheet" href="./assets/css/commonSnippet.css">
+<!--모바일 앱 생성-->
+<!--<link rel="manifest" href="./assets/files_for_root/manifest.json"/>-->
+<meta name="author" content="Major Map" />
+<meta name="copyright" content="copyrights (c) by (주)잡쇼퍼" />
+<!--웹마스터. 구글, 네이버, 빙-->
+<meta name="google-site-verification" content="02lF27ABhrcOfpvnVj1kW-aOY7KALgRSkzgCCnMOWX0" />
+<meta name="google-site-verification" content="zSS3TCL55Sg-B3x7JEQ3bg9k6CowJtDihJlKigShbqw" />
+<meta name="google-site-verification" content="YxqAZVD4yzzji9-NNCtCGQbjep-n-Ev7XJSRAoakpeE" />
+<meta name="google-site-verification" content="_ENZwlJU1aOy_2a9b8rB2rRfgpR2fio2ZMsdA-67tpE" />
+<meta name="naver-site-verification" content="cd5e9e816f0b1ac75fab8f75e474023da050f2db"/>
+<meta name="msvalidate.01" content="64503FC5502D0FA2793C197853A92B98" />
+<!--구글광고. 본래 스크립트는 body 맨 밑에 넣는 걸 권장하지만 이건 head에 안 넣으면 구글에서 경고 날아옴.-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!--// @todo 여기부터 페이지마다 달라야 함.-->
+<!--애플 모바일웹 앱 제목. -->
+<meta name="apple-mobile-web-app-title" content="메이저맵 - 빛나는 당신의 미래를 탐색해보세요">
+<!--오픈그래프-->
+<meta property="og:title" content="메이저맵 - 빛나는 당신의 미래를 탐색해보세요">
+<meta property="og:url" content="www.majormap.net">
+<meta property="og:description" content="성공적인 대입을 위한 학과 정보 서비스 - 빛나는 당신의 미래를 탐색해보세요! 전국 모든 대학 학과에 대한 상세하고 재미있는 정보, 메이저맵">
+<meta property="og:image" content="./img/majorMap/share.png">
+<meta property="og:image" content="./img/searchMap/searchMap.png">
+<meta property="og:image" content="./img/majorMap/share.png">
+<!--SEO-->
+<meta name="description" lang="ko" content="성공적인 대입을 위한 학과 정보 서비스 - 빛나는 당신의 미래를 탐색해보세요! 전국 모든 대학 학과에 대한 상세하고 재미있는 정보, 메이저맵">
+<meta name="keywords" lang="ko" content="대학,학과,진로,메이저맵,쇼퍼">
+<link rel="canonical" lang="ko" content="www.majormap.net">
+<title>메이저맵 - 빛나는 당신의 미래를 탐색해보세요</title>
+<!--스키마-->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.majormap.net",
+        "name":"Major Map",
+        "logo": "https://www.majormap.net/img/majorMap/banner-white.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+82-70-4616-1515",
+            "email":"cs@jobshopper.co.kr",
+            "contactType": "Customer service"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.majormap.net/searchMap?keyword={searchTerms}",
+            "query-input": "required name=searchTerms"
+        }
+    }
+</script>
+<!--// @todo 여기까지 페이지마다 달라야 함.-->
+    <link rel="stylesheet" href="./components/templates/header/header.css"/>
+    <link rel="stylesheet" href="./components/templates/page--title/page--title.css"/>
+    <link rel="stylesheet" href="./components/templates/footer/footer.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--pagination/btn--pagination.css"/>
+    <link rel="stylesheet" href="./components/templates/form/form.css"/>
+    <link rel="stylesheet" href="./components/pages/admin/admin.css"/>
+    <link rel="stylesheet" href="./components/pages/admin/admin--form/admin--form.css"/>
+    <link rel="stylesheet" href="./components/pages/admin/admin--items/admin--items.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet" href="./assets/css/jqueryui.custom.css"/>
+</head>
+<body id="app">
+<div class="section__top">
+    <div class="section__notice">
+        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span>메이저맵 전공추천</span><span>OPEN!</span></div>
+            <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
+    </div>
+    <header class="section__header">
+        <div class="container container__header">
+            <a class="header--logo" href="./index.html">MajorMap</a>
+            <div class="header--search--box">
+                <input class="header--search--input" type="text" placeholder="검색" value=""/>
+                <a class="header--search--button" href="./search.total__total.html"><i class="material-icons">search</i></a>
+                <button class="btn--text header--mobile--search--button" onclick="$('.section__header').addClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">search</i></button>
+            </div>
+            <a class="header--mobile--menu--title" href="./user.profile__email.html">닉네임</a>
+            <a class="header--mobile--menu--logout" href="./">로그아웃</a>
+            <div class="header--mobile--menu--box">
+                <button class="header--mobile--menu--button__close btn--text" onclick="$('.section__header').removeClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">close</i></button>
+                <button class="header--mobile--menu--button__open--menu btn--text" onclick="$('.section__header').addClass('section__header--mobile--menu').removeClass('section__header--mobile--search')"><i class="material-icons">menu</i></button>
+                <div class="header--mobile--menu--list">
+                    <div class="header--mobile--menu--top">
+                        <a class="header--mobile--menu header--mobile--menu--guide" href="#">메이저맵 가이드</a>
+                        <a class="header--mobile--menu activated" href="./user.profile__email.html">개인정보 수정</a>
+                    </div>
+                    <div class="header--mobile--menu--bottom">
+                        <div class="header--mobile--menu--bottom--left">
+                            <button class="header--mobile--menu">전공검색</button>
+                        </div>
+                        <div class="header--mobile--menu--bottom--right">
+                            <a class="header--mobile--menu" href="./search.univ__init.html">대학<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                            <a class="header--mobile--menu" href="./search.major__init.html">학과<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                            <a class="header--mobile--menu" href="./search.category__init.html">전공분야<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header--pc--menu--box">
+                <div class="header--pc--menu--left">
+                    <button class="header--pc--menu--button btn--text" onclick="$(this).next().slideToggle()">닉네임</button>
+                    <div class="header--pc--menu--list">
+                        <a class="header--pc--menu" href="./user.profile__email.html">닉네임</a>
+                        <a class="header--pc--menu" href="./user.profile__sns.html">개인정보수정</a>
+                        <button class="header--pc--menu" >로그아웃</button>
+                    </div>
+                </div>
+                <a class="header--pc--menu--guide">메이저맵 가이드</a>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="section__admin">
+    <div class="container__padding container__admin">
+<div class="admin--form--box">
+    <div class="contents--title">일정 관리</div>
+    <div class="contents--admin--form">
+<form class="form">
+    <div class="label--title">제목</div>
+    <label class="label--text">
+        <input class="js--autocomplete" type="text" placeholder="선택"/>
+    </label>
+    <div class="label--title">기관</div>
+    <label class="label--text">
+        <input type="text" placeholder="ex) 경기도교육청, 인천광역시교육청"/>
+    </label>
+    <div class="label--title">날짜</div>
+    <label class="label--text">
+        <input type="date" title="선택"/>
+    </label>
+    <div class="label--title">대상</div>
+    <div class="label--list">
+        <label class="label--check">
+            <input type="checkbox"/><i class="material-icons"></i><span>고1</span>
+        </label>
+        <label class="label--check">
+            <input type="checkbox"/><i class="material-icons"></i><span>고2</span>
+        </label>
+        <label class="label--check">
+            <input type="checkbox"/><i class="material-icons"></i><span>고3</span>
+        </label>
+    </div>
+    <div class="label--title">문구</div>
+    <label class="label--text">
+        <input type="text" placeholder="ex) 오랜 시간 고생 많았어!"/>
+    </label>
+    <button onclick="alert('등록됨');" class="button--submit">일정 등록</button>
+</form>
+    </div>
+</div>
+        <hr/>
+<div class="admin--items--box">
+    <div class="contents--title">일정 목록</div>
+    <div class="contents__padding contents--admin--items">
+        <!--@todo 4 items per page-->
+        <div class="admin--items">
+            <div class="admin--items--header">
+                <span class="admin--items--header--title">대학수학능력시험</span>
+                <div class="admin--items--header--button--list">
+                    <button class="admin--items--header--button__modify btn--text">수정</button>
+                    <button class="admin--items--header--button__delete btn--text">삭제</button>
+                </div>
+                <div class="admin--items--header--subtitle--list">
+                    <span class="admin--items--header--subtitle">기관</span>
+                    <span class="admin--items--header--subtitle">2019.11.14</span>
+                    <span class="admin--items--header--subtitle">고3</span>
+                </div>
+            </div>
+            <div class="admin--items--text--list">
+                <div class="admin--items--text">그동안 노력의 결실을 이룰 시간이 다가오고 있어!</div>
+            </div>
+        </div>
+        <div class="admin--items">
+            <div class="admin--items--header">
+                <span class="admin--items--header--title">대학수학능력시험</span>
+                <div class="admin--items--header--button--list">
+                    <button class="admin--items--header--button__modify btn--text">수정</button>
+                    <button class="admin--items--header--button__delete btn--text">삭제</button>
+                </div>
+                <div class="admin--items--header--subtitle--list">
+                    <span class="admin--items--header--subtitle">기관</span>
+                    <span class="admin--items--header--subtitle">2019.11.14</span>
+                    <span class="admin--items--header--subtitle">고3</span>
+                </div>
+            </div>
+            <div class="admin--items--text--list">
+                <div class="admin--items--text">그동안 노력의 결실을 이룰 시간이 다가오고 있어!</div>
+            </div>
+        </div>
+        <div class="admin--items">
+            <div class="admin--items--header">
+                <span class="admin--items--header--title">대학수학능력시험</span>
+                <div class="admin--items--header--button--list">
+                    <button class="admin--items--header--button__modify btn--text">수정</button>
+                    <button class="admin--items--header--button__delete btn--text">삭제</button>
+                </div>
+                <div class="admin--items--header--subtitle--list">
+                    <span class="admin--items--header--subtitle">기관</span>
+                    <span class="admin--items--header--subtitle">2019.11.14</span>
+                    <span class="admin--items--header--subtitle">고3</span>
+                </div>
+            </div>
+            <div class="admin--items--text--list">
+                <div class="admin--items--text">그동안 노력의 결실을 이룰 시간이 다가오고 있어!</div>
+            </div>
+        </div>
+        <!--기간 지났으면 passed 클래스 추가 -> 취소선-->
+        <div class="admin--items passed">
+            <div class="admin--items--header">
+                <span class="admin--items--header--title">대학수학능력시험</span>
+                <div class="admin--items--header--button--list">
+                    <button class="admin--items--header--button__modify btn--text">수정</button>
+                    <button class="admin--items--header--button__delete btn--text">삭제</button>
+                </div>
+                <div class="admin--items--header--subtitle--list">
+                    <span class="admin--items--header--subtitle">기관</span>
+                    <span class="admin--items--header--subtitle">2019.11.14</span>
+                    <span class="admin--items--header--subtitle">고3</span>
+                </div>
+            </div>
+            <div class="admin--items--text--list">
+                <div class="admin--items--text">그동안 노력의 결실을 이룰 시간이 다가오고 있어!</div>
+            </div>
+        </div>
+    </div>
+<div class="btn--pagination">
+    <button class="btn--pagination--button"><i class="material-icons">first_page</i></button>
+    <button class="btn--pagination--button"><i class="material-icons">chevron_left</i></button>
+    <button class="btn--pagination--button">1</button>
+    <button class="btn--pagination--button activated">2</button>
+    <button class="btn--pagination--button">3</button>
+    <button class="btn--pagination--button">4</button>
+    <button class="btn--pagination--button"><i class="material-icons">chevron_right</i></button>
+    <button class="btn--pagination--button"><i class="material-icons">last_page</i></button>
+</div>
+</div>
+    </div>
+</div>
+
+<!--맨 밑에 회사정보.-->
+<footer class="section__footer">
+    <div class="container container__footer">
+        <div class="footer--box">
+            <div class="footer footer__title">MajorMap<a href="#" class="footer--go-to-top">↑</a></div>
+            <div class="footer">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
+            <div class="footer">사업자등록번호: 315-87-00617</div>
+            <div class="footer">서울특별시 관악구 관악로 1<br class="footer--br"/> 서울대학교 연구공원 SK센터 1층 T1</div>
+            <div class="footer--link--list">
+                <a class="footer--link" href="#">회사 홈페이지</a>
+                <a class="footer--link" href="#">이용약관</a>
+                <a class="footer--link" href="#">개인정보처리방침</a>
+                <a class="footer--link" href="#">제휴문의</a>
+            </div>
+        </div>
+        <div class="footer--box">
+            <div class="footer footer__title">고객센터</div>
+            <div class="footer"><a>카카오톡 플러스친구</a></div>
+            <div class="footer"><a href="mailto:cs@jobshopper.co.kr">cs@jobshopper.co.kr</a></div>
+        </div>
+    </div>
+</footer>
+<!--js 파일 여기서 불러옴.-->
+<!--ie 9이하에서 css를 ie 9처럼 보이게 하는 js-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<!-- JavaScript Libraries -->
+<!--@todo 여기부터 없앨 것.-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js"></script>-->
+<script>
+    document.cookie="SameSite=None";
+    let isChanged=new Set();//입력중인 input 여기에 저장. 다 지웠거나 submit 했으면 삭제.
+$(document).ready(function(){        $(window).bind('beforeunload', function(){
+            if(isChanged.size>0) return '변경된 사항이 있습니다. 페이지에서 나가시겠습니까?';
+        });
+        $('input[type=text], input[type=number], input[type=password], input[type=email], input[type=tel], textarea').each(function(index, item){
+            const $this=$(item);
+            $this.on('keyup',function(e){
+                if($this.val())isChanged.add(index);
+                else isChanged.delete(index);
+            })
+        });
+    });
+</script>
+<!--@todo 여기까지 없앨 것.-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function(){        $('.js--autocomplete').autocomplete({
+            source:['전에썼던제목1','전에썼던제목2','전에썼던제목3','대학전공백과 출시 배너']
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.detail--wordclouds--inner--box{display:flex;}
+#detail--wordclouds--amcharts{flex:auto;height:380px;border: 1px solid #A1A1A1}
+.detail--wordclouds--search{flex:0 1 380px;border:1px solid #A1A1A1;margin-left:-1px;}
+.detail--wordclouds--search--header{padding:16px;font-weight: bold;border-bottom:1px solid #E1E1E1;font-size:18px;line-height:26px;display:flex;align-items:center;}
+.detail--wordclouds--search--header--keyword{margin-left:16px;margin-right:8px;color:#219653;/*워드클라우드에 보여지는 글자색*/}
+
+.detail--wordclouds--search--result--list{height:319px;overflow-y:auto;padding:8px 16px;}
+.detail--wordclouds--search--result{display:block;margin-bottom:12px;}
+.detail--wordclouds--search--result--list .detail--wordclouds--search--result:last-child{margin-bottom:0;}
+.amcharts-chart-div > a {display: none !important;}
+@media(max-width:576px) {
+    .detail--wordclouds--inner--box{display:block;}
+    .detail--wordclouds--search{margin-left:0;margin-top:8px}
+    .detail--wordclouds--search--header{padding-top:8px;padding-bottom:8px;font-size:16px;line-height:23px;}
+
+    .detail--wordclouds--search--result--list{height:200px;}
+    .detail--wordclouds--search--result{margin-bottom:8px;}
+}

@@ -1,0 +1,21 @@
+.detail--header--univ--info--box{display:flex;}
+.detail--header--univ--info{flex:1 1 900px;border: 1px solid #A1A1A1;}
+.detail--header--univ--info--image{flex:1 1 500px;}
+
+.detail--header--univ--info--tmi--list{display:flex;flex-direction:column;flex-wrap:wrap;height:184px;padding:16px 16px 0;}
+.detail--header--univ--info--tmi{width:50%;margin-bottom:16px;}
+.detail--header--univ--info--tmi--title{display:inline-block;width:134px;vertical-align:top;font-weight: bold;font-size:18px;line-height: 26px;color:#959595;}
+.detail--header--univ--info--tmi--contents{display:inline-block;vertical-align:top;}
+
+
+.detail--header--univ--info--link--list{border-top:1px solid #E1E1E1;padding-top:12px;padding-bottom:12px;text-align:right;}
+.detail--header--univ--info--link{border:1px solid #E1E1E1;display:inline-block;padding:4px 8px;margin-right:16px;}
+.detail--header--univ--info--link .material-icons{margin-left:8px;font-size:12px;color:#0F75BC}
+@media(max-width:920px) {
+    .detail--header--univ--info--image{display:none}
+}
+@media(max-width:576px) {
+    .detail--header--univ--info--tmi{width:100%;}
+    .detail--header--univ--info--tmi--list{display:block;height:auto;}
+    .detail--header--univ--info--tmi--title{font-size:16px;line-height: 23px;width:50%;}
+}

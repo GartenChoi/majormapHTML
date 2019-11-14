@@ -1,0 +1,3 @@
+.btn--sort--white--list{display:inline-block;margin-right:-2px;}
+.btn--sort--white{margin-right:2px;color:rgba(255, 255, 255, 0.1);font-weight: bold;font-size: 10px;line-height:14px;float:left}
+.btn--sort--white.activated{color:#fff;}

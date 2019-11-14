@@ -1,0 +1,7 @@
+.section__detail{margin-top:56px;margin-bottom:40px;}
+.container__detail>div{position:relative;}
+.container__detail>hr{margin-top:40px;margin-bottom:16px;}
+.container__detail .contents--title .btn--toggle--arrow{float:right;color:#666;}
+@media(max-width:576px) {
+    .section__detail{margin-top:16px;}
+}

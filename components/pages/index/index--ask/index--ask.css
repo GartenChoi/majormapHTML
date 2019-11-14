@@ -1,0 +1,17 @@
+.section__index--ask{text-align:center;margin-top:24px;margin-bottom:38px}
+.container__index--ask{padding-top:16px;padding-bottom:29px;}
+.index--ask--box{margin-bottom:29px;}
+.contents--title__index--ask{margin-bottom:24px;}
+.index--ask{width:280px;display:inline-block;}
+.index--ask:last-child{margin-left:80px;}
+.index--ask--title{color:#666;margin-bottom:16px;}
+.index--ask--title--link{display:none;float:right;}
+.index--ask--button{width:200px;margin:auto;border-radius:6px;background-color:#181232;color:#fff;font-size:14px;}
+@media(max-width:1400px) {
+    .section__index--ask{text-align:left;margin-bottom:33px;}
+    .container__index--ask{padding-bottom:41px;}
+    .index--ask{display:block;width:100%;}
+    .index--ask:last-child{margin-left:0;}
+    .index--ask--title--link{display:inline-block;}
+    .index--ask--button{display:none;}
+}

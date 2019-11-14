@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /admin
+Disallow: /school
+Disallow: /user
+
+Sitemap: https://jobshopper.co.kr/sitemap.xml

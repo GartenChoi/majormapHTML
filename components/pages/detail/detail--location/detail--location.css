@@ -1,0 +1,8 @@
+.detail--location{border:1px solid #a1a1a1;display:flex;}
+#detail--location--navermap{flex:auto;height:280px;}
+.detail--location--info{padding:16px;flex:0 1 368px;}
+.detail--location--info--title{font-size:18px;font-weight:bold;margin-bottom:8px;}
+@media(max-width:920px) {
+    .detail--location{display:block;}
+    .detail--location--info{padding-top:8px;padding-bottom:8px;}
+}

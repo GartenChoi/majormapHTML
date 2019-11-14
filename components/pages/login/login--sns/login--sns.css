@@ -1,0 +1,17 @@
+.login--sns--box{flex: 0 1 380px;}
+.contents--title__login--sns{margin-bottom:40px;}
+.login--sns{position:relative;display:block;margin-bottom:8px;width:100%;max-width:380px;text-align:center;font-weight:bold;}
+.login--sns__google{background-color:#EA4235;color:#fff;}
+.login--sns__facebook{background-color:#4267B2;color:#fff;}
+.login--sns__naver{background-color:#1EC800;color:#fff;}
+.login--sns__kakao{background-color:#F7E600;color:#333;}
+.login--sns--icon{position:absolute;left:40px;top:0;height:24px;margin:8px;}
+.login--sns--text{margin:auto;line-height:40px;}
+@media (max-width:920px) {
+    .login--sns--box{margin-left:auto;margin-right:auto;}
+    .section__login__login .contents--title__login--sns{display:none}
+    .login--sns--list{display:flex;}
+    .login--sns{height:60px;width:60px;margin:0 auto;}
+    .login--sns--icon{position:static;margin:18px;}
+    .login--sns--text{display:none;}
+}

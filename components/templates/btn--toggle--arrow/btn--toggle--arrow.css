@@ -1,0 +1,4 @@
+.btn--toggle--arrow{line-height:16px;}
+.btn--toggle--arrow>.material-icons{font-size:16px;}
+.btn--toggle--arrow>.material-icons:before{content:'keyboard_arrow_down'}
+.btn--toggle--arrow.activated>.material-icons:before{content:'keyboard_arrow_up'}

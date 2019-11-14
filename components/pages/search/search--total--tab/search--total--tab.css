@@ -1,0 +1,6 @@
+.section__search--total--tab{margin-bottom:-8px;}
+.section__search--total--tab a{color:#333;}
+.container__search--total--tab{display:flex;border-bottom:1px solid #A1A1A1;}
+.search--total--tab{display:block;transition:background-color .5s,color .5s,border-bottom-color .5s;margin-bottom:-1px;font-size:14px;padding:8px;line-height:20px;flex:0 1 140px;text-align:center;background-color:#F2F2F2;border:1px solid #A1A1A1;border-radius: 4px 4px 0 0}
+.search--total--tab.activated{background-color:#fff;color:#0F75BC;border-bottom:1px solid #fff;}
+.search--total--tab--num{margin-left:4px;font-size:12px;line-height:17px;}

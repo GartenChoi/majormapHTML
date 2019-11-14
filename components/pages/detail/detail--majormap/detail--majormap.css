@@ -1,0 +1,9 @@
+.contents--detail--majormap{border: 1px solid #A1A1A1;}
+#detail--majormap--amcharts{height:750px;}
+#detail--majormap--amcharts g[role='widget']+g{display:none!important;}
+.majormap--mobile{display:none;}
+@media(max-width:576px) {
+    #detail--majormap--amcharts{display:none;}
+    #detail--majormap--amcharts g[role='widget']+g{display:none!important;}
+    .majormap--mobile{display:block;}
+}

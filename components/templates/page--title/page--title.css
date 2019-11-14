@@ -1,0 +1,6 @@
+.section__page--title{font-size:24px;line-height:35px;border-bottom:1px solid #e1e1e1;}
+.container__page--title{padding-top:24px;padding-bottom:24px;}
+@media (max-width:576px) {
+    .section__page--title{font-size:18px;line-height:26px;font-weight:bold;}
+    .container__page--title{padding:16px;}
+}

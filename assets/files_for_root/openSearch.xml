@@ -1,0 +1,14 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>잡쇼퍼</ShortName>
+    <Description>
+        잡쇼퍼 검색서비스입니다.
+    </Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image height="256" width="256" type="image/x-icon">https://jobshopper.co.kr/static/images/logo/logo_40.png</Image>
+    <SyndicationRight>limited</SyndicationRight>
+    <Contact>cs@jobshopper.co.kr</Contact>
+    <moz:SearchForm>https://jobshopper.co.kr/</moz:SearchForm>
+    <Url type="text/html" method="get" template="https://www.jobshopper.co.kr/api/wiki/?name={searchTerms}"/>
+    <Url type="application/x-suggestions+json" template="https://www.jobshopper.co.kr/api/wiki/?name={searchTerms}"/>
+    <Url type="application/x-moz-keywordsearch" template="https://www.jobshopper.co.kr/api/wiki/?name={searchTerms}"/>
+</OpenSearchDescription>

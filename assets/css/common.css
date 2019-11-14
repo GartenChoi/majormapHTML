@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/earlyaccess/notosanskr.css");
+@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css");
+
+*{box-sizing:border-box;vertical-align:middle;}
+*:focus {outline: none;}
+::-webkit-scrollbar {width: 10px;height: 10px;}
+::-webkit-scrollbar-thumb {background-color: rgba(50, 50, 50, 0.25);border: 2px solid transparent;border-radius: 10px;background-clip: padding-box;}
+::-webkit-scrollbar-thumb:hover {background-color:rgba(50, 50, 50, 0.5);}
+::selection {background-color: #3B3E4D;color: white;text-shadow: none;}
+::-moz-selection {background: #3B3E4D;color: white;text-shadow: none;}
+html{font-family:'Noto Sans KR', sans-serif;position:relative;scroll-behavior: smooth;font-size:16px;line-height:23px;font-weight: 400;word-break:keep-all;background-color: #fff;color: #333;}
+
+@media(max-width:576px) {
+    html{font-size:14px;line-height:20px;}
+}
+
+body{margin:0;display: flex;flex-direction: column;min-height:100vh;}
+/*input::-webkit-inner-spin-button, input::-webkit-inner-spin-button{-webkit-appearance: none;margin: 0;}*/
+/*input[type=number] {-moz-appearance:textfield;}*/
+input[type=date]{background-color:#fff;}
+input[type=radio],input[type=checkbox]{display:none;}
+input[type=checkbox]+.material-icons,input[type=radio]+.material-icons{font-size:18px;line-height:18px;width:18px;height:18px;margin-right:8px;}
+input[type=checkbox]+i:before,input[type=radio]+i:before{content:'check_box_outline_blank'}
+input[type=checkbox]:checked+i:before,input[type=radio]:checked+i:before{content:'check_box'}
+input::placeholder {color:#666;}
+textarea::placeholder{color:#959595}
+input, textarea, button{font-family: 'Noto Sans KR', sans-serif;font-size:1em;line-height:1em;}
+a{text-decoration:none;color:#333;}
+hr{margin-top:0;margin-bottom:0;border-top:1px solid #E1E1E1;border-bottom-width:0;width:100%;}
+span{display:inline-block;}
+table{border:1px solid #a1a1a1;width:100%;border-spacing:0}
+table th{border-bottom:1px solid #e1e1e1;}
+
+/* 모든 페이지에서 사용하는 것들. */
+.container{width:100%;margin-right:auto;margin-left: auto;max-width:1400px;}
+.container__padding{width:100%;margin-right:auto;margin-left: auto;max-width:1432px;padding-left:16px;padding-right:16px;}
+.contents__padding{max-width:1368px;margin-left:auto;margin-right:auto;}
+.contents--title{font-size:24px;line-height:35px;font-weight:500;margin-bottom:24px;}
+.contents--small--title{font-weight: bold;font-size: 20px;line-height: 29px;}
+.contents--title--num{margin-left:8px;color:#0F75BC;font-size:20px;line-height:29px;}
+@media(max-width:576px) {
+    .contents--title{font-size:18px;line-height:26px;margin-bottom:16px;font-weight: bold;}
+    .contents--small--title{font-weight: 500;font-size: 18px;line-height: 26px;}
+    .contents--title--num{font-size:12px;line-height:17px;}
+}
+.button--submit{
+    line-height:34px;padding:0;
+    display:block;
+    border:0;
+    width:100%;max-width:380px;height:36px;margin-top:40px;margin-left:auto;margin-right:auto;
+    text-align:center;font-weight:bold;
+    background:linear-gradient(to right, #3F91C9 0%, #5C65A4 100%);color:#fff!important;
+}
+.button--reset{
+    line-height:34px;padding:0;
+    display:block;
+    border:1px solid #e1e1e1;color:#333!important;
+    width:100%;max-width:380px;height:36px;
+    text-align:center;
+    background-color:#fff;
+}
+.btn--text{
+    border:0;background-color:transparent;padding:0;
+}
+.material-icons{line-height:1em;width:1em;height:1em;text-align:center;}

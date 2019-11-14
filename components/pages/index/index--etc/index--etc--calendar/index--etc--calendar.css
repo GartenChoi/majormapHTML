@@ -1,0 +1,22 @@
+.index--etc--calendar--box{flex:360px;height:360px;padding:16px;}
+.contents--title__index--etc--calendar{margin-bottom:16px;}
+.index--etc--calendar{margin-bottom:24px;}
+.index--etc--calendar:last-child{margin-bottom:0;}
+.index--etc--calendar--title{margin-bottom:8px;align-items:center;}
+.index--etc--calendar--date{display:inline-block;color:#fff;border-radius:4px;height:30px;width:100px;font-size:14px;line-height:30px;text-align:center;margin-right:16px;}
+.index--etc--calendar--title--text{font-weight:500;}
+.index--etc--calendar--d-day{display:flex;font-size:36px;}
+.index--etc--calendar--d-day--D{font-size:26px;line-height:38px;font-weight:300}
+.index--etc--calendar--d-day--number{margin-left:4px;font-size:20px;line-height:29px;display:flex;align-items:center;justify-content:center;color:#fff;width:20px;height:38px;position:relative;}
+.index--etc--calendar--d-day--number:before{content:'';position:absolute;width:20px;top:0;height:0;border-top:19px solid #3A3A3C;border-bottom:19px solid #58585A;}
+.index--etc--calendar--d-day--number>span{z-index:1}
+.index--etc--calendar--d-day--text{height:38px;flex:auto;border:1px solid #E1E1E1;border-radius:4px;color:#666;font-size:14px;line-height:20px;margin-left:16px;padding:9px 8px;}
+
+@media(max-width:1400px) {
+    .index--etc--calendar--title{margin-bottom:16px;}
+    .index--etc--calendar--date{height:20px;width:86px;font-size:12px;line-height:20px;}
+    .index--etc--calendar--box{margin-bottom:16px;}
+    .index--etc--calendar--d-day--text{font-size:12px;}
+    .index--etc--calendar{margin-bottom:32px;}
+    .index--etc--calendar:last-child{margin-bottom:0;}
+}

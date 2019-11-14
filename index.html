@@ -1,0 +1,346 @@
+<!--컴포넌트 최대한 크게 나눔.-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!--SEO, 스타일 등등 공통적으로 쓰이는 건 여기에 있음.-->
+<meta charset="utf-8">
+<meta name="msapplication-tap-highlight" content="no" />
+<!--구글애널리틱스-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125256449-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-125256449-1');
+</script>
+<meta name="referrer" content="always">
+<!--IE 대신 엣지를 권장한다.-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"/>
+<!--확대/축소 방지. 물론 유저가 강제 확대/축소사용 옵션 켜면 소용없음-->
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">
+<!--og(open graph) : 다른 곳에 url 붙여넣기 했을 때 나오는 이름, 설명, 사진 등등-->
+<meta property="og:site_name" content="메이저맵" />
+<meta property="og:type" content="website"/>
+<!--크롬/파이어폭스/사파리 주소창에서 탭으로 검색하는 기능-->
+<link rel="search" type="application/opensearchdescription+xml" href="./assets/files_for_root/openSearch.xml" title="MajorMap">
+<!--바로가기 아이콘-->
+<link rel="shortcut icon" type="image/x-icon" href="./assets/img/majorMap/favicon256.png"/>
+<link rel="icon" type="image/x-icon" href="./assets/img/majorMap/favicon256.png"/>
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/majorMap/favicon76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="./assets/img/majorMap/favicon120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="./assets/img/majorMap/favicon152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="./assets/img/majorMap/favicon167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/img/majorMap/favicon180.png">
+<link rel="apple-touch-icon" href="./assets/img/majorMap/favicon256.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-startup-image" href="./assets/img/majorMap/logo-blue-icon.png"/>
+<!--아이폰 상태바 색-->
+<meta name="apple-mobile-web-app-status-bar-style" content="#0F75BC"/>
+<!--모바일 브라우저 주소창 색-->
+<meta name="theme-color" content="#0F75BC"/>
+<!--@todo 나중에 'vue-material-design-icons'으로 바꾸기.-->
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/common.css">
+<link rel="stylesheet" href="./assets/css/commonSnippet.css">
+<!--모바일 앱 생성-->
+<!--<link rel="manifest" href="./assets/files_for_root/manifest.json"/>-->
+<meta name="author" content="Major Map" />
+<meta name="copyright" content="copyrights (c) by (주)잡쇼퍼" />
+<!--웹마스터. 구글, 네이버, 빙-->
+<meta name="google-site-verification" content="02lF27ABhrcOfpvnVj1kW-aOY7KALgRSkzgCCnMOWX0" />
+<meta name="google-site-verification" content="zSS3TCL55Sg-B3x7JEQ3bg9k6CowJtDihJlKigShbqw" />
+<meta name="google-site-verification" content="YxqAZVD4yzzji9-NNCtCGQbjep-n-Ev7XJSRAoakpeE" />
+<meta name="google-site-verification" content="_ENZwlJU1aOy_2a9b8rB2rRfgpR2fio2ZMsdA-67tpE" />
+<meta name="naver-site-verification" content="cd5e9e816f0b1ac75fab8f75e474023da050f2db"/>
+<meta name="msvalidate.01" content="64503FC5502D0FA2793C197853A92B98" />
+<!--구글광고. 본래 스크립트는 body 맨 밑에 넣는 걸 권장하지만 이건 head에 안 넣으면 구글에서 경고 날아옴.-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!--// @todo 여기부터 페이지마다 달라야 함.-->
+<!--애플 모바일웹 앱 제목. -->
+<meta name="apple-mobile-web-app-title" content="메이저맵 - 빛나는 당신의 미래를 탐색해보세요">
+<!--오픈그래프-->
+<meta property="og:title" content="메이저맵 - 빛나는 당신의 미래를 탐색해보세요">
+<meta property="og:url" content="www.majormap.net">
+<meta property="og:description" content="성공적인 대입을 위한 학과 정보 서비스 - 빛나는 당신의 미래를 탐색해보세요! 전국 모든 대학 학과에 대한 상세하고 재미있는 정보, 메이저맵">
+<meta property="og:image" content="./img/majorMap/share.png">
+<meta property="og:image" content="./img/searchMap/searchMap.png">
+<meta property="og:image" content="./img/majorMap/share.png">
+<!--SEO-->
+<meta name="description" lang="ko" content="성공적인 대입을 위한 학과 정보 서비스 - 빛나는 당신의 미래를 탐색해보세요! 전국 모든 대학 학과에 대한 상세하고 재미있는 정보, 메이저맵">
+<meta name="keywords" lang="ko" content="대학,학과,진로,메이저맵,쇼퍼">
+<link rel="canonical" lang="ko" content="www.majormap.net">
+<title>메이저맵 - 빛나는 당신의 미래를 탐색해보세요</title>
+<!--스키마-->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.majormap.net",
+        "name":"Major Map",
+        "logo": "https://www.majormap.net/img/majorMap/banner-white.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+82-70-4616-1515",
+            "email":"cs@jobshopper.co.kr",
+            "contactType": "Customer service"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.majormap.net/searchMap?keyword={searchTerms}",
+            "query-input": "required name=searchTerms"
+        }
+    }
+</script>
+<!--// @todo 여기까지 페이지마다 달라야 함.-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="./components/templates/header/header.css"/>
+    <link rel="stylesheet" href="./components/templates/footer/footer.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--ask/index--ask.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--banner/index--banner.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc--banner2/index--etc--banner2.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc--calendar/index--etc--calendar.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc--rank/index--etc--rank.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--sort--blue/btn--sort--blue.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--shortcut/index--shortcut.css"/>
+</head>
+<body id="app">
+<div class="section__top">
+    <div class="section__notice">
+        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span style="color:#83D5F7;margin-left:10px;margin-right:10px;">메이저맵 전공추천</span><span>OPEN!</span></div>
+        <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
+    </div>
+    <header class="section__header">
+        <div class="container container__header">
+            <a class="header--logo" href="./index.html">MajorMap</a>
+            <div class="header--search--box">
+                <input class="header--search--input" type="text" placeholder="검색" value=""/>
+                <a class="header--search--button" href="./search.total__total.html"><i class="material-icons">search</i></a>
+                <button class="btn--text header--mobile--search--button" onclick="$('.section__header').addClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">search</i></button>
+            </div>
+            <a class="header--mobile--menu--title" href="./login.html">로그인<i class="header--mobile--menu--title--icon material-icons">chevron_right</i></a>
+            <div class="header--mobile--menu--box">
+                <button class="header--mobile--menu--button__close btn--text" onclick="$('.section__header').removeClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">close</i></button>
+                <button class="header--mobile--menu--button__open--menu btn--text" onclick="$('.section__header').addClass('section__header--mobile--menu').removeClass('section__header--mobile--search')"><i class="material-icons">menu</i></button>
+                <div class="header--mobile--menu--list">
+                    <div class="header--mobile--menu--top">
+                        <a class="header--mobile--menu header--mobile--menu--guide" href="#">메이저맵 가이드</a>
+                        <a class="header--mobile--menu activated" href="./join.html">회원가입</a>
+                    </div>
+                    <div class="header--mobile--menu--bottom">
+                        <div class="header--mobile--menu--bottom--left">
+                            <button class="header--mobile--menu activated">전공검색</button>
+                        </div>
+                        <div class="header--mobile--menu--bottom--right">
+                            <a class="header--mobile--menu" href="./search.univ__init.html">대학<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                            <a class="header--mobile--menu" href="./search.major__init.html">학과<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                            <a class="header--mobile--menu" href="./search.category__init.html">전공분야<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header--pc--menu--box">
+                <div class="header--pc--menu--left">
+                    <a href="./login.html">로그인</a>
+                </div>
+                <a class="header--pc--menu--guide">메이저맵 가이드</a>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="section__index--banner">
+    <div class="container container__index--banner">
+        <div class="index--banner--box owl-carousel">
+            <div class="index--banner">배너</div>
+            <div class="index--banner">배너2</div>
+            <div class="index--banner">배너3</div>
+        </div>
+    </div>
+</div>
+<div class="section__index--shortcut">
+    <div class="container container__index--shortcut">
+        <div class="contents__padding contents--index--shortcut">
+            <a href="./search.major__init.html" class="index--shortcut--box index--shortcut--box__green">
+                <div class="index--shortcut--icon"></div>
+                <div class="index--shortcut--text">
+                    <div class="index--shortcut--subtitle">4000개 학과 정보를 한 눈에!</div>
+                    <div class="index--shortcut--title">학과 검색 <i class="index--shortcut--title--icon material-icons">keyboard_arrow_right</i></div>
+                </div>
+            </a>
+            <a href="./search.univ__init.html" class="index--shortcut--box index--shortcut--box__violet">
+                <div class="index--shortcut--icon"></div>
+                <div class="index--shortcut--text">
+                    <div class="index--shortcut--subtitle">전국 110개 대학 A to Z</div>
+                    <div class="index--shortcut--title">대학 검색 <i class="index--shortcut--title--icon material-icons">keyboard_arrow_right</i></div>
+                </div>
+            </a>
+            <a href="./search.category__init.html" class="index--shortcut--box index--shortcut--box__blue">
+                <div class="index--shortcut--icon"></div>
+                <div class="index--shortcut--text">
+                    <div class="index--shortcut--subtitle">관심분야를 알아볼까?</div>
+                    <div class="index--shortcut--title">전공분야 검색 <i class="index--shortcut--title--icon material-icons">keyboard_arrow_right</i></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="section__index--etc">
+    <div class="container container__index--etc">
+<div class="index--etc--rank--box">
+    <div class="contents--small--title contents--title__index--etc--rank">실시간 랭킹</div>
+    <div class="index--etc--rank--type--button--list">
+        <button class="index--etc--rank--type--button btn--text activated">대학</button>
+        <button class="index--etc--rank--type--button btn--text">학과</button>
+    </div>
+    <div class="index--etc--rank--list">
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">1</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">2</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">3</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">4</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">5</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">6</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">7</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">8</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">9</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">10</span><span>한양대학교</span></a>
+    </div>
+    <div class="index--etc--rank--range--button--list">
+        <button class="index--etc--rank--range--button btn--text activated" onclick="$(this).addClass('activated').next().removeClass('activated').parents('.index--etc--rank--box').toggleClass('index--etc--rank--after6')">1~5위</button>
+        <button class="index--etc--rank--range--button btn--text" onclick="$(this).addClass('activated').prev().removeClass('activated').parents('.index--etc--rank--box').toggleClass('index--etc--rank--after6')">6~10위</button>
+    </div>
+</div>
+<div class="index--etc--calendar--box">
+    <div class="contents--small--title contents--title__index--etc--calendar">학사일정 디데이</div>
+    <div class="index--etc--calendar--list">
+        <div class="index--etc--calendar">
+            <div class="index--etc--calendar--title">
+                <div class="index--etc--calendar--date background--gradient">10/15 (화)</div>
+                <span class="index--etc--calendar--title--text">고3 전국 연합학력평가</span>
+            </div>
+            <div class="index--etc--calendar--d-day">
+                <span class="index--etc--calendar--d-day--D">D-</span>
+                <div class="index--etc--calendar--d-day--number"><span>0</span></div>
+                <div class="index--etc--calendar--d-day--number"><span>2</span></div>
+                <div class="index--etc--calendar--d-day--number"><span>8</span></div>
+                <span class="index--etc--calendar--d-day--text">조금만 더 달리자!! 👏👏</span>
+            </div>
+        </div>
+        <div class="index--etc--calendar">
+            <div class="index--etc--calendar--title">
+                <div class="index--etc--calendar--date background--gradient">11/06 (수)</div>
+                <span class="index--etc--calendar--title--text">김병훈 생일</span>
+            </div>
+            <div class="index--etc--calendar--d-day">
+                <span class="index--etc--calendar--d-day--D">D-</span>
+                <div class="index--etc--calendar--d-day--number"><span>0</span></div>
+                <div class="index--etc--calendar--d-day--number"><span>2</span></div>
+                <div class="index--etc--calendar--d-day--number"><span>8</span></div>
+                <span class="index--etc--calendar--d-day--text">생일 축하해 주자!!</span>
+            </div>
+        </div>
+        <div class="index--etc--calendar">
+            <div class="index--etc--calendar--title">
+                <div class="index--etc--calendar--date background--gradient">11/14 (목)</div>
+                <span class="index--etc--calendar--title--text">대학수학능력시험</span>
+            </div>
+            <div class="index--etc--calendar--d-day">
+                <span class="index--etc--calendar--d-day--D">D-</span>
+                <div class="index--etc--calendar--d-day--number"><span>1</span></div>
+                <div class="index--etc--calendar--d-day--number"><span>5</span></div>
+                <div class="index--etc--calendar--d-day--number"><span>8</span></div>
+                <span class="index--etc--calendar--d-day--text">뭐든지 이룰 수 있는 시간 😎</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="index--etc--banner2">
+    <div class="contents--title">광고</div>
+</div>
+    </div>
+</div>
+<div class="section__index--ask">
+    <div class="container__padding container__index--ask">
+        <div class="contents--small--title contents--title__index--ask">더 나은 메이저맵, 함께 만들어요!</div>
+        <div class="index--ask--list">
+            <div class="index--ask">
+                <div class="index--ask--title">내가 찾는 대학, 학과가 없다면?<a class="index--ask--title--link" href="#">&gt;</a></div>
+                <a class="index--ask--button button--submit">요청하기</a>
+            </div>
+            <div class="index--ask">
+                <div class="index--ask--title">오류를 발견했어요! 이거 좀 고쳐주세요.<a class="index--ask--title--link" href="#">&gt;</a></div>
+                <a class="index--ask--button button--submit">신고하기</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--맨 밑에 회사정보.-->
+<footer class="section__footer">
+    <div class="container container__footer">
+        <div class="footer--box">
+            <div class="footer footer__title">MajorMap<a href="#" class="footer--go-to-top">↑</a></div>
+            <div class="footer">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
+            <div class="footer">사업자등록번호: 315-87-00617</div>
+            <div class="footer">서울특별시 관악구 관악로 1<br class="footer--br"/> 서울대학교 연구공원 SK센터 1층 T1</div>
+            <div class="footer--link--list">
+                <a class="footer--link" href="#">회사 홈페이지</a>
+                <a class="footer--link" href="#">이용약관</a>
+                <a class="footer--link" href="#">개인정보처리방침</a>
+                <a class="footer--link" href="#">제휴문의</a>
+            </div>
+        </div>
+        <div class="footer--box">
+            <div class="footer footer__title">고객센터</div>
+            <div class="footer"><a>카카오톡 플러스친구</a></div>
+            <div class="footer"><a href="mailto:cs@jobshopper.co.kr">cs@jobshopper.co.kr</a></div>
+        </div>
+    </div>
+</footer>
+<!--js 파일 여기서 불러옴.-->
+<!--ie 9이하에서 css를 ie 9처럼 보이게 하는 js-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<!-- JavaScript Libraries -->
+<!--@todo 여기부터 없앨 것.-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js"></script>-->
+<script>
+    document.cookie="SameSite=None";
+    let isChanged=new Set();//입력중인 input 여기에 저장. 다 지웠거나 submit 했으면 삭제.
+$(document).ready(function(){        $(window).bind('beforeunload', function(){
+            if(isChanged.size>0) return '변경된 사항이 있습니다. 페이지에서 나가시겠습니까?';
+        });
+        $('input[type=text], input[type=number], input[type=password], input[type=email], input[type=tel], textarea').each(function(index, item){
+            const $this=$(item);
+            $this.on('keyup',function(e){
+                if($this.val())isChanged.add(index);
+                else isChanged.delete(index);
+            })
+        });
+    });
+</script>
+<!--@todo 여기까지 없앨 것.-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    let rankTop=0;
+    let rankInterval;
+$(document).ready(function(){        $('.owl-carousel').owlCarousel({
+            loop:true,
+            items:1,
+            nav:false
+        });
+        // $(window).focus(function(){
+        //     clearInterval(rankInterval);
+            rankInterval=setInterval(function(){
+                rankTop=(rankTop+36)%360;
+                $('.index--etc--rank--list').animate({'top':-rankTop});
+            },3500);
+        // }).blur(function(){
+        //     clearInterval(rankInterval);
+        // });
+    });
+</script>
+</body>
+</html>

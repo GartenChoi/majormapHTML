@@ -1,0 +1,11 @@
+.section__index--banner{background-color:#3B3E4D;color:#fff;}
+.container__index--banner{padding-top:0;padding-bottom:0;}
+.index--banner{height:400px;}
+.index--banner--box .owl-dots{position:absolute;right:12px;bottom:16px;line-height:18px;}
+.index--banner--box .owl-dots .owl-dot{width:18px;height:18px;margin-left:4px;margin-right:4px;border-radius:50%;background-color:rgba(0, 0, 0, 0.5);border:1px solid #F2F2F2;transition:background-color;}
+.index--banner--box .owl-dots .owl-dot.active{background:#fff}
+@media(max-width:576px) {
+    .index--banner{height:200px;}
+    .index--banner--box .owl-dots{right:4px;bottom:8px;line-height:10px;}
+    .index--banner--box .owl-dots .owl-dot{width:10px;height:10px;margin-left:2px;margin-right:2px;border-radius:50%;background-color:rgba(0, 0, 0, 0.5);border:1px solid #F2F2F2;transition:background-color;}
+}

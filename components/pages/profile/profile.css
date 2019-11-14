@@ -1,0 +1,6 @@
+/* 마이페이지가 생겼구나.. 이거 이름을 profile로 하면 안될거같은데.. 늦었겠지.. */
+.section__profile{margin-top:20px;margin-bottom:100px;}
+.container__profile{max-width:412px;padding-left:16px;padding-right:16px;}
+@media(max-width:576px) {
+    .section__profile{margin-bottom:58px;}
+}

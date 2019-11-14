@@ -1,0 +1,9 @@
+.section__user{margin-top:40px;margin-bottom:400px;}
+.container__user{max-width:412px;padding-left:16px;padding-right:16px;}
+.user--title{margin-bottom:8px;font-size:20px;line-height:29px;font-weight:500;}
+.user--subtitle{margin-bottom:40px;}
+.user--login--link{text-align: center;display:block;margin-top:16px;color:#666;}
+@media(max-width:576px) {
+    .section__user{margin-bottom:113px;}
+    .user--title{font-size:16px;line-height:23px;}
+}
