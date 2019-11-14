@@ -43,6 +43,7 @@
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/common.css">
 <link rel="stylesheet" href="./assets/css/commonSnippet.css">
+<link rel="stylesheet" href="./assets/css/package.custom.css"/>
 <!--모바일 앱 생성-->
 <!--<link rel="manifest" href="./assets/files_for_root/manifest.json"/>-->
 <meta name="author" content="Major Map" />
@@ -96,14 +97,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
     <link rel="stylesheet" href="./components/templates/header/header.css"/>
     <link rel="stylesheet" href="./components/templates/footer/footer.css"/>
-    <link rel="stylesheet" href="./components/pages/index/index--ask/index--ask.css"/>
+    <link rel="stylesheet" href="./components/templates/item--column--image/item--column--image.css"/>
+    <link rel="stylesheet" href="./components/templates/box--tags/box--tags.css"/>
     <link rel="stylesheet" href="./components/pages/index/index--banner/index--banner.css"/>
     <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc.css"/>
-    <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc--banner2/index--etc--banner2.css"/>
+    <link rel="stylesheet" href="./components/templates/box--columntext/box--columntext.css"/>
     <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc--calendar/index--etc--calendar.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc--columntext/index--etc--columntext.css"/>
     <link rel="stylesheet" href="./components/pages/index/index--etc/index--etc--rank/index--etc--rank.css"/>
-    <link rel="stylesheet" href="./components/templates/btn--sort--blue/btn--sort--blue.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--ask/index--ask.css"/>
+    <link rel="stylesheet" href="./components/pages/index/index--banner2/index--banner2.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--sort/btn--sort.css"/>
     <link rel="stylesheet" href="./components/pages/index/index--shortcut/index--shortcut.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--toggle/btn--toggle.css"/>
 </head>
 <body id="app">
 <div class="section__top">
@@ -119,13 +125,17 @@
                 <a class="header--search--button" href="./search.total__total.html"><i class="material-icons">search</i></a>
                 <button class="btn--text header--mobile--search--button" onclick="$('.section__header').addClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">search</i></button>
             </div>
-            <a class="header--mobile--menu--title" href="./login.html">로그인<i class="header--mobile--menu--title--icon material-icons">chevron_right</i></a>
+            <a class="header--mobile--menu--title" href="./login.html">
+                <span>로그인</span>
+                <i class="header--mobile--menu--title--icon material-icons">chevron_right</i>
+            </a>
             <div class="header--mobile--menu--box">
                 <button class="header--mobile--menu--button__close btn--text" onclick="$('.section__header').removeClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">close</i></button>
                 <button class="header--mobile--menu--button__open--menu btn--text" onclick="$('.section__header').addClass('section__header--mobile--menu').removeClass('section__header--mobile--search')"><i class="material-icons">menu</i></button>
                 <div class="header--mobile--menu--list">
                     <div class="header--mobile--menu--top">
-                        <a class="header--mobile--menu header--mobile--menu--guide" href="#">메이저맵 가이드</a>
+                        <a class="header--mobile--menu" href="#">메이저맵 가이드</a>
+                        <hr/>
                         <a class="header--mobile--menu activated" href="./join.html">회원가입</a>
                     </div>
                     <div class="header--mobile--menu--bottom">
@@ -133,9 +143,15 @@
                             <button class="header--mobile--menu activated">전공검색</button>
                         </div>
                         <div class="header--mobile--menu--bottom--right">
-                            <a class="header--mobile--menu" href="./search.univ__init.html">대학<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
-                            <a class="header--mobile--menu" href="./search.major__init.html">학과<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
-                            <a class="header--mobile--menu" href="./search.category__init.html">전공분야<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./search.univ__init.html">
+                                <span>대학</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./search.major__init.html">
+                                <span>학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./search.category__init.html">
+                                <span>전공분야</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -149,9 +165,10 @@
         </div>
     </header>
 </div>
+
 <div class="section__index--banner">
     <div class="container container__index--banner">
-        <div class="index--banner--box owl-carousel">
+        <div class="owl-carousel__index--banner owl-carousel">
             <div class="index--banner">배너</div>
             <div class="index--banner">배너2</div>
             <div class="index--banner">배너3</div>
@@ -160,23 +177,23 @@
 </div>
 <div class="section__index--shortcut">
     <div class="container container__index--shortcut">
-        <div class="contents__padding contents--index--shortcut">
-            <a href="./search.major__init.html" class="index--shortcut--box index--shortcut--box__green">
-                <div class="index--shortcut--icon"></div>
-                <div class="index--shortcut--text">
-                    <div class="index--shortcut--subtitle">4000개 학과 정보를 한 눈에!</div>
-                    <div class="index--shortcut--title">학과 검색 <i class="index--shortcut--title--icon material-icons">keyboard_arrow_right</i></div>
-                </div>
-            </a>
+        <div class="contents--padding contents__index--shortcut">
             <a href="./search.univ__init.html" class="index--shortcut--box index--shortcut--box__violet">
-                <div class="index--shortcut--icon"></div>
+                <img class="index--shortcut--icon" src="./assets/img/index/shortcut__univ.png" alt="대학 검색"/>
                 <div class="index--shortcut--text">
                     <div class="index--shortcut--subtitle">전국 110개 대학 A to Z</div>
                     <div class="index--shortcut--title">대학 검색 <i class="index--shortcut--title--icon material-icons">keyboard_arrow_right</i></div>
                 </div>
             </a>
+            <a href="./search.major__init.html" class="index--shortcut--box index--shortcut--box__green">
+                <img class="index--shortcut--icon" src="./assets/img/index/shortcut__major.png" alt="학과 검색"/>
+                <div class="index--shortcut--text">
+                    <div class="index--shortcut--subtitle">4000개 학과 정보를 한 눈에!</div>
+                    <div class="index--shortcut--title">학과 검색 <i class="index--shortcut--title--icon material-icons">keyboard_arrow_right</i></div>
+                </div>
+            </a>
             <a href="./search.category__init.html" class="index--shortcut--box index--shortcut--box__blue">
-                <div class="index--shortcut--icon"></div>
+                <img class="index--shortcut--icon" src="./assets/img/index/shortcut__category.png" alt="전공분야 검색"/>
                 <div class="index--shortcut--text">
                     <div class="index--shortcut--subtitle">관심분야를 알아볼까?</div>
                     <div class="index--shortcut--title">전공분야 검색 <i class="index--shortcut--title--icon material-icons">keyboard_arrow_right</i></div>
@@ -188,30 +205,85 @@
 <div class="section__index--etc">
     <div class="container container__index--etc">
 <div class="index--etc--rank--box">
-    <div class="contents--small--title contents--title__index--etc--rank">실시간 랭킹</div>
+    <div class="contents--medium--title contents--title__index--etc--rank">실시간 랭킹</div>
+<!--다른 btn--toggle__arrow와 onclick 함수가 다름-->
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().removeClass('activated'):$(this).toggleClass('activated').parent().toggleClass('activated')">
+    <i class="material-icons"></i>
+</button>
     <div class="index--etc--rank--type--button--list">
         <button class="index--etc--rank--type--button btn--text activated">대학</button>
         <button class="index--etc--rank--type--button btn--text">학과</button>
     </div>
     <div class="index--etc--rank--list">
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">1</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">2</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">3</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">4</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">5</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">6</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">7</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">8</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">9</span><span>한양대학교</span></a>
-        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--num">10</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">1</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">2</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">3</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">4</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">5</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">6</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">7</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">8</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">9</span><span>한양대학교</span></a>
+        <a class="index--etc--rank" href="./detail.univ.html"><span class="index--etc--rank--index">10</span><span>한양대학교</span></a>
     </div>
     <div class="index--etc--rank--range--button--list">
-        <button class="index--etc--rank--range--button btn--text activated" onclick="$(this).addClass('activated').next().removeClass('activated').parents('.index--etc--rank--box').toggleClass('index--etc--rank--after6')">1~5위</button>
-        <button class="index--etc--rank--range--button btn--text" onclick="$(this).addClass('activated').prev().removeClass('activated').parents('.index--etc--rank--box').toggleClass('index--etc--rank--after6')">6~10위</button>
+        <button class="index--etc--rank--range--button btn--text activated" onclick="$(this).toggleClass('activated').next().removeClass('activated').parents('.index--etc--rank--box').toggleClass('index--etc--rank--after6')">1~5위</button>
+        <button class="index--etc--rank--range--button btn--text" onclick="$(this).toggleClass('activated').prev().removeClass('activated').parents('.index--etc--rank--box').toggleClass('index--etc--rank--after6')">6~10위</button>
     </div>
 </div>
+<div class="index--etc--columntext--box">
+    <div class="contents--medium--title">
+        <span>칼럼</span>
+        <a class="contents--title--link" href="./column.list.html">
+            <i class="material-icons">add</i>
+            <span>더보기</span>
+        </a>
+    </div>
+<div class="box--columntext">
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+    <hr/>
+    <div class="columntext--list">
+        <!--@todo maximum 5 items-->
+        <a class="columntext ellipsis1" href="./column.view.html">심리학과 흔히 하는 오해 Top 3</a>
+        <a class="columntext ellipsis1" href="./column.view.html">2020 수시박람회 직접 다녀왔습니다</a>
+        <a class="columntext ellipsis1" href="./column.view.html">주저리주저리 말이 많으면 말줄임표가 나오도록 만들었습니다</a>
+        <a class="columntext ellipsis1" href="./column.view.html">주저리주저리 말이 많으면 말줄임표가 나오도록 만들었습니다</a>
+        <a class="columntext ellipsis1" href="./column.view.html">주저리주저리 말이 많으면 말줄임표가 나오도록 만들었습니다</a>
+    </div>
+</div>
+</div>
 <div class="index--etc--calendar--box">
-    <div class="contents--small--title contents--title__index--etc--calendar">학사일정 디데이</div>
+    <div class="contents--medium--title">학사일정 디데이</div>
     <div class="index--etc--calendar--list">
         <div class="index--etc--calendar">
             <div class="index--etc--calendar--title">
@@ -254,14 +326,16 @@
         </div>
     </div>
 </div>
-<div class="index--etc--banner2">
-    <div class="contents--title">광고</div>
+    </div>
 </div>
+<div class="section__index--banner2">
+    <div class="container container__index--banner2">
+        <div class="contents--medium--title">광고</div>
     </div>
 </div>
 <div class="section__index--ask">
-    <div class="container__padding container__index--ask">
-        <div class="contents--small--title contents--title__index--ask">더 나은 메이저맵, 함께 만들어요!</div>
+    <div class="container--padding container__index--ask">
+        <div class="contents--medium--title contents--title__index--ask">더 나은 메이저맵, 함께 만들어요!</div>
         <div class="index--ask--list">
             <div class="index--ask">
                 <div class="index--ask--title">내가 찾는 대학, 학과가 없다면?<a class="index--ask--title--link" href="#">&gt;</a></div>
@@ -274,12 +348,16 @@
         </div>
     </div>
 </div>
+
 <!--맨 밑에 회사정보.-->
 <footer class="section__footer">
-    <div class="container container__footer">
+    <div class="container--padding container__footer">
         <div class="footer--box">
-            <div class="footer footer__title">MajorMap<a href="#" class="footer--go-to-top">↑</a></div>
-            <div class="footer">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
+            <div class="footer">
+                <b style="letter-spacing: 0.05em;">MajorMap</b>
+                <a href="#" class="footer--go-to-top"><i class="material-icons">arrow_upward</i></a>
+            </div>
+            <div class="footer" style="font-weight:500">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
             <div class="footer">사업자등록번호: 315-87-00617</div>
             <div class="footer">서울특별시 관악구 관악로 1<br class="footer--br"/> 서울대학교 연구공원 SK센터 1층 T1</div>
             <div class="footer--link--list">
@@ -290,7 +368,7 @@
             </div>
         </div>
         <div class="footer--box">
-            <div class="footer footer__title">고객센터</div>
+            <div class="footer"><b>고객센터</b></div>
             <div class="footer"><a>카카오톡 플러스친구</a></div>
             <div class="footer"><a href="mailto:cs@jobshopper.co.kr">cs@jobshopper.co.kr</a></div>
         </div>
@@ -326,7 +404,7 @@ $(document).ready(function(){        $(window).bind('beforeunload', function(){
 <script>
     let rankTop=0;
     let rankInterval;
-$(document).ready(function(){        $('.owl-carousel').owlCarousel({
+$(document).ready(function(){        $('.owl-carousel__index--banner').owlCarousel({
             loop:true,
             items:1,
             nav:false
@@ -335,7 +413,7 @@ $(document).ready(function(){        $('.owl-carousel').owlCarousel({
         //     clearInterval(rankInterval);
             rankInterval=setInterval(function(){
                 rankTop=(rankTop+36)%360;
-                $('.index--etc--rank--list').animate({'top':-rankTop});
+                $('.index--etc--rank--list').css({'top':-rankTop});
             },3500);
         // }).blur(function(){
         //     clearInterval(rankInterval);

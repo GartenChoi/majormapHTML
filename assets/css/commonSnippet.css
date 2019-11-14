@@ -8,3 +8,22 @@
 .ellipsis5{text-overflow: ellipsis;overflow: hidden;-webkit-line-clamp: 5;-webkit-box-orient: vertical;display: -webkit-box;}
 
 .background--gradient {background:linear-gradient(to right, #3F91C9 0%, #5C65A4 100%);}
+
+.font-size__pc36{font-size:36px;}
+.font-size__pc32{font-size:32px;}
+.font-size__pc24{font-size:24px;}
+.font-size__pc20{font-size:20px;}
+.font-size__pc18{font-size:18px;}
+.font-size__pc16{font-size:16px;}
+.font-size__pc14{font-size:14px;}
+.font-size__pc12{font-size:12px;}
+
+@media(max-width:576px) {
+    .font-size__mobile36{font-size:36px;}
+    .font-size__mobile24{font-size:24px;}
+    .font-size__mobile20{font-size:20px;}
+    .font-size__mobile18{font-size:18px;}
+    .font-size__mobile16{font-size:16px;}
+    .font-size__mobile14{font-size:14px;}
+    .font-size__mobile12{font-size:12px;}
+}

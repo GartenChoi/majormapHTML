@@ -1,0 +1,7 @@
+.item--book{width:200px;}
+.item--book--img{width:100%;height:300px;overflow:hidden;position:relative;}
+.item--book--img>img{width:100%;position:absolute;left:0;bottom:0;}
+.item--book.activated .item--book--contents--title{color: #0F75BC;}
+.item--book--contents{padding:8px;}
+.item--book--contents--title{font-weight:bold;height:46px;}
+.item--book--contents--info{color:#666;font-size: 12px;line-height: 17px;display:flex;margin-top:8px;margin-bottom:8px;}

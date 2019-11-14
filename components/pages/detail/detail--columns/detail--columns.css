@@ -1,0 +1,8 @@
+.owl-carousel__detail--column{margin-bottom:24px;}
+.detail--column--link--box{font-size: 14px;line-height: 20px;text-align:right;margin-top:16px;}
+.detail--column--link .material-icons{font-size:8px;}
+.detail--columns--box .box--columntext{display:none}
+@media(max-width:576px) {
+    .owl-carousel__detail--column{display:none!important;}
+    .detail--columns--box .box--columntext{display:block;}
+}

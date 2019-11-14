@@ -1,0 +1,9 @@
+.mypage--majors-recommended--box hr{margin-top:60px;margin-bottom:60px;}
+.mypage--majors-recommended--box__loading{text-align:center;}
+.contents--small--title__mypage--majors-recommended{margin-bottom:24px;}
+.mypage--majors-recommended--list{display:flex;flex-wrap:wrap;justify-content: space-between;}
+
+@media(max-width:1400px) {
+    .mypage--majors-recommended--list{display:block;}
+    .mypage--majors-recommended--box hr{border:0;margin-top:0;}
+}

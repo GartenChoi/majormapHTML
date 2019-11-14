@@ -1,0 +1,25 @@
+.section__admin-dashboard{background-color:#f2f2f2;padding-top:40px;padding-bottom:200px;}
+.admin--dashboard{margin-bottom:40px;padding:24px 24px 40px;min-height:414px;background-color:#fff;border-radius:6px;flex:0 1 680px;}
+
+.admin-dashboard--row{display:flex;max-width:none;margin-right:-40px;}
+.admin-dashboard--row>.admin--dashboard{margin-right:40px;}
+.admin-dashboard--row>.admin--dashboard--graph{margin-right:40px;}
+.admin-dashboard--row>.admin--dashboard--table{margin-right:40px;}
+
+.admin--dashboard--graph{flex:0 1 1000px;height:328px;margin-top:40px}
+.admin--dashboard--table{border:1px solid #a1a1a1;padding:16px 16px 8px;flex:0 1 300px;margin-left:auto;margin-top:40px}
+.admin--dashboard--table hr{margin-top:8px;margin-bottom:8px;}
+.admin--dashboard--info{font-size: 12px;line-height:20px;}
+.admin--dashboard--date{float:right;font-size:14px;line-height:20px;margin-bottom:8px;}
+.admin--dashboard--date+hr{border-bottom:1px solid #555;margin-bottom:16px;}
+.admin--dashboard--subtitle{font-size:16px;margin-bottom:16px;}
+.admin--dashboard--subtitle+.admin--dashboard--num{margin-top:-8px;}
+.admin--dashboard--subtitle .btn--toggle__arrow{float:right;}
+.admin--dashboard--banner--list{margin-bottom:16px;}
+.admin--dashboard--num{font-size:18px;line-height:26px;color:#0F75BC;text-align:right;font-weight: 500;float:right;margin-bottom: 8px;}
+.admin--dashboard--banner{font-size:14px;line-height:20px;margin-bottom:8px;}
+.admin--dashboard--banner .admin--dashboard--num{font-size:14px;line-height:20px;}
+@media(max-width:1400px) {
+    .admin-dashboard--row{display:block;}
+    .admin--dashboard{display:block;}
+}

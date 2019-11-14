@@ -3,7 +3,7 @@
 .search--result--info--title{margin-bottom:16px;font-size:24px;line-height:35px;}
 .search--result--info--keyword{color:#0F75BC;font-weight:bold;}
 .search--result--info--relative{color:#666;display:flex;font-size: 14px;line-height: 20px;}
-.search--result--info--relative--title{margin-right:16px;padding:4px 8px;border-radius:4px;background-color:#e5e7ea;height:28px;}
+.search--result--info--relative--title{margin-right:16px;padding:4px 8px;border-radius:4px;background-color:#e5e7ea;height:28px;font-weight:500;}
 .search--result--info--relative--keyword--list{margin-right:-16px;}
 .search--result--info--relative--keyword{margin-right:16px;color:#666;line-height:28px;}
 

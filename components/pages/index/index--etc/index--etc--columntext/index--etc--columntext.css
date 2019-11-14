@@ -1,0 +1,5 @@
+.index--etc--columntext--box{padding:16px;flex:680px;order:1;}
+@media(max-width:1400px) {
+    .index--etc--columntext--box{margin-bottom:16px;}
+    .index--etc--columntext--box .item--column--image{width:100%;}
+}

@@ -1,0 +1,20 @@
+.admin--write--label{display:block;margin-bottom:20px;}
+.admin--write--input{width:100%;padding:8px;border: 1px solid #A1A1A1;}
+.admin--write--label--title{width:60px;flex:0 0 60px;margin-right:20px;font-weight:500;font-size:16px;line-height:23px;}
+.admin--write--label--contents{flex:auto;}
+.admin--write--label__tag{display:flex;align-items:center;}
+.admin--write--label__file{display:flex;align-items:center;}
+.admin--write--input__file{display:none;}
+.note-editor.note-frame{border: 1px solid #A1A1A1;}
+.admin--write--button__file{border:1px solid #a1a1a1;width:60px;height:32px;display:flex;color:#0F75BC;margin-top:8px;}
+.admin--write--button__file .material-icons-outlined{font-size:20px;margin:auto;}
+.admin--write--file--list{height:100px;display:block;border: 1px solid #A1A1A1;padding:4px 4px 0 8px;min-height:40px;font-size:14px;line-height:20px;}
+.admin--write--file{display:flex;margin-bottom:8px;}
+.admin--write--file--button{margin-left:auto;}
+.admin--write--file--button .material-icons{font-size:16px;color:#EB5757;}
+.admin--write--form .button--submit{width:120px;}
+@media(max-width:576px){
+    .admin--write--label__tag{display:block;}
+    .admin--write--label__file{display:block;}
+    .admin--write--label--title{margin-bottom:16px;}
+}

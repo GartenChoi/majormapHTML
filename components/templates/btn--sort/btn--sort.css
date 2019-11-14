@@ -1,0 +1,17 @@
+.btn--sort--list{display:inline-flex;align-items:center;}
+.btn--sort--list hr{width:0;border-left:1px solid #555;height:12px;margin:auto 0 auto 16px;}
+
+.btn--sort__blue{color:#f2f2f2;margin-left:2px;font-weight:bold;font-size:10px;line-height:14px;}
+.btn--sort__blue.activated{color:#0F75BC;}
+
+.btn--sort__white{color:rgba(255, 255, 255, 0.1);margin-left:2px;font-weight:bold;font-size:10px;line-height:14px;}
+.btn--sort__white.activated{color:#fff;}
+
+.btn--sort__text{color:#959595;margin-left:16px;}
+.btn--sort__text.activated{color:#333;font-weight:500;}
+
+@media(max-width:576px) {
+    .btn--sort--list hr{margin-left:8px;}
+    .btn--sort__text{margin-left:8px;}
+    .btn--sort__text.activated{font-weight:normal;}
+}

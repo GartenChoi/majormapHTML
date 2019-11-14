@@ -1,0 +1,21 @@
+.box--ranks{width:450px;margin-left:auto;margin-right:auto;position:relative;margin-bottom:18px;}
+.rank--list{padding-bottom:8px;}
+.item--rank{display:flex;margin-bottom:4px;border-radius: 4px;padding-left:16px;padding-right:16px;line-height:40px;}
+.item--rank__title{font-size:16px;color:#fff;font-weight:bold;display:flex;align-items:center;}
+.item--rank__title>span{margin-right:auto;}
+.item--rank__top3{font-weight:bold;background-color:#f2f2f2;border:1px solid #e1e1e1;color:#333;}
+.rank--index{width:24px;margin-right:24px;text-align:center;}
+.item--rank__top3>.rank--index{color:#0F75BC;}
+.item--rank__normal{border:1px solid #e1e1e1;color:#333;}
+.item--rank__normal>.rank--index{color:#959595;}
+.rank--num{margin-left:auto;}
+.rank--description{color:#0F75BC;font-size:14px;line-height:20px;}
+.box--ranks .btn--toggle__arrow{margin-right:16px;color:#fff;display:none}
+.box--ranks .btn--toggle__arrow .material-icons{font-size:20px;}
+
+@media(min-width:577px) {
+    .rank--list{display:block!important;}
+}
+@media(max-width:576px) {
+    .box--ranks .btn--toggle__arrow{display:block}
+}

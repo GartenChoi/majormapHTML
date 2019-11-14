@@ -1,0 +1,14 @@
+.item--reply{position:relative;border-top:1px solid #E1E1E1;border-bottom:1px solid #E1E1E1;padding-top:16px;padding-bottom:16px;min-height:142px;margin-bottom:-1px;}
+.item--reply--header{margin-bottom:16px;display:flex;align-items:center;}
+.item--reply--header .btn--text{color:#959595;font-size:12px;line-height:17px;margin-left:4px;}
+.item--reply--header--mine{font-weight:bold;color:#0F75BC;}
+.item--reply--header--timestamp{font-size:12px;color:#666;margin-left:8px;margin-right:auto;}
+.item--reply--button--list{margin-top:24px;display:flex;margin-right:-4px;}
+.item--reply--button{display:flex;margin-right:4px;padding:0 8px;height:30px;border:1px solid #e1e1e1;background-color:#fff;font-size: 13px;line-height: 19px;}
+.item--reply--button__reply.activated{border: 1px solid #555555;}
+.item--reply--button__like{margin-left:auto;}
+.item--reply--button__like.activated{border: 1px solid #0F75BC;color:#0F75BC;}
+.item--reply--button__dislike.activated{border: 1px solid #EB5757;color:#EB5757;}
+.item--reply--button__like .item--reply--button--title{font-weight:bold;color:#0F75BC;}
+.item--reply--button__dislike .item--reply--button--title{font-weight:bold;color:#EB5757;}
+.item--reply--button--num{margin-left:16px;}

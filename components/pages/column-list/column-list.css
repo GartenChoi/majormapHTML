@@ -1,0 +1,6 @@
+.section__column-list{margin-top:40px;margin-bottom:100px;}
+.column-list--header{display:flex;margin-bottom:40px;}
+.column-list--header .btn--sort--list{margin-left:auto;}
+@media(max-width:576px) {
+    .column-list--header--admin{font-weight:500;}
+}

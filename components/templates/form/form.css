@@ -1,22 +1,28 @@
 /* 텍스트, 숫자 등 입력하는 input의 label */
 /*모바일에서도 16픽셀 맞음.*/
-.form{width:100%;max-width:380px;}
+.form{width:380px;}
 .label--title{font-weight: 500;font-size: 16px;line-height: 23px;margin-top:20px;margin-bottom:16px;}
-.label--list {display:flex;margin:0 -10px;}
-.label--list>label {margin:0 10px;}
+.label--list {display:flex;margin:0 -12px;max-width:none;flex-wrap:wrap;}
+.label--list>label {margin:0 12px 8px;flex:0 1 auto;}
+.label--list--center{display:flex;margin:0;justify-content:space-between}
+.label--list--center>label {margin:0 auto;flex:1 1 100px;}
+
 .label--text {width:100%;display:block;margin:8px auto;}
 .label--text > input {border: 1px solid #A1A1A1;padding:5px 8px;height:40px;width:100%;}
 .label--text__button {display:flex;}
 .label--text__button>button,.label--text__button>a {margin-left:8px;border:1px solid #a1a1a1;background-color:#fff;display:block;width:90px;height:40px;flex:none;line-height:38px;text-align:center;}
-.label--text > input[disabled] {border:0;background-color:transparent;}
+.label--text > input[disabled] {border:0;background-color:transparent;color:#333;}
 .label--text > output {display:none;color:#EB5757;width:100%;}
 .label--text.error > output {display:block;}
+
+.label--text > input[type=file] {display:none}
+.label--text > input[type=file]+span {border: 1px solid #A1A1A1;padding:8px;height:40px;width:100%;}
 
 /*회원가입/정보수정 페이지에만 쓰임*/
 .label--list.label--list__center>label{margin:auto}
 .label--check a{text-decoration:underline}
 /*회원가입페이지->이용약관동의에만 쓰임*/
-.before--submit{margin-top:28px;margin-bottom: -16px;}
+.before--submit{margin-top:24px;margin-bottom: -16px;}
 /*정보수정페이지->회원탈퇴에만 쓰임*/
 .not--submit{color:#666;text-align: center;display:block;margin-top:16px;}
 /*로그인페이지->자동로그인에만 쓰임.*/

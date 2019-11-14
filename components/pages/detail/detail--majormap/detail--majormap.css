@@ -1,9 +1,4 @@
-.contents--detail--majormap{border: 1px solid #A1A1A1;}
-#detail--majormap--amcharts{height:750px;}
-#detail--majormap--amcharts g[role='widget']+g{display:none!important;}
-.majormap--mobile{display:none;}
-@media(max-width:576px) {
-    #detail--majormap--amcharts{display:none;}
-    #detail--majormap--amcharts g[role='widget']+g{display:none!important;}
-    .majormap--mobile{display:block;}
-}
+.contents__detail--majormap{border: 1px solid #A1A1A1;position:relative;}
+.detail--majormap--help{position:absolute;top:0;left:0;padding:8px 16px;background-color:rgba(0, 0, 0, 0.5);color:#fff;font-weight: 500;font-size: 14px;line-height: 20px;z-index:1;border:0;}
+.detail--majormap--help .material-icons-outlined{font-size:16px;}
+#detail--majormap--echarts{height:750px;}

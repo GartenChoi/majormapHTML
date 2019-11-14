@@ -1,6 +1,6 @@
 .login--sns--box{flex: 0 1 380px;}
 .contents--title__login--sns{margin-bottom:40px;}
-.login--sns{position:relative;display:block;margin-bottom:8px;width:100%;max-width:380px;text-align:center;font-weight:bold;}
+.login--sns{position:relative;display:block;margin-bottom:8px;width:380px;text-align:center;font-weight:bold;}
 .login--sns__google{background-color:#EA4235;color:#fff;}
 .login--sns__facebook{background-color:#4267B2;color:#fff;}
 .login--sns__naver{background-color:#1EC800;color:#fff;}

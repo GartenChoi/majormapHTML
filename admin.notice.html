@@ -42,6 +42,7 @@
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/common.css">
 <link rel="stylesheet" href="./assets/css/commonSnippet.css">
+<link rel="stylesheet" href="./assets/css/package.custom.css"/>
 <!--모바일 앱 생성-->
 <!--<link rel="manifest" href="./assets/files_for_root/manifest.json"/>-->
 <meta name="author" content="Major Map" />
@@ -94,20 +95,22 @@
 <!--// @todo 여기까지 페이지마다 달라야 함.-->
     <link rel="stylesheet" href="./components/templates/header/header.css"/>
     <link rel="stylesheet" href="./components/templates/page--title/page--title.css"/>
+    <link rel="stylesheet" href="./components/templates/page--tab/page--tab.css"/>
     <link rel="stylesheet" href="./components/templates/footer/footer.css"/>
     <link rel="stylesheet" href="./components/templates/btn--pagination/btn--pagination.css"/>
     <link rel="stylesheet" href="./components/templates/form/form.css"/>
     <link rel="stylesheet" href="./components/pages/admin/admin.css"/>
     <link rel="stylesheet" href="./components/pages/admin/admin--form/admin--form.css"/>
-    <link rel="stylesheet" href="./components/pages/admin/admin--items/admin--items.css"/>
+    <link rel="stylesheet" href="./components/templates/box--administrates/box--administrates.css"/>
+    <link rel="stylesheet" href="./components/templates/item--administrate/item--administrate.css"/>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" href="./assets/css/jqueryui.custom.css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
 </head>
 <body id="app">
 <div class="section__top">
     <div class="section__notice">
-        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span>메이저맵 전공추천</span><span>OPEN!</span></div>
-            <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
+        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span style="color:#83D5F7;margin-left:10px;margin-right:10px;">메이저맵 전공추천</span><span>OPEN!</span></div>
+        <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
     </div>
     <header class="section__header">
         <div class="container container__header">
@@ -117,24 +120,66 @@
                 <a class="header--search--button" href="./search.total__total.html"><i class="material-icons">search</i></a>
                 <button class="btn--text header--mobile--search--button" onclick="$('.section__header').addClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">search</i></button>
             </div>
-            <a class="header--mobile--menu--title" href="./user.profile__email.html">닉네임</a>
+            <a class="header--mobile--menu--title" href="./user.profile.html">닉네임</a>
             <a class="header--mobile--menu--logout" href="./">로그아웃</a>
             <div class="header--mobile--menu--box">
                 <button class="header--mobile--menu--button__close btn--text" onclick="$('.section__header').removeClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">close</i></button>
                 <button class="header--mobile--menu--button__open--menu btn--text" onclick="$('.section__header').addClass('section__header--mobile--menu').removeClass('section__header--mobile--search')"><i class="material-icons">menu</i></button>
                 <div class="header--mobile--menu--list">
                     <div class="header--mobile--menu--top">
-                        <a class="header--mobile--menu header--mobile--menu--guide" href="#">메이저맵 가이드</a>
-                        <a class="header--mobile--menu activated" href="./user.profile__email.html">개인정보 수정</a>
+                        <a class="header--mobile--menu" href="#">메이저맵 가이드</a>
+                        <hr/>
+                        <a class="header--mobile--menu activated" href="./user.profile.html">개인정보 수정</a>
                     </div>
                     <div class="header--mobile--menu--bottom">
                         <div class="header--mobile--menu--bottom--left">
-                            <button class="header--mobile--menu">전공검색</button>
+                            <button class="header--mobile--menu activated" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').show();$('.header--mobile--menu__2').hide();$('.header--mobile--menu__3').hide();">마이페이지</button>
+                            <button class="header--mobile--menu" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').hide();$('.header--mobile--menu__2').show();$('.header--mobile--menu__3').hide();">전공검색</button>
+                            <button class="header--mobile--menu" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').hide();$('.header--mobile--menu__2').hide();$('.header--mobile--menu__3').show();">관리</button>
                         </div>
-                        <div class="header--mobile--menu--bottom--right">
-                            <a class="header--mobile--menu" href="./search.univ__init.html">대학<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
-                            <a class="header--mobile--menu" href="./search.major__init.html">학과<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
-                            <a class="header--mobile--menu" href="./search.category__init.html">전공분야<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                        <div class="header--mobile--menu--bottom--right header--mobile--menu--bottom--right__1">
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.majors-interested__init.html">
+                                <span>관심학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.majors-recommended__loading.html">
+                                <span>학과추천</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.replies.html">
+                                <span>내 댓글</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.columns-saved.html">
+                                <span>관심칼럼</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.univ__init.html">
+                                <span>대학</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.major__init.html">
+                                <span>학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.category__init.html">
+                                <span>전공분야</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__3" href="./admin.dashboard.html">
+                                <span>대시보드</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__3" href="./admin.calendar.html">
+                                <span>학사일정</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__3" href="./admin.banner.html">
+                                <span>배너</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__3" href="./admin.notice.html">
+                                <span>상단배너</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__3" href="./admin.banner2.html">
+                                <span>하단배너</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__3" href="./admin.column.html">
+                                <span>칼럼</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__3" href="./admin.replies.html">
+                                <span>댓글</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -143,8 +188,11 @@
                 <div class="header--pc--menu--left">
                     <button class="header--pc--menu--button btn--text" onclick="$(this).next().slideToggle()">닉네임</button>
                     <div class="header--pc--menu--list">
-                        <a class="header--pc--menu" href="./user.profile__email.html">닉네임</a>
-                        <a class="header--pc--menu" href="./user.profile__sns.html">개인정보수정</a>
+                        <a class="header--pc--menu" href="./mypage.majors-interested__init.html">닉네임</a>
+                        <a class="header--pc--menu" href="./user.profile.html">개인정보수정</a>
+                        <a class="header--pc--menu" href="./admin.calendar.html">학사일정관리</a>
+                        <a class="header--pc--menu" href="./admin.banner.html">배너관리</a>
+                        <a class="header--pc--menu" href="./admin.notice.html">상단배너관리</a>
                         <button class="header--pc--menu" >로그아웃</button>
                     </div>
                 </div>
@@ -153,12 +201,24 @@
         </div>
     </header>
 </div>
-
+<div class="section__page--title"><div class="container--padding container__page--title">메이저맵 관리</div></div>
+<div class="section__page--tab">
+    <div class="container">
+        <a class="page--tab" href="./admin.dashboard.html">대시보드</a>
+        <a class="page--tab" href="./admin.calendar.html">학사일정</a>
+        <a class="page--tab" href="./admin.banner.html">배너</a>
+        <a class="page--tab" href="./admin.notice.html">상단 배너</a>
+        <a class="page--tab" href="./admin.banner2.html">하단 배너</a>
+        <a class="page--tab" href="./admin.column.html">칼럼</a>
+        <a class="page--tab" href="./admin.replies.html">댓글</a>
+    </div>
+</div>
 <div class="section__admin">
-    <div class="container__padding container__admin">
+    <div class="container--padding container__admin container__admin__flex">
 <div class="admin--form--box">
-    <div class="contents--title">상단 배너 관리</div>
-    <div class="contents--admin--form">
+    <div class="contents--title">
+        <span>상단 배너 관리</span>
+    </div>
 <form class="form">
     <div class="label--title">제목</div>
     <label class="label--text">
@@ -174,89 +234,105 @@
         </label>
     </div>
     <div class="label--title">내용</div>
-    <label class="label--text">
-        <input type="text" placeholder="입력"/>
-    </label>
+    <div class="js--summernote"></div>
     <div class="label--title">링크</div>
     <label class="label--text">
         <input type="text" placeholder="url"/>
     </label>
-    <button onclick="alert('등록됨');" class="button--submit">일정 등록</button>
+    <button onclick="alert('등록됨');" class="button--submit">배너 등록</button>
 </form>
-    </div>
 </div>
         <hr/>
-<div class="admin--items--box">
-    <div class="contents--title">일정 목록</div>
-    <div class="contents__padding contents--admin--items">
+<div class="item--administrate--box">
+    <div class="contents--title">
+<span>상단 배너 목록</span>
+</div>
+    <div class="contents__item--admin">
         <!--@todo 4 items per page-->
-        <div class="admin--items">
-            <div class="admin--items--header">
-                <span class="admin--items--header--title">대학수학능력시험</span>
-                <div class="admin--items--header--button--list">
-                    <button class="admin--items--header--button__modify btn--text">수정</button>
-                    <button class="admin--items--header--button__delete btn--text">삭제</button>
-                </div>
-                <div class="admin--items--header--subtitle--list">
-                    <span class="admin--items--header--subtitle">2019.11.14 ~ 2019.12.31</span>
-                </div>
-            </div>
-            <div class="admin--items--text--list">
-                <div class="admin--items--text">그동안 노력의 결실을 이룰 시간이 다가오고 있어!</div>
-            </div>
+<div class="item--administrate">
+    <div class="item--administrate--header">
+        <span class="item--administrate--header--title">대학수학능력시험</span>
+        <div class="item--administrate--header--button--list">
+            <button class="item--administrate--header--button__modify btn--text">수정</button>
+            <button class="item--administrate--header--button__delete btn--text">삭제</button>
         </div>
-        <div class="admin--items">
-            <div class="admin--items--header">
-                <span class="admin--items--header--title">대학수학능력시험</span>
-                <div class="admin--items--header--button--list">
-                    <button class="admin--items--header--button__modify btn--text">수정</button>
-                    <button class="admin--items--header--button__delete btn--text">삭제</button>
-                </div>
-                <div class="admin--items--header--subtitle--list">
-                    <span class="admin--items--header--subtitle">2019.11.14 ~ 2019.12.31</span>
-                </div>
-            </div>
-            <div class="admin--items--text--list">
-                <div class="admin--items--text">그동안 노력의 결실을 이룰 시간이 다가오고 있어!</div>
-            </div>
+        <div class="item--administrate--header--subtitle--list">
+            <span class="item--administrate--header--subtitle">2019.11.14 ~ 2019.12.31</span>
         </div>
-        <!--기간 지났으면 passed 클래스 추가 -> 취소선-->
-        <div class="admin--items passed">
-            <div class="admin--items--header">
-                <span class="admin--items--header--title">대학수학능력시험</span>
-                <div class="admin--items--header--button--list">
-                    <button class="admin--items--header--button__modify btn--text">수정</button>
-                    <button class="admin--items--header--button__delete btn--text">삭제</button>
-                </div>
-                <div class="admin--items--header--subtitle--list">
-                    <span class="admin--items--header--subtitle">2019.11.14 ~ 2019.12.31</span>
-                </div>
-            </div>
-            <div class="admin--items--text--list">
-                <div class="admin--items--text">그동안 노력의 결실을 이룰 시간이 다가오고 있어!</div>
-            </div>
+    </div>
+    <div class="item--administrate--text--list">
+        <div class="item--administrate--text">https://bit.ly/2JR1mdx</div>
+    </div>
+</div>
+<div class="item--administrate">
+    <div class="item--administrate--header">
+        <span class="item--administrate--header--title">대학수학능력시험</span>
+        <div class="item--administrate--header--button--list">
+            <button class="item--administrate--header--button__modify btn--text">수정</button>
+            <button class="item--administrate--header--button__delete btn--text">삭제</button>
         </div>
+        <div class="item--administrate--header--subtitle--list">
+            <span class="item--administrate--header--subtitle">2019.11.14 ~ 2019.12.31</span>
+        </div>
+    </div>
+    <div class="item--administrate--text--list">
+        <div class="item--administrate--text">https://bit.ly/2JR1mdx</div>
+    </div>
+</div>
+<div class="item--administrate">
+    <div class="item--administrate--header">
+        <span class="item--administrate--header--title">대학수학능력시험</span>
+        <div class="item--administrate--header--button--list">
+            <button class="item--administrate--header--button__modify btn--text">수정</button>
+            <button class="item--administrate--header--button__delete btn--text">삭제</button>
+        </div>
+        <div class="item--administrate--header--subtitle--list">
+            <span class="item--administrate--header--subtitle">2019.11.14 ~ 2019.12.31</span>
+        </div>
+    </div>
+    <div class="item--administrate--text--list">
+        <div class="item--administrate--text">https://bit.ly/2JR1mdx</div>
+    </div>
+</div>
+<!--기간 지났으면 passed 클래스 추가 -> 취소선-->
+<div class="item--administrate passed">
+    <div class="item--administrate--header">
+        <span class="item--administrate--header--title">대학수학능력시험</span>
+        <div class="item--administrate--header--button--list">
+            <button class="item--administrate--header--button__modify btn--text">수정</button>
+            <button class="item--administrate--header--button__delete btn--text">삭제</button>
+        </div>
+        <div class="item--administrate--header--subtitle--list">
+            <span class="item--administrate--header--subtitle">2019.11.14 ~ 2019.12.31</span>
+        </div>
+    </div>
+    <div class="item--administrate--text--list">
+        <div class="item--administrate--text">https://bit.ly/2JR1mdx</div>
+    </div>
+</div>
     </div>
 <div class="btn--pagination">
-    <button class="btn--pagination--button"><i class="material-icons">first_page</i></button>
-    <button class="btn--pagination--button"><i class="material-icons">chevron_left</i></button>
-    <button class="btn--pagination--button">1</button>
-    <button class="btn--pagination--button activated">2</button>
-    <button class="btn--pagination--button">3</button>
-    <button class="btn--pagination--button">4</button>
-    <button class="btn--pagination--button"><i class="material-icons">chevron_right</i></button>
-    <button class="btn--pagination--button"><i class="material-icons">last_page</i></button>
+    <button class="btn--pagination--item"><i class="material-icons">first_page</i></button>
+    <button class="btn--pagination--item"><i class="material-icons">chevron_left</i></button>
+    <button class="btn--pagination--item">1</button>
+    <button class="btn--pagination--item activated">2</button>
+    <button class="btn--pagination--item">3</button>
+    <button class="btn--pagination--item">4</button>
+    <button class="btn--pagination--item"><i class="material-icons">chevron_right</i></button>
+    <button class="btn--pagination--item"><i class="material-icons">last_page</i></button>
 </div>
 </div>
     </div>
 </div>
-
 <!--맨 밑에 회사정보.-->
 <footer class="section__footer">
-    <div class="container container__footer">
+    <div class="container--padding container__footer">
         <div class="footer--box">
-            <div class="footer footer__title">MajorMap<a href="#" class="footer--go-to-top">↑</a></div>
-            <div class="footer">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
+            <div class="footer">
+                <b style="letter-spacing: 0.05em;">MajorMap</b>
+                <a href="#" class="footer--go-to-top"><i class="material-icons">arrow_upward</i></a>
+            </div>
+            <div class="footer" style="font-weight:500">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
             <div class="footer">사업자등록번호: 315-87-00617</div>
             <div class="footer">서울특별시 관악구 관악로 1<br class="footer--br"/> 서울대학교 연구공원 SK센터 1층 T1</div>
             <div class="footer--link--list">
@@ -267,7 +343,7 @@
             </div>
         </div>
         <div class="footer--box">
-            <div class="footer footer__title">고객센터</div>
+            <div class="footer"><b>고객센터</b></div>
             <div class="footer"><a>카카오톡 플러스친구</a></div>
             <div class="footer"><a href="mailto:cs@jobshopper.co.kr">cs@jobshopper.co.kr</a></div>
         </div>
@@ -299,11 +375,13 @@ $(document).ready(function(){        $(window).bind('beforeunload', function(){
     });
 </script>
 <!--@todo 여기까지 없앨 것.-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
 $(document).ready(function(){        $('.js--autocomplete').autocomplete({
             source:['전에썼던제목1','전에썼던제목2','전에썼던제목3','대학전공백과 출시 배너']
         });
+        $('.js--summernote').summernote();
     });
 </script>
 </body>

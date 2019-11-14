@@ -1,0 +1,13 @@
+@import url('https://cdn.jsdelivr.net/gh/ChalkPE/NanumSquareRound/nanumsquareround.min.css');
+
+.modal--section__majormap{font-family:'NanumSquareRound', sans-serif;width:600px;height:740px;border-radius: 8px;text-align:left;padding:16px;color:#fff;}
+.modal--section__majormap .modal--close{position:absolute;top:16px;right:16px;color:#fff;z-index:2}
+.owl-carousel__modal--majormap{height:100%;}
+.modal--majormap--item{padding:24px;}
+
+
+.owl-carousel__modal--majormap .owl-nav .owl-prev{width:40px;height:100%;position:absolute;top:0;left:0;}
+.owl-carousel__modal--majormap .owl-nav .owl-next{width:40px;height:100%;position:absolute;top:0;right:0;}
+.owl-carousel__modal--majormap .owl-dots{position:absolute;width:100%;left:0;bottom:8px;text-align:center;}
+.owl-carousel__modal--majormap .owl-dots .owl-dot{width:8px;height:8px;margin-left:4px;margin-right:4px;border-radius:50%;background-color:#F2F2F2;transition:background-color;}
+.owl-carousel__modal--majormap .owl-dots .owl-dot.active{background:#041F2B;}

@@ -42,6 +42,7 @@
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/common.css">
 <link rel="stylesheet" href="./assets/css/commonSnippet.css">
+<link rel="stylesheet" href="./assets/css/package.custom.css"/>
 <!--모바일 앱 생성-->
 <!--<link rel="manifest" href="./assets/files_for_root/manifest.json"/>-->
 <meta name="author" content="Major Map" />
@@ -95,19 +96,19 @@
     <link rel="stylesheet" href="./components/templates/header/header.css"/>
     <link rel="stylesheet" href="./components/templates/footer/footer.css"/>
     <link rel="stylesheet" href="./components/templates/page--title/page--title.css"/>
-    <link rel="stylesheet" href="./components/templates/search--filter/search--filter.css"/>
-    <link rel="stylesheet" href="./assets/css/jqueryui.custom.css"/>
+    <link rel="stylesheet" href="./components/templates/box--filters/box--filters.css"/>
     <link rel="stylesheet" href="./components/pages/search/search--filter/search--filter.css"/>
     <link rel="stylesheet" href="./components/pages/search/search--result--list/search--result--list.css"/>
-    <link rel="stylesheet" href="./components/pages/search/search--result--list/search--result--univ/search--result--univ.css"/>
+    <link rel="stylesheet" href="./components/templates/item--univ--image/item--univ--image.css"/>
     <link rel="stylesheet" href="./components/templates/btn--pagination/btn--pagination.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--toggle/btn--toggle.css"/>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"/>
 </head>
 <body id="app">
 <div class="section__top">
     <div class="section__notice">
-        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span>메이저맵 전공추천</span><span>OPEN!</span></div>
-            <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
+        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span style="color:#83D5F7;margin-left:10px;margin-right:10px;">메이저맵 전공추천</span><span>OPEN!</span></div>
+        <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
     </div>
     <header class="section__header">
         <div class="container container__header">
@@ -117,24 +118,44 @@
                 <a class="header--search--button" href="./search.total__total.html"><i class="material-icons">search</i></a>
                 <button class="btn--text header--mobile--search--button" onclick="$('.section__header').addClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">search</i></button>
             </div>
-            <a class="header--mobile--menu--title" href="./user.profile__email.html">닉네임</a>
+            <a class="header--mobile--menu--title" href="./user.profile.html">닉네임</a>
             <a class="header--mobile--menu--logout" href="./">로그아웃</a>
             <div class="header--mobile--menu--box">
                 <button class="header--mobile--menu--button__close btn--text" onclick="$('.section__header').removeClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">close</i></button>
                 <button class="header--mobile--menu--button__open--menu btn--text" onclick="$('.section__header').addClass('section__header--mobile--menu').removeClass('section__header--mobile--search')"><i class="material-icons">menu</i></button>
                 <div class="header--mobile--menu--list">
                     <div class="header--mobile--menu--top">
-                        <a class="header--mobile--menu header--mobile--menu--guide" href="#">메이저맵 가이드</a>
-                        <a class="header--mobile--menu activated" href="./user.profile__email.html">개인정보 수정</a>
+                        <a class="header--mobile--menu" href="#">메이저맵 가이드</a>
+                        <hr/>
+                        <a class="header--mobile--menu activated" href="./user.profile.html">개인정보 수정</a>
                     </div>
                     <div class="header--mobile--menu--bottom">
                         <div class="header--mobile--menu--bottom--left">
-                            <button class="header--mobile--menu">전공검색</button>
+                            <button class="header--mobile--menu activated" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').show();$('.header--mobile--menu__2').hide();">마이페이지</button>
+                            <button class="header--mobile--menu" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').hide();$('.header--mobile--menu__2').show();">전공검색</button>
                         </div>
-                        <div class="header--mobile--menu--bottom--right">
-                            <a class="header--mobile--menu" href="./search.univ__init.html">대학<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
-                            <a class="header--mobile--menu" href="./search.major__init.html">학과<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
-                            <a class="header--mobile--menu" href="./search.category__init.html">전공분야<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                        <div class="header--mobile--menu--bottom--right header--mobile--menu--bottom--right__1">
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.majors-interested__init.html">
+                                <span>관심학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.majors-recommended__loading.html">
+                                <span>학과추천</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.replies.html">
+                                <span>내 댓글</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.columns-saved.html">
+                                <span>관심칼럼</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.univ__init.html">
+                                <span>대학</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.major__init.html">
+                                <span>학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.category__init.html">
+                                <span>전공분야</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -143,8 +164,8 @@
                 <div class="header--pc--menu--left">
                     <button class="header--pc--menu--button btn--text" onclick="$(this).next().slideToggle()">닉네임</button>
                     <div class="header--pc--menu--list">
-                        <a class="header--pc--menu" href="./user.profile__email.html">닉네임</a>
-                        <a class="header--pc--menu" href="./user.profile__sns.html">개인정보수정</a>
+                        <a class="header--pc--menu" href="./mypage.majors-interested.html">닉네임</a>
+                        <a class="header--pc--menu" href="./user.profile.html">개인정보수정</a>
                         <button class="header--pc--menu" >로그아웃</button>
                     </div>
                 </div>
@@ -153,88 +174,124 @@
         </div>
     </header>
 </div>
-<div class="section__page--title"><div class="container__padding container__page--title">대학 검색</div></div>
+<div class="section__page--title"><div class="container--padding container__page--title">대학 검색</div></div>
 <div class="section__search--filter">
-    <div class="container__padding">
-        <div class="contents--title contents--title__search--filter">검색 필터</div>
-        <div class="contents__padding search--filter--box">
-<div class="search--filter--list">
-    <div class="search--filter">
-        <div class="search--filter--title">검색어</div>
-        <div class="search--filter--contents"><label class="search--filter--label search--filter--label__text"><input type="text" placeholder="대학교 이름 (한양대학교, 고려대학교 등)"/></label></div>
+    <div class="container--padding">
+        <div class="contents--title">
+            <span>검색 필터</span>
+        </div>
+        <div class="contents--padding search--filter--box">
+<div class="box--filters">
+    <div class="filter">
+        <div class="filter--title">
+            <span>검색어</span>
+        </div>
+        <div class="filter--contents"><label class="filter--label filter--label__text"><input type="text" placeholder="대학교 이름 (한양대학교, 고려대학교 등)"/></label></div>
     </div>
-    <div class="search--filter">
-        <div class="search--filter--title">지역
-<button class="btn--toggle--arrow btn--text activated" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).addClass('activated').parent().next().slideDown()">
+    <div class="filter">
+        <div class="filter--title">
+            <span>지역</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
     <i class="material-icons"></i>
 </button>
         </div>
-        <div class="search--filter--contents search--filter--contents__check">
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox" checked/><span>전체</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>서울</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>경기</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>충북</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>충남</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>경북</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>경남</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>전북</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>전남</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>제주</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>광주</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>대구</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>대전</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>부산</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>세종</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>울산</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>인천</span></label>
+        <div class="filter--contents filter--contents__check">
+            <label class="filter--label filter--label__check"><input type="checkbox" checked/><span>전체</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>서울</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>경기</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>강원</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>충북</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>충남</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>경북</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>경남</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>전북</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>전남</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>제주</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>광주</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>대구</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>대전</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>부산</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>세종</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>울산</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>인천</span></label>
+            <!--정렬 이쁘게 하기위한 가짜 labels-->
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
         </div>
     </div>
-    <div class="search--filter">
-        <div class="search--filter--title">대학 구분
-<button class="btn--toggle--arrow btn--text activated" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).addClass('activated').parent().next().slideDown()">
+    <div class="filter">
+        <div class="filter--title">
+            <span>대학 구분</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
     <i class="material-icons"></i>
 </button>
         </div>
-        <div class="search--filter--contents search--filter--contents__check">
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox" checked/><span>전체</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>국립</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>공립</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>사립</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>특별법법인</span></label>
-            <label class="search--filter--label search--filter--label__check"><input type="checkbox"/><span>국립대법인</span></label>
+        <div class="filter--contents filter--contents__check">
+            <label class="filter--label filter--label__check"><input type="checkbox" checked/><span>전체</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>국립</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>공립</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>사립</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>특별법법인</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>국립대법인</span></label>
+            <!--정렬 이쁘게 하기위한 가짜 labels-->
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
         </div>
     </div>
-    <div class="search--filter">
-        <div class="search--filter--title">등록금
-<button class="btn--toggle--arrow btn--text activated" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).addClass('activated').parent().next().slideDown()">
+    <div class="filter">
+        <div class="filter--title">
+            <span>등록금</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
     <i class="material-icons"></i>
 </button>
         </div>
-        <div class="search--filter--contents search--filter--contents__range">
+        <div class="filter--contents filter--contents__range">
             <div class="js--slider">
                 <div class="ui-slider-handle">
-                    <span class="js--slider--handle"></span><br/>
+                    <span class="js--slider--handle"></span>
+                    <img class="js--slider--tooltip--triangle" src="./assets/img/jqueryui/slider--triangle.png"/>
                     <span class="js--slider--tooltip"></span>
                 </div>
                 <div class="ui-slider-handle">
-                    <span class="js--slider--handle"></span><br/>
+                    <span class="js--slider--handle"></span>
+                    <img class="js--slider--tooltip--triangle" src="./assets/img/jqueryui/slider--triangle.png"/>
                     <span class="js--slider--tooltip"></span>
                 </div>
             </div>
         </div>
-        <div class="search--filter--title">장학금
-<button class="btn--toggle--arrow btn--text activated" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).addClass('activated').parent().next().slideDown()">
+        <div class="filter--title">
+            <span>장학금</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
     <i class="material-icons"></i>
 </button>
         </div>
-        <div class="search--filter--contents search--filter--contents__range">
+        <div class="filter--contents filter--contents__range">
             <div class="js--slider">
                 <div class="ui-slider-handle">
-                    <span class="js--slider--handle"></span><br/>
+                    <span class="js--slider--handle"></span>
+                    <img class="js--slider--tooltip--triangle" src="./assets/img/jqueryui/slider--triangle.png"/>
                     <span class="js--slider--tooltip"></span>
                 </div>
                 <div class="ui-slider-handle">
-                    <span class="js--slider--handle"></span><br/>
+                    <span class="js--slider--handle"></span>
+                    <img class="js--slider--tooltip--triangle" src="./assets/img/jqueryui/slider--triangle.png"/>
                     <span class="js--slider--tooltip"></span>
                 </div>
             </div>
@@ -250,169 +307,464 @@
 </div>
 <hr/>
 <div class="section__search--result">
-    <div class="container__padding">
-        <div class="contents--title contents--title__search--result">검색 결과<span class="contents--title--num">6</span></div>
-        <div class="contents__padding">
+    <div class="container--padding">
+        <div class="contents--title contents--title__search--result">
+            <span>검색 결과</span><span class="contents--title--num">6</span>
+        </div>
+        <div class="contents--padding">
             <!--@todo 10 items per page-->
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="search--result--univ">
-    <img class="search--result--univ--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
-    <div class="search--result--univ--text">
-        <a class="search--result--univ--title" href="./detail.univ.html">
-            <span>서울과학기술대학교</span><span>(38개 학과)</span>
-        </a>
-        <div class="search--result--univ--info--list">
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">주소</span><span>서울 측별시 노원구 공릉로 232</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">대학구분</span><span>사립</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 등록금</span><span>542만원</span></div>
-            <div class="search--result--univ--info"><span class="search--result--univ--info--title">평균 장학금</span><span>300만원</span></div>
+<div class="item--univ--image">
+    <img class="item--univ--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+    <div class="item--univ--image--text">
+        <a class="contents--small--title contents--small--title__item--univ--image" href="./detail.univ.html">서울과학기술대학교</a>
+        <div class="item--univ--image--info--list">
+            <div class="item--univ--image--info__mobile__1">
+                <div class="item--univ--image--info">
+                    <span class="item--univ--image--info--title">주소</span>
+                    <span class="item--univ--image--info--contents">서울 측별시 노원구 공릉로 232</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info--bottom--mobile">
+                <div class="item--univ--image--info--mobile__tags">
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">대학구분</span>
+                        <span class="item--univ--image--info--contents">사립</span>
+                    </div>
+                    <div class="item--univ--image--info">
+                        <span class="item--univ--image--info--title">학교평가</span>
+                        <span class="item--univ--image--info--contents">자율개선대학</span>
+                    </div>
+                </div>
+                <button class="item--univ--image--info--button--mobile btn--text" onclick="$(this).parents('.item--univ--image').toggleClass('activated')"><i class="material-icons font-size__pc20">add</i></button>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">설치학과</span>
+                    <span class="item--univ--image--info--contents">36개</span>
+                </div>
+            </div>
+            <div class="item--univ--image--info__mobile__2">
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 등록금</span>
+                    <span class="item--univ--image--info--contents">542만원</span>
+                </div>
+                <div class="item--univ--image--info item--univ--image--info__pc">
+                    <span class="item--univ--image--info--title">평균 장학금</span>
+                    <span class="item--univ--image--info--contents">300만원</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
         </div>
 <div class="btn--pagination">
-    <button class="btn--pagination--button" disabled><i class="material-icons">first_page</i></button>
-    <button class="btn--pagination--button" disabled><i class="material-icons">chevron_left</i></button>
-    <button class="btn--pagination--button activated">1</button>
-    <button class="btn--pagination--button">2</button>
-    <button class="btn--pagination--button">3</button>
-    <button class="btn--pagination--button">4</button>
-    <button class="btn--pagination--button"><i class="material-icons">chevron_right</i></button>
-    <button class="btn--pagination--button"><i class="material-icons">last_page</i></button>
+    <button class="btn--pagination--item" disabled><i class="material-icons">first_page</i></button>
+    <button class="btn--pagination--item" disabled><i class="material-icons">chevron_left</i></button>
+    <button class="btn--pagination--item activated">1</button>
+    <button class="btn--pagination--item">2</button>
+    <button class="btn--pagination--item">3</button>
+    <button class="btn--pagination--item">4</button>
+    <button class="btn--pagination--item"><i class="material-icons">chevron_right</i></button>
+    <button class="btn--pagination--item"><i class="material-icons">last_page</i></button>
 </div>
     </div>
 </div>
 <!--맨 밑에 회사정보.-->
 <footer class="section__footer">
-    <div class="container container__footer">
+    <div class="container--padding container__footer">
         <div class="footer--box">
-            <div class="footer footer__title">MajorMap<a href="#" class="footer--go-to-top">↑</a></div>
-            <div class="footer">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
+            <div class="footer">
+                <b style="letter-spacing: 0.05em;">MajorMap</b>
+                <a href="#" class="footer--go-to-top"><i class="material-icons">arrow_upward</i></a>
+            </div>
+            <div class="footer" style="font-weight:500">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
             <div class="footer">사업자등록번호: 315-87-00617</div>
             <div class="footer">서울특별시 관악구 관악로 1<br class="footer--br"/> 서울대학교 연구공원 SK센터 1층 T1</div>
             <div class="footer--link--list">
@@ -423,7 +775,7 @@
             </div>
         </div>
         <div class="footer--box">
-            <div class="footer footer__title">고객센터</div>
+            <div class="footer"><b>고객센터</b></div>
             <div class="footer"><a>카카오톡 플러스친구</a></div>
             <div class="footer"><a href="mailto:cs@jobshopper.co.kr">cs@jobshopper.co.kr</a></div>
         </div>
@@ -455,7 +807,8 @@ $(document).ready(function(){        $(window).bind('beforeunload', function(){
     });
 </script>
 <!--@todo 여기까지 없앨 것.-->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script><script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
     function formatNum(num){
         return(num>=1000?parseInt(num/1000)+','+num%1000:num)+'만원';// #,###만원
     }
