@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!--SEO, 스타일 등등 공통적으로 쓰이는 건 여기에 있음.-->
+<meta charset="utf-8">
+<meta name="msapplication-tap-highlight" content="no" />
+<!--구글애널리틱스-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125256449-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-125256449-1');
+</script>
+<meta name="referrer" content="always">
+<!--IE 대신 엣지를 권장한다.-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"/>
+<!--확대/축소 방지. 물론 유저가 강제 확대/축소사용 옵션 켜면 소용없음-->
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">
+<!--og(open graph) : 다른 곳에 url 붙여넣기 했을 때 나오는 이름, 설명, 사진 등등-->
+<meta property="og:site_name" content="메이저맵" />
+<meta property="og:type" content="website"/>
+<!--크롬/파이어폭스/사파리 주소창에서 탭으로 검색하는 기능-->
+<link rel="search" type="application/opensearchdescription+xml" href="./assets/files_for_root/openSearch.xml" title="MajorMap">
+<!--바로가기 아이콘-->
+<link rel="shortcut icon" type="image/x-icon" href="./assets/img/majorMap/favicon256.png"/>
+<link rel="icon" type="image/x-icon" href="./assets/img/majorMap/favicon256.png"/>
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/majorMap/favicon76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="./assets/img/majorMap/favicon120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="./assets/img/majorMap/favicon152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="./assets/img/majorMap/favicon167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/img/majorMap/favicon180.png">
+<link rel="apple-touch-icon" href="./assets/img/majorMap/favicon256.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-startup-image" href="./assets/img/majorMap/logo-blue-icon.png"/>
+<!--아이폰 상태바 색-->
+<meta name="apple-mobile-web-app-status-bar-style" content="#0F75BC"/>
+<!--모바일 브라우저 주소창 색-->
+<meta name="theme-color" content="#0F75BC"/>
+<!--@todo 나중에 'vue-material-design-icons'으로 바꾸기.-->
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/common.css">
+<link rel="stylesheet" href="./assets/css/commonSnippet.css">
+<link rel="stylesheet" href="./assets/css/package.custom.css"/>
+<!--모바일 앱 생성-->
+<!--<link rel="manifest" href="./assets/files_for_root/manifest.json"/>-->
+<meta name="author" content="Major Map" />
+<meta name="copyright" content="copyrights (c) by (주)잡쇼퍼" />
+<!--웹마스터. 구글, 네이버, 빙-->
+<meta name="google-site-verification" content="02lF27ABhrcOfpvnVj1kW-aOY7KALgRSkzgCCnMOWX0" />
+<meta name="google-site-verification" content="zSS3TCL55Sg-B3x7JEQ3bg9k6CowJtDihJlKigShbqw" />
+<meta name="google-site-verification" content="YxqAZVD4yzzji9-NNCtCGQbjep-n-Ev7XJSRAoakpeE" />
+<meta name="google-site-verification" content="_ENZwlJU1aOy_2a9b8rB2rRfgpR2fio2ZMsdA-67tpE" />
+<meta name="naver-site-verification" content="cd5e9e816f0b1ac75fab8f75e474023da050f2db"/>
+<meta name="msvalidate.01" content="64503FC5502D0FA2793C197853A92B98" />
+<!--구글광고. 본래 스크립트는 body 맨 밑에 넣는 걸 권장하지만 이건 head에 안 넣으면 구글에서 경고 날아옴.-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!--// @todo 여기부터 페이지마다 달라야 함.-->
+<!--애플 모바일웹 앱 제목. -->
+<meta name="apple-mobile-web-app-title" content="메이저맵 - 빛나는 당신의 미래를 탐색해보세요">
+<!--오픈그래프-->
+<meta property="og:title" content="메이저맵 - 빛나는 당신의 미래를 탐색해보세요">
+<meta property="og:url" content="www.majormap.net">
+<meta property="og:description" content="성공적인 대입을 위한 학과 정보 서비스 - 빛나는 당신의 미래를 탐색해보세요! 전국 모든 대학 학과에 대한 상세하고 재미있는 정보, 메이저맵">
+<meta property="og:image" content="./img/majorMap/share.png">
+<meta property="og:image" content="./img/searchMap/searchMap.png">
+<meta property="og:image" content="./img/majorMap/share.png">
+<!--SEO-->
+<meta name="description" lang="ko" content="성공적인 대입을 위한 학과 정보 서비스 - 빛나는 당신의 미래를 탐색해보세요! 전국 모든 대학 학과에 대한 상세하고 재미있는 정보, 메이저맵">
+<meta name="keywords" lang="ko" content="대학,학과,진로,메이저맵,쇼퍼">
+<link rel="canonical" lang="ko" content="www.majormap.net">
+<title>메이저맵 - 빛나는 당신의 미래를 탐색해보세요</title>
+<!--스키마-->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.majormap.net",
+        "name":"Major Map",
+        "logo": "https://www.majormap.net/img/majorMap/banner-white.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+82-70-4616-1515",
+            "email":"cs@jobshopper.co.kr",
+            "contactType": "Customer service"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.majormap.net/searchMap?keyword={searchTerms}",
+            "query-input": "required name=searchTerms"
+        }
+    }
+</script>
+<!--// @todo 여기까지 페이지마다 달라야 함.-->
+    <link rel="stylesheet" href="./components/templates/header/header.css"/>
+    <link rel="stylesheet" href="./components/templates/page--title/page--title.css"/>
+    <link rel="stylesheet" href="./components/templates/footer/footer.css"/>
+    <link rel="stylesheet" href="./components/templates/page--tab/page--tab.css"/>
+    <link rel="stylesheet" href="./components/pages/mypage/mypage.css"/>
+    <link rel="stylesheet" href="./components/pages/mypage/mypage--majors-interested/mypage--majors-interested.css"/>
+    <link rel="stylesheet" href="./components/templates/item--major--image/item--major--image.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--toggle/btn--toggle.css"/>
+    <link rel="stylesheet" href="./components/templates/box--tags/box--tags.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--pagination/btn--pagination.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--tooltip/btn--tooltip.css"/>
+    <link rel="stylesheet" href="./components/templates/box--filters/box--filters.css"/>
+</head>
+<body id="app">
+<div class="section__top">
+    <div class="section__notice">
+        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span style="color:#83D5F7;margin-left:10px;margin-right:10px;">메이저맵 전공추천</span><span>OPEN!</span></div>
+        <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
+    </div>
+    <header class="section__header">
+        <div class="container container__header">
+            <a class="header--logo" href="./index.html">MajorMap</a>
+            <div class="header--search--box">
+                <input class="header--search--input" type="text" placeholder="검색" value=""/>
+                <a class="header--search--button" href="./search.total__total.html"><i class="material-icons">search</i></a>
+                <button class="btn--text header--mobile--search--button" onclick="$('.section__header').addClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">search</i></button>
+            </div>
+            <a class="header--mobile--menu--title" href="./user.profile.html">닉네임</a>
+            <a class="header--mobile--menu--logout" href="./">로그아웃</a>
+            <div class="header--mobile--menu--box">
+                <button class="header--mobile--menu--button__close btn--text" onclick="$('.section__header').removeClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">close</i></button>
+                <button class="header--mobile--menu--button__open--menu btn--text" onclick="$('.section__header').addClass('section__header--mobile--menu').removeClass('section__header--mobile--search')"><i class="material-icons">menu</i></button>
+                <div class="header--mobile--menu--list">
+                    <div class="header--mobile--menu--top">
+                        <a class="header--mobile--menu" href="#">메이저맵 가이드</a>
+                        <hr/>
+                        <a class="header--mobile--menu activated" href="./user.profile.html">개인정보 수정</a>
+                    </div>
+                    <div class="header--mobile--menu--bottom">
+                        <div class="header--mobile--menu--bottom--left">
+                            <button class="header--mobile--menu activated" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').show();$('.header--mobile--menu__2').hide();">마이페이지</button>
+                            <button class="header--mobile--menu" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').hide();$('.header--mobile--menu__2').show();">전공검색</button>
+                        </div>
+                        <div class="header--mobile--menu--bottom--right header--mobile--menu--bottom--right__1">
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.majors-interested__init.html">
+                                <span>관심학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.majors-recommended__loading.html">
+                                <span>학과추천</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.replies.html">
+                                <span>내 댓글</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.columns-saved.html">
+                                <span>관심칼럼</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.univ__init.html">
+                                <span>대학</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.major__init.html">
+                                <span>학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.category__init.html">
+                                <span>전공분야</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header--pc--menu--box">
+                <div class="header--pc--menu--left">
+                    <button class="header--pc--menu--button btn--text" onclick="$(this).next().slideToggle()">닉네임</button>
+                    <div class="header--pc--menu--list">
+                        <a class="header--pc--menu" href="./mypage.majors-interested.html">닉네임</a>
+                        <a class="header--pc--menu" href="./user.profile.html">개인정보수정</a>
+                        <button class="header--pc--menu" >로그아웃</button>
+                    </div>
+                </div>
+                <a class="header--pc--menu--guide">메이저맵 가이드</a>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="section__page--title"><div class="container--padding container__page--title">마이페이지</div></div>
+<div class="section__page--tab">
+    <div class="container">
+        <a class="page--tab" href="./mypage.majors-interested.html">관심학과</a>
+        <a class="page--tab" href="./mypage.majors-recommended__loading.html">학과추천</a>
+        <a class="page--tab" href="./mypage.replies.html">내 댓글</a>
+        <a class="page--tab" href="./mypage.columns-saved.html">관심칼럼</a>
+    </div>
+</div>
+<div class="section__mypage">
+    <div class="container--padding">
+        <div class="contents--title">
+            <span>관심학과</span>
+        </div>
+<div class="contents--padding contents__mypage--majors-interested contents__mypage--majors-interested__exists">
+    <!--@todo 네이버지도-->
+    <div id="mypage--majors-interested--navermap">
+        마커 클러스터화: https://navermaps.github.io/maps.js/docs/tutorial-marker-cluster.example.html
+        행정구역: https://navermaps.github.io/maps.js/docs/tutorial-2-datalayer-region.example.html
+        api가 확인이 안되므로 나중에 vue 받으면 localhost 에서 작업예정.
+        행정구역 경계선 파란색, 안쪽 흰색으로 다 칠해버리고 남한 전체 보여주는 걸로 시작함.
+    </div>
+<div class="box--filters">
+    <div class="filter">
+        <div class="filter--title">
+            <span>지역</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
+    <i class="material-icons"></i>
+</button>
+        </div>
+        <div class="filter--contents filter--contents__check">
+            <label class="filter--label filter--label__check"><input type="checkbox" checked/><span>서울 14</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>경기 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>강원 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>충북 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>충남 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>경북 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox" disabled/><span>경남</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>전북 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox" disabled/><span>전남</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox" disabled/><span>제주</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>광주 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox" disabled/><span>대구</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox" disabled/><span>대전</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>부산 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>세종 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox"/><span>울산 2</span></label>
+            <label class="filter--label filter--label__check"><input type="checkbox" disabled/><span>인천</span></label>
+            <!--정렬 이쁘게 하기위한 가짜 labels-->
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+            <div class="filter--label filter--label__check"></div>
+        </div>
+    </div>
+</div>
+    <div class="mypage--majors-interested__exists">
+        <div class="mypage--majors-interested--list">
+            <!--@todo 6items per page-->
+<div class="item--major--image">
+    <div class="item--major--image--top">
+        <img class="item--major--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+        <div class="item--major--image--text">
+            <div class="item--major--image--header">
+                <a class="item--major--image--title" href="./detail.major.html">건국대학교(글로컬) 간호복지학부</a>
+<!--기본 24픽셀-->
+<button class="btn--toggle__star btn--text" onclick="$(this).toggleClass('activated')">
+    <i class="material-icons-round font-size__pc24 font-size__mobile20"></i>
+</button>
+            </div>
+            <div class="item--major--image--location">서울특별시 노원구 공릉로 232</div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">모집인원</span>
+                <span class="item--major--image--contents">65명</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">수시 경쟁률</span>
+                <span class="item--major--image--contents">14 : 1</span>
+                <span class="item--major--image--subtitle">등록금</span>
+                <span class="item--major--image--contents">300만원</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">정시 경쟁률</span>
+                <span class="item--major--image--contents">4 : 1</span>
+                <span class="item--major--image--subtitle">장학금</span>
+                <span class="item--major--image--contents">100만원</span>
+            </div>
+        </div>
+    </div>
+    <div class="item--major--image--bottom">
+<div class="box--tags">
+    <div class="item--tag">사립</div>
+    <div class="item--tag">
+        <span>자율개선대학</span>
+<div class="btn--tooptip">
+    <i class="material-icons font-size__pc12" onclick="$(this).parent().toggleClass('activated')">help_outline</i>
+    <div class="btn--tooptip--contents" style="width:220px;">
+        <p>자율개선대학은 2018 대학기본역량진단 결과, 해당 권역의 상위 60% 이내의 대학입니다.</p>
+    </div>
+</div>
+    </div>
+    <a class="item--tag" href="#">입학처 바로가기</a>
+</div>
+        <button class="item--major--image--button btn--text" onclick="$(this).parents('.item--major--image').toggleClass('activated')"><i class="material-icons">add</i></button>
+    </div>
+</div>
+<div class="item--major--image">
+    <div class="item--major--image--top">
+        <img class="item--major--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+        <div class="item--major--image--text">
+            <div class="item--major--image--header">
+                <a class="item--major--image--title" href="./detail.major.html">건국대학교(글로컬) 간호복지학부</a>
+<!--기본 24픽셀-->
+<button class="btn--toggle__star btn--text" onclick="$(this).toggleClass('activated')">
+    <i class="material-icons-round font-size__pc24 font-size__mobile20"></i>
+</button>
+            </div>
+            <div class="item--major--image--location">서울특별시 노원구 공릉로 232</div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">모집인원</span>
+                <span class="item--major--image--contents">65명</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">수시 경쟁률</span>
+                <span class="item--major--image--contents">14 : 1</span>
+                <span class="item--major--image--subtitle">등록금</span>
+                <span class="item--major--image--contents">300만원</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">정시 경쟁률</span>
+                <span class="item--major--image--contents">4 : 1</span>
+                <span class="item--major--image--subtitle">장학금</span>
+                <span class="item--major--image--contents">100만원</span>
+            </div>
+        </div>
+    </div>
+    <div class="item--major--image--bottom">
+<div class="box--tags">
+    <div class="item--tag">사립</div>
+    <div class="item--tag">
+        <span>자율개선대학</span>
+<div class="btn--tooptip">
+    <i class="material-icons font-size__pc12" onclick="$(this).parent().toggleClass('activated')">help_outline</i>
+    <div class="btn--tooptip--contents" style="width:220px;">
+        <p>자율개선대학은 2018 대학기본역량진단 결과, 해당 권역의 상위 60% 이내의 대학입니다.</p>
+    </div>
+</div>
+    </div>
+    <a class="item--tag" href="#">입학처 바로가기</a>
+</div>
+        <button class="item--major--image--button btn--text" onclick="$(this).parents('.item--major--image').toggleClass('activated')"><i class="material-icons">add</i></button>
+    </div>
+</div>
+<div class="item--major--image">
+    <div class="item--major--image--top">
+        <img class="item--major--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+        <div class="item--major--image--text">
+            <div class="item--major--image--header">
+                <a class="item--major--image--title" href="./detail.major.html">건국대학교(글로컬) 간호복지학부</a>
+<!--기본 24픽셀-->
+<button class="btn--toggle__star btn--text" onclick="$(this).toggleClass('activated')">
+    <i class="material-icons-round font-size__pc24 font-size__mobile20"></i>
+</button>
+            </div>
+            <div class="item--major--image--location">서울특별시 노원구 공릉로 232</div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">모집인원</span>
+                <span class="item--major--image--contents">65명</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">수시 경쟁률</span>
+                <span class="item--major--image--contents">14 : 1</span>
+                <span class="item--major--image--subtitle">등록금</span>
+                <span class="item--major--image--contents">300만원</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">정시 경쟁률</span>
+                <span class="item--major--image--contents">4 : 1</span>
+                <span class="item--major--image--subtitle">장학금</span>
+                <span class="item--major--image--contents">100만원</span>
+            </div>
+        </div>
+    </div>
+    <div class="item--major--image--bottom">
+<div class="box--tags">
+    <div class="item--tag">사립</div>
+    <div class="item--tag">
+        <span>자율개선대학</span>
+<div class="btn--tooptip">
+    <i class="material-icons font-size__pc12" onclick="$(this).parent().toggleClass('activated')">help_outline</i>
+    <div class="btn--tooptip--contents" style="width:220px;">
+        <p>자율개선대학은 2018 대학기본역량진단 결과, 해당 권역의 상위 60% 이내의 대학입니다.</p>
+    </div>
+</div>
+    </div>
+    <a class="item--tag" href="#">입학처 바로가기</a>
+</div>
+        <button class="item--major--image--button btn--text" onclick="$(this).parents('.item--major--image').toggleClass('activated')"><i class="material-icons">add</i></button>
+    </div>
+</div>
+<div class="item--major--image">
+    <div class="item--major--image--top">
+        <img class="item--major--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+        <div class="item--major--image--text">
+            <div class="item--major--image--header">
+                <a class="item--major--image--title" href="./detail.major.html">건국대학교(글로컬) 간호복지학부</a>
+<!--기본 24픽셀-->
+<button class="btn--toggle__star btn--text" onclick="$(this).toggleClass('activated')">
+    <i class="material-icons-round font-size__pc24 font-size__mobile20"></i>
+</button>
+            </div>
+            <div class="item--major--image--location">서울특별시 노원구 공릉로 232</div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">모집인원</span>
+                <span class="item--major--image--contents">65명</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">수시 경쟁률</span>
+                <span class="item--major--image--contents">14 : 1</span>
+                <span class="item--major--image--subtitle">등록금</span>
+                <span class="item--major--image--contents">300만원</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">정시 경쟁률</span>
+                <span class="item--major--image--contents">4 : 1</span>
+                <span class="item--major--image--subtitle">장학금</span>
+                <span class="item--major--image--contents">100만원</span>
+            </div>
+        </div>
+    </div>
+    <div class="item--major--image--bottom">
+<div class="box--tags">
+    <div class="item--tag">사립</div>
+    <div class="item--tag">
+        <span>자율개선대학</span>
+<div class="btn--tooptip">
+    <i class="material-icons font-size__pc12" onclick="$(this).parent().toggleClass('activated')">help_outline</i>
+    <div class="btn--tooptip--contents" style="width:220px;">
+        <p>자율개선대학은 2018 대학기본역량진단 결과, 해당 권역의 상위 60% 이내의 대학입니다.</p>
+    </div>
+</div>
+    </div>
+    <a class="item--tag" href="#">입학처 바로가기</a>
+</div>
+        <button class="item--major--image--button btn--text" onclick="$(this).parents('.item--major--image').toggleClass('activated')"><i class="material-icons">add</i></button>
+    </div>
+</div>
+<div class="item--major--image">
+    <div class="item--major--image--top">
+        <img class="item--major--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+        <div class="item--major--image--text">
+            <div class="item--major--image--header">
+                <a class="item--major--image--title" href="./detail.major.html">건국대학교(글로컬) 간호복지학부</a>
+<!--기본 24픽셀-->
+<button class="btn--toggle__star btn--text" onclick="$(this).toggleClass('activated')">
+    <i class="material-icons-round font-size__pc24 font-size__mobile20"></i>
+</button>
+            </div>
+            <div class="item--major--image--location">서울특별시 노원구 공릉로 232</div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">모집인원</span>
+                <span class="item--major--image--contents">65명</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">수시 경쟁률</span>
+                <span class="item--major--image--contents">14 : 1</span>
+                <span class="item--major--image--subtitle">등록금</span>
+                <span class="item--major--image--contents">300만원</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">정시 경쟁률</span>
+                <span class="item--major--image--contents">4 : 1</span>
+                <span class="item--major--image--subtitle">장학금</span>
+                <span class="item--major--image--contents">100만원</span>
+            </div>
+        </div>
+    </div>
+    <div class="item--major--image--bottom">
+<div class="box--tags">
+    <div class="item--tag">사립</div>
+    <div class="item--tag">
+        <span>자율개선대학</span>
+<div class="btn--tooptip">
+    <i class="material-icons font-size__pc12" onclick="$(this).parent().toggleClass('activated')">help_outline</i>
+    <div class="btn--tooptip--contents" style="width:220px;">
+        <p>자율개선대학은 2018 대학기본역량진단 결과, 해당 권역의 상위 60% 이내의 대학입니다.</p>
+    </div>
+</div>
+    </div>
+    <a class="item--tag" href="#">입학처 바로가기</a>
+</div>
+        <button class="item--major--image--button btn--text" onclick="$(this).parents('.item--major--image').toggleClass('activated')"><i class="material-icons">add</i></button>
+    </div>
+</div>
+<div class="item--major--image">
+    <div class="item--major--image--top">
+        <img class="item--major--image--logo" src="./assets/img/fakeImg/square.jpg" alt="서울과학기술대학교(38개 학과)"/>
+        <div class="item--major--image--text">
+            <div class="item--major--image--header">
+                <a class="item--major--image--title" href="./detail.major.html">건국대학교(글로컬) 간호복지학부</a>
+<!--기본 24픽셀-->
+<button class="btn--toggle__star btn--text" onclick="$(this).toggleClass('activated')">
+    <i class="material-icons-round font-size__pc24 font-size__mobile20"></i>
+</button>
+            </div>
+            <div class="item--major--image--location">서울특별시 노원구 공릉로 232</div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">모집인원</span>
+                <span class="item--major--image--contents">65명</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">수시 경쟁률</span>
+                <span class="item--major--image--contents">14 : 1</span>
+                <span class="item--major--image--subtitle">등록금</span>
+                <span class="item--major--image--contents">300만원</span>
+            </div>
+            <div class="item--major--image--hidden">
+                <span class="item--major--image--subtitle">정시 경쟁률</span>
+                <span class="item--major--image--contents">4 : 1</span>
+                <span class="item--major--image--subtitle">장학금</span>
+                <span class="item--major--image--contents">100만원</span>
+            </div>
+        </div>
+    </div>
+    <div class="item--major--image--bottom">
+<div class="box--tags">
+    <div class="item--tag">사립</div>
+    <div class="item--tag">
+        <span>자율개선대학</span>
+<div class="btn--tooptip">
+    <i class="material-icons font-size__pc12" onclick="$(this).parent().toggleClass('activated')">help_outline</i>
+    <div class="btn--tooptip--contents" style="width:220px;">
+        <p>자율개선대학은 2018 대학기본역량진단 결과, 해당 권역의 상위 60% 이내의 대학입니다.</p>
+    </div>
+</div>
+    </div>
+    <a class="item--tag" href="#">입학처 바로가기</a>
+</div>
+        <button class="item--major--image--button btn--text" onclick="$(this).parents('.item--major--image').toggleClass('activated')"><i class="material-icons">add</i></button>
+    </div>
+</div>
+        </div>
+<div class="btn--pagination">
+    <button class="btn--pagination--item"><i class="material-icons">first_page</i></button>
+    <button class="btn--pagination--item"><i class="material-icons">chevron_left</i></button>
+    <button class="btn--pagination--item">1</button>
+    <button class="btn--pagination--item activated">2</button>
+    <button class="btn--pagination--item">3</button>
+    <button class="btn--pagination--item">4</button>
+    <button class="btn--pagination--item"><i class="material-icons">chevron_right</i></button>
+    <button class="btn--pagination--item"><i class="material-icons">last_page</i></button>
+</div>
+    </div>
+</div>
+    </div>
+</div>
+<!--맨 밑에 회사정보.-->
+<footer class="section__footer">
+    <div class="container--padding container__footer">
+        <div class="footer--box">
+            <div class="footer">
+                <b style="letter-spacing: 0.05em;">MajorMap</b>
+                <a href="#" class="footer--go-to-top"><i class="material-icons">arrow_upward</i></a>
+            </div>
+            <div class="footer" style="font-weight:500">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
+            <div class="footer">사업자등록번호: 315-87-00617</div>
+            <div class="footer">서울특별시 관악구 관악로 1<br class="footer--br"/> 서울대학교 연구공원 SK센터 1층 T1</div>
+            <div class="footer--link--list">
+                <a class="footer--link" href="#">회사 홈페이지</a>
+                <a class="footer--link" href="#">이용약관</a>
+                <a class="footer--link" href="#">개인정보처리방침</a>
+                <a class="footer--link" href="#">제휴문의</a>
+            </div>
+        </div>
+        <div class="footer--box">
+            <div class="footer"><b>고객센터</b></div>
+            <div class="footer"><a>카카오톡 플러스친구</a></div>
+            <div class="footer"><a href="mailto:cs@jobshopper.co.kr">cs@jobshopper.co.kr</a></div>
+        </div>
+    </div>
+</footer>
+<!--js 파일 여기서 불러옴.-->
+<!--ie 9이하에서 css를 ie 9처럼 보이게 하는 js-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<!-- JavaScript Libraries -->
+<!--@todo 여기부터 없앨 것.-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js"></script>-->
+<script>
+    document.cookie="SameSite=None";
+    let isChanged=new Set();//입력중인 input 여기에 저장. 다 지웠거나 submit 했으면 삭제.
+$(document).ready(function(){        $(window).bind('beforeunload', function(){
+            if(isChanged.size>0) return '변경된 사항이 있습니다. 페이지에서 나가시겠습니까?';
+        });
+        $('input[type=text], input[type=number], input[type=password], input[type=email], input[type=tel], textarea').each(function(index, item){
+            const $this=$(item);
+            $this.on('keyup',function(e){
+                if($this.val())isChanged.add(index);
+                else isChanged.delete(index);
+            })
+        });
+    });
+</script>
+<!--@todo 여기까지 없앨 것.-->
+
+<!--https://www.amcharts.com/demos/map-image-drill-down/ 이거 쓰면 괜찮을거같은데 18만원...-->
+<script>
+$(document).ready(function(){        $('.btn--tooptip').on('mouseover',function(){
+            const $this=$(this);
+            $this.children('.btn--tooptip--contents').css({maxWidth:$(window).innerWidth()-$this.offset().left-16});
+        });
+    })
+</script>
+<!--네이버 지도 api가 유료가 됐습니다... -->
+<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rototzsooy"></script>
+<script>
+$(document).ready(function(){        //행정구역 18개 경계선 불러오기.
+        var regionGeoJson = [], loadCount = 0;
+        for (let i = 1; i < 18; i++) {
+            $.ajax({
+                url: 'https://majormap.net/data/region' + (i<10?'0'+i:i) + '.json',
+                success: function(idx) {
+                    return function(geojson) {
+                        regionGeoJson[idx] = geojson;
+                        loadCount++;
+                        if (loadCount === 17) startDataLayer();
+                    }
+                }(i - 1)
+            });
+        }
+        //지도의 중심은 서울.
+        const map = new naver.maps.Map(document.getElementById('mypage--majors-interested--navermap'), {
+            zoom: 7,
+            center: new naver.maps.LatLng(37.5768267,126.9813165),
+            zoomControl:true,
+            zoomControlOptions: {
+                position: 4,
+                style: naver.maps.ZoomControlStyle.SMALL
+            },
+        });
+
+        //네이버지도 행정구역 표시하고 클릭/마우스오버효과 넣기.
+        const tooltip = $('<div class="navermap--tooltip"></div>');
+        tooltip.appendTo(map.getPanes().floatPane);
+
+        // 행정구역 불러왔으면 보여준다.
+        function startDataLayer() {
+            map.data.setStyle(function (feature) {
+                //기본은 파란색.. 칠은 투명.
+                var styleOptions = {
+                    fillColor: '#ffffff',
+                    fillOpacity: 1,
+                    strokeColor: '#0F75BC',
+                    strokeWeight: 2,
+                    strokeOpacity: 1
+                };
+                // 행정구역[focus]==true면 빨강으로 칠한다. (밑에 클릭하면 feature[focus]=true 만드는 함수있음)
+                if (feature.getProperty('focus')) {
+                    // 체크박스에 체크한다. ajax로 region도 같이 보내려고 만들었음.
+                    // 아이디에 한글 넣는거 안좋아해서 네이버코드로 만들었음. 강원도는 01, 경기도는 02, ... public > data > region01.json 참조.
+                    // $('#region-'+feature.getProperty('navercode')).prop("checked", true);
+                    $('#postForm input[name=region]').eq(feature.getProperty('navercode')).prop("checked", true);
+                    styleOptions.fillOpacity = 0.6;
+                    styleOptions.fillColor = '#e62739';
+                    styleOptions.strokeColor = '#e62739';
+                    styleOptions.strokeWeight = 4;
+                    styleOptions.strokeOpacity = 1;
+                } else {
+                    // focus 풀리면 체크박스 해제
+                    $('#postForm input[name=region]').eq(feature.getProperty('navercode')).prop("checked", false);
+                    // $('#region-'+feature.getProperty('navercode')).prop("checked", false);
+                }
+                return styleOptions;
+            });
+
+            // 경계선 그리기.
+            regionGeoJson.forEach(function (geojson) {
+                map.data.addGeoJson(geojson);
+            });
+
+            // 클릭하면 focus 넣고 (위에 focus에 따라 region바뀌는 함수 있음)
+            map.data.addListener('click', function (e) {
+                let feature = e.feature;
+                feature.setProperty('focus', ~feature.getProperty('focus'));
+            });
+            //마우스 올리면 fill 바꾸고 지역이름 툴팁보여줌.
+            map.data.addListener('mouseover', function (e) {
+                var feature = e.feature,
+                    regionName = feature.getProperty('area1');
+                tooltip.css({
+                    display: '',
+                    left: e.offset.x,
+                    top: e.offset.y
+                }).text(regionName);
+
+                map.data.overrideStyle(feature, {
+                    strokeColor: '#041F2B',
+                    strokeWeight: 4
+                });
+            });
+
+            // 마우스 나가면 지역이름 툴팁 숨기고 진하게 칠했던거 원상복구
+            map.data.addListener('mouseout', function (e) {
+                tooltip.hide().empty();
+                map.data.revertStyle();
+            });
+        }
+        startDataLayer();
+    });
+</script>
+</body>
+</html>

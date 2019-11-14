@@ -1,4 +1,4 @@
-.btn--pagination{text-align:center}
-.btn--pagination>button{background-color:#fff;color:#333;width:24px;height:24px;padding:0;border:0;}
-.btn--pagination--button:disabled{opacity:0}
-.btn--pagination--button.activated{background-color:#0F75BC;color:#fff;}
+.btn--pagination{text-align:center;}
+.btn--pagination>button{background-color:#fff;color:#959595;width:24px;height:24px;padding:0;border:0;}
+.btn--pagination--item:disabled{opacity:0}
+.btn--pagination--item.activated{background-color:#0F75BC;color:#fff;}

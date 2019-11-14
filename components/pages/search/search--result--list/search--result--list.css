@@ -1,7 +1,13 @@
 .section__search--result{margin-top:40px;margin-bottom:156px;}
-
+.section__search--result hr{margin-top:0;margin-bottom:40px;}
 .section__search--result .search--result--major:nth-child(n+2)>.search--result--major--contents{display:none;}
 
 .section__search--result .btn--pagination{margin-top:40px;}
 .section__search--result .btn--more{margin-top:16px;margin-bottom:40px;}
 .section__search--result .btn--more:last-child{margin-bottom:0;}
+
+@media(max-width:576px) {
+    .section__search--result{margin-bottom:56px;}
+    .search--result--list__category{display:flex;flex-wrap:wrap;margin-right:-16px;max-width:none;}
+    .search--result--list__category .item--category{width:150px;flex:1 1 150px;margin-right:16px;}
+}

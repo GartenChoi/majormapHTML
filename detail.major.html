@@ -42,6 +42,7 @@
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/common.css">
 <link rel="stylesheet" href="./assets/css/commonSnippet.css">
+<link rel="stylesheet" href="./assets/css/package.custom.css"/>
 <!--모바일 앱 생성-->
 <!--<link rel="manifest" href="./assets/files_for_root/manifest.json"/>-->
 <meta name="author" content="Major Map" />
@@ -98,20 +99,28 @@
     <link rel="stylesheet" href="./components/pages/detail/detail.css"/>
     <link rel="stylesheet" href="./components/pages/detail/detail--header--title/detail--header--title.css"/>
     <link rel="stylesheet" href="./components/pages/detail/detail--header--major--info/detail--header--major--info.css"/>
-    <link rel="stylesheet" href="./components/pages/detail/detail--wordclouds/detail--wordclouds.css"/>
+    <link rel="stylesheet" href="./components/pages/detail/detail--wordcloud/detail--wordcloud.css"/>
     <link rel="stylesheet" href="./components/pages/detail/detail--books/detail--books.css"/>
+    <link rel="stylesheet" href="./components/templates/item--book/item--book.css"/>
     <link rel="stylesheet" href="./components/pages/detail/detail--subjects/detail--subjects.css"/>
     <link rel="stylesheet" href="./components/pages/detail/detail--majors/detail--majors.css"/>
     <link rel="stylesheet" href="./components/templates/flex--table/flex--table.css"/>
-    <link rel="stylesheet" href="./components/templates/btn--sort--blue/btn--sort--blue.css"/>
-    <link rel="stylesheet" href="./components/pages/detail/detail--replies/detail--replies.css"/>
-    <link rel="stylesheet" href="./components/templates/btn--toggle--arrow/btn--toggle--arrow.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--sort/btn--sort.css"/>
+    <link rel="stylesheet" href="./components/templates/box--replies/box--replies.css"/>
+    <link rel="stylesheet" href="./components/templates/item--reply/item--reply.css"/>
+    <link rel="stylesheet" href="./components/templates/modal--share/modal--share.css"/>
+    <link rel="stylesheet" href="./components/templates/modal--report/modal--report.css"/>
+    <link rel="stylesheet" href="./components/templates/btn--toggle/btn--toggle.css"/>
+    <link rel="stylesheet" href="./components/pages/detail/detail--columns/detail--columns.css"/>
+    <link rel="stylesheet" href="./components/templates/item--column--image/item--column--image.css"/>
+    <link rel="stylesheet" href="./components/templates/box--tags/box--tags.css"/>
+    <link rel="stylesheet" href="./components/templates/box--columntext/box--columntext.css"/>
 </head>
 <body id="app">
 <div class="section__top">
     <div class="section__notice">
-        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span>메이저맵 전공추천</span><span>OPEN!</span></div>
-            <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
+        <div class="notice--title"><span>'나에게 맞는 전공 찾기'</span><span style="color:#83D5F7;margin-left:10px;margin-right:10px;">메이저맵 전공추천</span><span>OPEN!</span></div>
+        <button class="btn--text notice--close--button"><i class="material-icons" onclick="$('.section__notice').slideUp()">close</i></button>
     </div>
     <header class="section__header">
         <div class="container container__header">
@@ -121,24 +130,44 @@
                 <a class="header--search--button" href="./search.total__total.html"><i class="material-icons">search</i></a>
                 <button class="btn--text header--mobile--search--button" onclick="$('.section__header').addClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">search</i></button>
             </div>
-            <a class="header--mobile--menu--title" href="./user.profile__email.html">닉네임</a>
+            <a class="header--mobile--menu--title" href="./user.profile.html">닉네임</a>
             <a class="header--mobile--menu--logout" href="./">로그아웃</a>
             <div class="header--mobile--menu--box">
                 <button class="header--mobile--menu--button__close btn--text" onclick="$('.section__header').removeClass('section__header--mobile--search').removeClass('section__header--mobile--menu')"><i class="material-icons">close</i></button>
                 <button class="header--mobile--menu--button__open--menu btn--text" onclick="$('.section__header').addClass('section__header--mobile--menu').removeClass('section__header--mobile--search')"><i class="material-icons">menu</i></button>
                 <div class="header--mobile--menu--list">
                     <div class="header--mobile--menu--top">
-                        <a class="header--mobile--menu header--mobile--menu--guide" href="#">메이저맵 가이드</a>
-                        <a class="header--mobile--menu activated" href="./user.profile__email.html">개인정보 수정</a>
+                        <a class="header--mobile--menu" href="#">메이저맵 가이드</a>
+                        <hr/>
+                        <a class="header--mobile--menu activated" href="./user.profile.html">개인정보 수정</a>
                     </div>
                     <div class="header--mobile--menu--bottom">
                         <div class="header--mobile--menu--bottom--left">
-                            <button class="header--mobile--menu">전공검색</button>
+                            <button class="header--mobile--menu activated" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').show();$('.header--mobile--menu__2').hide();">마이페이지</button>
+                            <button class="header--mobile--menu" onclick="$(this).toggleClass('activated').siblings().removeClass('activated');$('.header--mobile--menu__1').hide();$('.header--mobile--menu__2').show();">전공검색</button>
                         </div>
-                        <div class="header--mobile--menu--bottom--right">
-                            <a class="header--mobile--menu" href="./search.univ__init.html">대학<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
-                            <a class="header--mobile--menu" href="./search.major__init.html">학과<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
-                            <a class="header--mobile--menu" href="./search.category__init.html">전공분야<i class="header--mobile--menu--icon material-icons">chevron_right</i></a>
+                        <div class="header--mobile--menu--bottom--right header--mobile--menu--bottom--right__1">
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.majors-interested__init.html">
+                                <span>관심학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.majors-recommended__loading.html">
+                                <span>학과추천</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.replies.html">
+                                <span>내 댓글</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__1" href="./mypage.columns-saved.html">
+                                <span>관심칼럼</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.univ__init.html">
+                                <span>대학</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.major__init.html">
+                                <span>학과</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
+                            <a class="header--mobile--menu header--mobile--menu__2" href="./search.category__init.html">
+                                <span>전공분야</span><i class="header--mobile--menu--icon material-icons">chevron_right</i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -147,8 +176,8 @@
                 <div class="header--pc--menu--left">
                     <button class="header--pc--menu--button btn--text" onclick="$(this).next().slideToggle()">닉네임</button>
                     <div class="header--pc--menu--list">
-                        <a class="header--pc--menu" href="./user.profile__email.html">닉네임</a>
-                        <a class="header--pc--menu" href="./user.profile__sns.html">개인정보수정</a>
+                        <a class="header--pc--menu" href="./mypage.majors-interested.html">닉네임</a>
+                        <a class="header--pc--menu" href="./user.profile.html">개인정보수정</a>
                         <button class="header--pc--menu" >로그아웃</button>
                     </div>
                 </div>
@@ -159,22 +188,25 @@
 </div>
 
 <div class="section__detail">
-    <div class="container__padding container__detail">
+    <div class="container--padding container__detail">
 <div class="detail--header--title--box">
     <div class="detail--header--title">
         <span class="detail--header--title--name">서울과학기술대학교 간호학과</span>
         <span class="detail--header--title--location">서울</span>
     </div>
-    <button class="detail--header--title--like btn--text"><i class="material-icons">star</i></button>
+<!--36픽셀-->
+<button class="btn--toggle__star btn--text" onclick="$(this).toggleClass('activated')">
+    <i class="material-icons-round font-size__pc36 font-size__mobile24"></i>
+</button>
 </div>
 <div class="detail--header--info--box">
     <div class="detail--header--info">
-        <i class="detail--header--info--icon material-icons">star</i>
+        <i class="detail--header--info--icon material-icons-round">star</i>
         <span class="detail--header--info--text">1,106</span>
         <i class="detail--header--info--icon material-icons">remove_red_eye</i>
         <span class="detail--header--info--text">980,905</span>
     </div>
-    <button class="detail--header--info--share btn--text" onclick="alert('링크를 클립보드에 복사했습니다')">
+    <button class="detail--header--info--share btn--text" onclick="$('.modal--share').fadeIn()">
         <i class="detail--header--info--icon material-icons">share</i>
         <span class="detail--header--info--text">공유하기</span>
     </button>
@@ -217,7 +249,7 @@
     <div class="detail--header--major--info--link--list">
         <a class="detail--header--major--info--link detail--header--major--info--link__univ" href="./detail.univ.html">
             <div>
-                <div class="detail--header--major--info--link--name">서울과학기술대학교</div>
+                <div class="detail--header--major--info--link--name"><b>서울과학기술대학교</b></div>
                 <div>대학 바로 가기</div>
             </div>
             <i class="material-icons">chevron_right</i>
@@ -232,39 +264,40 @@
     </div>
 </div>
         <hr/>
-<div class="detail--wordclouds--box">
-    <div class="contents--title">워드클라우드
-<button class="btn--toggle--arrow btn--text activated" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).addClass('activated').parent().next().slideDown()">
+<div class="detail--wordcloud--box">
+    <div class="contents--title">
+        <span>워드클라우드</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
     <i class="material-icons"></i>
 </button>
     </div>
-    <div class="contents__padding contents--detail--wordclouds">
-        <div class="detail--wordclouds--inner--box">
-            <div id="detail--wordclouds--amcharts">
-                워드클라우드 패키지 필요.
+    <div class="contents--padding contents__detail--wordcloud">
+        <div class="detail--wordcloud--inner--box">
+            <div id="detail--wordcloud--echarts">
+                <!--@todo 워드클라우드 패키지 필요.-->
             </div>
-            <div class="detail--wordclouds--search">
-                <div class="detail--wordclouds--search--header">
-                    <span class="detail--wordclouds--search--header--title">키워드 검색</span>
-                    <span class="detail--wordclouds--search--header--keyword">간호</span>
-<div class="btn--sort--blue--list">
-    <button class="btn--sort--blue btn--text activated">▲</button>
-    <button class="btn--sort--blue btn--text">▼</button>
+            <div class="detail--wordcloud--search">
+                <div class="detail--wordcloud--search--header">
+                    <span class="detail--wordcloud--search--header--title">키워드 검색</span>
+                    <span class="detail--wordcloud--search--header--keyword">간호</span>
+<div class="btn--sort--list">
+    <button class="btn--sort__blue btn--text activated">▲</button>
+    <button class="btn--sort__blue btn--text">▼</button>
 </div>
                 </div>
-                <div class="detail--wordclouds--search--result--list">
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
-                    <a class="detail--wordclouds--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                <div class="detail--wordcloud--search--result--list">
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
+                    <a class="detail--wordcloud--search--result" href="./detail.major.html">서울과학기술대학교 간호학과</a>
                 </div>
             </div>
         </div>
@@ -272,85 +305,95 @@
 </div>
         <hr/>
 <div class="detail--books--box">
-    <div class="contents--title">추천도서
-<button class="btn--toggle--arrow btn--text activated" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).addClass('activated').parent().next().slideDown()">
+    <div class="contents--title">
+        <span>추천도서</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
     <i class="material-icons"></i>
 </button>
     </div>
-    <div class="contents__padding contents--detail--books">
-        <div class="detail--book--list owl-carousel">
-            <div class="detail--book activated">
-                <div class="detail--book--img">
-                    <img src="./assets/img/fakeImg/portrait.png"/>
-                </div>
-                <div class="detail--book--contents">
-                    <div class="detail--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
-                    <div class="detail--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
-                </div>
-            </div>
-            <div class="detail--book">
-                <div class="detail--book--img">
-                    <img src="./assets/img/fakeImg/portrait.png"/>
-                </div>
-                <div class="detail--book--contents">
-                    <div class="detail--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
-                    <div class="detail--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
-                </div>
-            </div>
-            <div class="detail--book">
-                <div class="detail--book--img">
-                    <img src="./assets/img/fakeImg/portrait.png"/>
-                </div>
-                <div class="detail--book--contents">
-                    <div class="detail--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
-                    <div class="detail--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
-                </div>
-            </div>
-            <div class="detail--book">
-                <div class="detail--book--img">
-                    <img src="./assets/img/fakeImg/portrait.png"/>
-                </div>
-                <div class="detail--book--contents">
-                    <div class="detail--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
-                    <div class="detail--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
-                </div>
-            </div>
-            <div class="detail--book">
-                <div class="detail--book--img">
-                    <img src="./assets/img/fakeImg/portrait.png"/>
-                </div>
-                <div class="detail--book--contents">
-                    <div class="detail--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
-                    <div class="detail--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
-                </div>
-            </div>
-            <div class="detail--book">
-                <div class="detail--book--img">
-                    <img src="./assets/img/fakeImg/portrait.png"/>
-                </div>
-                <div class="detail--book--contents">
-                    <div class="detail--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
-                    <div class="detail--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
-                </div>
-            </div>
-            <div class="detail--book">
-                <div class="detail--book--img">
-                    <img src="./assets/img/fakeImg/portrait.png"/>
-                </div>
-                <div class="detail--book--contents">
-                    <div class="detail--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
-                    <div class="detail--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
-                </div>
-            </div>
-            <div class="detail--book">
-                <div class="detail--book--img">
-                    <img src="./assets/img/fakeImg/portrait.png"/>
-                </div>
-                <div class="detail--book--contents">
-                    <div class="detail--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
-                    <div class="detail--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
-                </div>
-            </div>
+    <div class="contents--padding contents__detail--books">
+        <div class="owl-carousel__detail--book owl-carousel">
+<div class="item--book activated">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
+<div class="item--book">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
+<div class="item--book">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
+<div class="item--book">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
+<div class="item--book">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
+<div class="item--book">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
+<div class="item--book">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
+<div class="item--book">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
+<div class="item--book">
+    <div class="item--book--img">
+        <img src="./assets/img/fakeImg/portrait.png"/>
+    </div>
+    <div class="item--book--contents">
+        <div class="item--book--contents--title ellipsis2">어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+        <div class="item--book--contents--info">악동뮤지션&nbsp;&nbsp;|&nbsp;&nbsp;장르</div>
+    </div>
+</div>
         </div>
         <div class="detail--book--description">
             <div class="detail--book--description--header">
@@ -364,12 +407,13 @@
 </div>
         <hr/>
 <div class="detail--subjects--box">
-    <div class="contents--title">선택과목
-<button class="btn--toggle--arrow btn--text activated" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).addClass('activated').parent().next().slideDown()">
+    <div class="contents--title">
+        <span>선택과목</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
     <i class="material-icons"></i>
 </button>
     </div>
-    <div class="contents__padding contents--detail--subjects">
+    <div class="contents--padding contents__detail--subjects">
         <table class="detail--subjects--table">
             <thead><tr>
                 <th>분류</th>
@@ -418,296 +462,816 @@
 </div>
         <hr/>
 <div class="detail--majors--box">
-    <div class="contents--title">관련학과
-<button class="btn--toggle--arrow btn--text activated" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).addClass('activated').parent().next().slideDown()">
+    <div class="contents--title">
+        <span>관련학과</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
     <i class="material-icons"></i>
 </button>
     </div>
-    <div class="contents__padding contents--detail--majors">
+    <div class="contents--padding contents__detail--majors">
         <div class="detail--majors--majormap--box">
             <div class="detail--majors--majormap--tab--list">
                 <button class="detail--majors--majormap--tab activated">고려대학교</button>
                 <button class="detail--majors--majormap--tab">전국</button>
             </div>
-            <div id="detail--majormap--amcharts">
-                sigma.js 패키지 필요
-            </div>
+            <div id="detail--majors--echarts"></div>
         </div>
 <!--table로 thead 고정시키고 tbody는 스크롤 되게 하려면 복잡함. table 처럼 생긴 div 사용.-->
 <div class="flex--table">
     <div class="flex--table--thead--tr">
         <div class="flex--table--th">
             <span>학과</span>
-<div class="btn--sort--blue--list">
-    <button class="btn--sort--blue btn--text activated">▲</button>
-    <button class="btn--sort--blue btn--text">▼</button>
+<div class="btn--sort--list">
+    <button class="btn--sort__blue btn--text activated">▲</button>
+    <button class="btn--sort__blue btn--text">▼</button>
 </div>
         </div>
         <div class="flex--table--th">
             <span>모집인원</span>
-<div class="btn--sort--blue--list">
-    <button class="btn--sort--blue btn--text activated">▲</button>
-    <button class="btn--sort--blue btn--text">▼</button>
+<div class="btn--sort--list">
+    <button class="btn--sort__blue btn--text activated">▲</button>
+    <button class="btn--sort__blue btn--text">▼</button>
 </div>
         </div>
         <div class="flex--table--th">
             <span>수시 경쟁률</span>
-<div class="btn--sort--blue--list">
-    <button class="btn--sort--blue btn--text activated">▲</button>
-    <button class="btn--sort--blue btn--text">▼</button>
+<div class="btn--sort--list">
+    <button class="btn--sort__blue btn--text activated">▲</button>
+    <button class="btn--sort__blue btn--text">▼</button>
 </div>
         </div>
         <div class="flex--table--th">
             <span>정시 경쟁률</span>
-<div class="btn--sort--blue--list">
-    <button class="btn--sort--blue btn--text activated">▲</button>
-    <button class="btn--sort--blue btn--text">▼</button>
+<div class="btn--sort--list">
+    <button class="btn--sort__blue btn--text activated">▲</button>
+    <button class="btn--sort__blue btn--text">▼</button>
 </div>
         </div>
         <div class="flex--table--th">
             <span>등록금</span>
-<div class="btn--sort--blue--list">
-    <button class="btn--sort--blue btn--text activated">▲</button>
-    <button class="btn--sort--blue btn--text">▼</button>
+<div class="btn--sort--list">
+    <button class="btn--sort__blue btn--text activated">▲</button>
+    <button class="btn--sort__blue btn--text">▼</button>
 </div>
         </div>
         <div class="flex--table--th">
             <span>장학금</span>
-<div class="btn--sort--blue--list">
-    <button class="btn--sort--blue btn--text activated">▲</button>
-    <button class="btn--sort--blue btn--text">▼</button>
+<div class="btn--sort--list">
+    <button class="btn--sort__blue btn--text activated">▲</button>
+    <button class="btn--sort__blue btn--text">▼</button>
 </div>
         </div>
         <div class="flex--table--th">
             <span>재학기간</span>
-<div class="btn--sort--blue--list">
-    <button class="btn--sort--blue btn--text activated">▲</button>
-    <button class="btn--sort--blue btn--text">▼</button>
+<div class="btn--sort--list">
+    <button class="btn--sort__blue btn--text activated">▲</button>
+    <button class="btn--sort__blue btn--text">▼</button>
 </div>
         </div>
     </div>
     <div class="flex--table--tbody">
-        <div class="flex--table--tbody--tr">
-            <div class="flex--table--td">간호학과<span>보건대학</span></div>
+        <a href="./detail.major.html" class="flex--table--tbody--tr">
+            <div class="flex--table--td"><span>간호학과</span><span>보건대학</span></div>
             <div class="flex--table--td">197</div>
-            <div class="flex--table--td">15.2</div>
-            <div class="flex--table--td">3.9</div>
+            <div class="flex--table--td">26.51 : 1</div>
+            <div class="flex--table--td">4.68 : 1</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">6년 6개월</div>
-        </div>
-        <div class="flex--table--tbody--tr">
-            <div class="flex--table--td">간호학과<span>보건대학</span></div>
+        </a>
+        <a href="./detail.major.html" class="flex--table--tbody--tr">
+            <div class="flex--table--td"><span>간호학과</span><span>보건대학</span></div>
             <div class="flex--table--td">197</div>
-            <div class="flex--table--td">15.2</div>
-            <div class="flex--table--td">3.9</div>
+            <div class="flex--table--td">26.51 : 1</div>
+            <div class="flex--table--td">4.68 : 1</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">6년 6개월</div>
-        </div>
-        <div class="flex--table--tbody--tr">
-            <div class="flex--table--td">간호학과<span>보건대학</span></div>
+        </a>
+        <a href="./detail.major.html" class="flex--table--tbody--tr">
+            <div class="flex--table--td"><span>간호학과</span><span>보건대학</span></div>
             <div class="flex--table--td">197</div>
-            <div class="flex--table--td">15.2</div>
-            <div class="flex--table--td">3.9</div>
+            <div class="flex--table--td">26.51 : 1</div>
+            <div class="flex--table--td">4.68 : 1</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">6년 6개월</div>
-        </div>
-        <div class="flex--table--tbody--tr">
-            <div class="flex--table--td">간호학과<span>보건대학</span></div>
+        </a>
+        <a href="./detail.major.html" class="flex--table--tbody--tr">
+            <div class="flex--table--td"><span>간호학과</span><span>보건대학</span></div>
             <div class="flex--table--td">197</div>
-            <div class="flex--table--td">15.2</div>
-            <div class="flex--table--td">3.9</div>
+            <div class="flex--table--td">26.51 : 1</div>
+            <div class="flex--table--td">4.68 : 1</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">6년 6개월</div>
-        </div>
-        <div class="flex--table--tbody--tr">
-            <div class="flex--table--td">간호학과<span>보건대학</span></div>
+        </a>
+        <a href="./detail.major.html" class="flex--table--tbody--tr">
+            <div class="flex--table--td"><span>간호학과</span><span>보건대학</span></div>
             <div class="flex--table--td">197</div>
-            <div class="flex--table--td">15.2</div>
-            <div class="flex--table--td">3.9</div>
+            <div class="flex--table--td">26.51 : 1</div>
+            <div class="flex--table--td">4.68 : 1</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">6년 6개월</div>
-        </div>
-        <div class="flex--table--tbody--tr">
-            <div class="flex--table--td">간호학과<span>보건대학</span></div>
+        </a>
+        <a href="./detail.major.html" class="flex--table--tbody--tr">
+            <div class="flex--table--td"><span>간호학과</span><span>보건대학</span></div>
             <div class="flex--table--td">197</div>
-            <div class="flex--table--td">15.2</div>
-            <div class="flex--table--td">3.9</div>
+            <div class="flex--table--td">26.51 : 1</div>
+            <div class="flex--table--td">4.68 : 1</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">6년 6개월</div>
-        </div>
-        <div class="flex--table--tbody--tr">
-            <div class="flex--table--td">간호학과<span>보건대학</span></div>
+        </a>
+        <a href="./detail.major.html" class="flex--table--tbody--tr">
+            <div class="flex--table--td"><span>간호학과</span><span>보건대학</span></div>
             <div class="flex--table--td">197</div>
-            <div class="flex--table--td">15.2</div>
-            <div class="flex--table--td">3.9</div>
+            <div class="flex--table--td">26.51 : 1</div>
+            <div class="flex--table--td">4.68 : 1</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">300만원</div>
             <div class="flex--table--td">6년 6개월</div>
-        </div>
+        </a>
     </div>
 </div>
     </div>
 </div>
         <hr/>
-<div class="detail--replies--box">
-    <div class="contents--title">댓글<span class="contents--title--num">42</span></div>
-    <div class="contents__padding contents--detail--replies">
-        <div class="detail--replies--form">
-            <div class="detail--replies--write">
-                <div class="detail--replies--write--header">닉네임</div>
-                <label class="detail--replies--write--contents">
-                    <textarea placeholder="타인의 권리를 침해하거나 명예를 훼손하는 게시물은 통보 없이 제재를 받을 수 있습니다."></textarea>
-                </label>
-            </div>
-            <div class="detail--replies--submit">
-                <span class="detail--replies--submit--info">(0/1000)</span>
-                <button class="detail--replies--submit--button button--submit">등록</button>
-            </div>
+<div class="detail--columns--box">
+    <div class="contents--title">
+        <span>칼럼</span>
+<button class="btn--toggle__arrow btn--text" onclick="const t=$(this).hasClass('activated');t?$(this).removeClass('activated').parent().next().slideUp():$(this).toggleClass('activated').parent().next().slideDown()">
+    <i class="material-icons"></i>
+</button>
+    </div>
+    <div class="contents--padding contents__detail--columns">
+<div class="box--columntext">
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
         </div>
-        <div class="detail--replies--sort--button--list">
-            <button class="detail--replies--sort--button btn--text activated">추천순</button>
-            <button class="detail--replies--sort--button btn--text">최신순</button>
+    </div>
+</a>
+    <hr/>
+    <div class="columntext--list">
+        <!--@todo maximum 5 items-->
+        <a class="columntext ellipsis1" href="./column.view.html">심리학과 흔히 하는 오해 Top 3</a>
+        <a class="columntext ellipsis1" href="./column.view.html">2020 수시박람회 직접 다녀왔습니다</a>
+        <a class="columntext ellipsis1" href="./column.view.html">주저리주저리 말이 많으면 말줄임표가 나오도록 만들었습니다</a>
+        <a class="columntext ellipsis1" href="./column.view.html">주저리주저리 말이 많으면 말줄임표가 나오도록 만들었습니다</a>
+        <a class="columntext ellipsis1" href="./column.view.html">주저리주저리 말이 많으면 말줄임표가 나오도록 만들었습니다</a>
+    </div>
+</div>
+        <div class="owl-carousel__detail--column owl-carousel">
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
         </div>
-        <div class="detail--replies--list">
-            <div class="detail--replies--item">
-                <div class="detail--replies--item--header">
-                    <span class="detail--replies--item--header--nickname">닉네임</span>
-                    <span class="detail--replies--item--header--timestamp">2018-04-11 04:41</span>
-                    <button class="btn--text">신고</button>
-                </div>
-                <div class="detail--replies--item--contents">내용</div>
-                <div class="detail--replies--item--button--list">
-                    <button class="detail--replies--item--button detail--replies--item--button__reply">
-                        <span class="detail--replies--item--button--title">답글</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                    <button class="detail--replies--item--button detail--replies--item--button__like">
-                        <span class="detail--replies--item--button--title">좋아요</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                    <button class="detail--replies--item--button detail--replies--item--button__dislike activated">
-                        <span class="detail--replies--item--button--title">싫어요</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                </div>
-            </div>
-            <div class="detail--replies--item">
-                <div class="detail--replies--item--header">
-                    <span class="detail--replies--item--header--nickname">닉네임</span>
-                    <span class="detail--replies--item--header--timestamp">2018-04-11 04:41</span>
-                    <button class="btn--text">신고</button>
-                </div>
-                <div class="detail--replies--item--contents">내용</div>
-                <div class="detail--replies--item--button--list">
-                    <button class="detail--replies--item--button detail--replies--item--button__reply activated">
-                        <span class="detail--replies--item--button--title">답글</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                    <button class="detail--replies--item--button detail--replies--item--button__like">
-                        <span class="detail--replies--item--button--title">좋아요</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                    <button class="detail--replies--item--button detail--replies--item--button__dislike">
-                        <span class="detail--replies--item--button--title">싫어요</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                </div>
-            </div>
-            <!--여기부터 대댓글. @todo 답글버튼 없어짐.-->
-            <div class="detail--replies--list">
-                <div class="detail--replies--form">
-                    <div class="detail--replies--write">
-                        <div class="detail--replies--write--header">닉네임</div>
-                        <label class="detail--replies--write--contents">
-                            <textarea placeholder="타인의 권리를 침해하거나 명예를 훼손하는 게시물은 통보 없이 제재를 받을 수 있습니다."></textarea>
-                        </label>
-                    </div>
-                    <div class="detail--replies--submit">
-                        <span class="detail--replies--submit--info">(0/1000)</span>
-                        <button class="detail--replies--submit--button button--submit">등록</button>
-                    </div>
-                </div>
-                <div class="detail--replies--item">
-                    <div class="detail--replies--item--header">
-                        <span class="detail--replies--item--header--nickname">닉네임</span>
-                        <span class="detail--replies--item--header--timestamp">2018-04-11 04:41</span>
-                        <button class="btn--text">신고</button>
-                    </div>
-                    <div class="detail--replies--item--contents">내용</div>
-                    <div class="detail--replies--item--button--list">
-                        <button class="detail--replies--item--button detail--replies--item--button__like">
-                            <span class="detail--replies--item--button--title">좋아요</span>
-                            <!--@todo 999개 넘으면 999+-->
-                            <span class="detail--replies--item--button--num">999+</span>
-                        </button>
-                        <button class="detail--replies--item--button detail--replies--item--button__dislike activated">
-                            <span class="detail--replies--item--button--title">싫어요</span>
-                            <span class="detail--replies--item--button--num">108</span>
-                        </button>
-                    </div>
-                </div>
-                <!--내가 쓴 댓글. @todo (글쓴이), @todo 삭제. -->
-                <div class="detail--replies--item">
-                    <div class="detail--replies--item--header">
-                        <span class="detail--replies--item--header--nickname">닉네임</span>
-                        <span class="detail--replies--item--header--mine">(글쓴이)</span>
-                        <span class="detail--replies--item--header--timestamp">2018-04-11 04:41</span>
-                        <button class="btn--text">삭제</button>
-                    </div>
-                    <div class="detail--replies--item--contents">내용</div>
-                    <div class="detail--replies--item--button--list">
-                        <button class="detail--replies--item--button detail--replies--item--button__like">
-                            <span class="detail--replies--item--button--title">좋아요</span>
-                            <span class="detail--replies--item--button--num">108</span>
-                        </button>
-                        <button class="detail--replies--item--button detail--replies--item--button__dislike">
-                            <span class="detail--replies--item--button--title">싫어요</span>
-                            <span class="detail--replies--item--button--num">108</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--여기까지 대댓글-->
-            <div class="detail--replies--item">
-                <div class="detail--replies--item--header">
-                    <span class="detail--replies--item--header--nickname">닉네임</span>
-                    <span class="detail--replies--item--header--timestamp">2018-04-11 04:41</span>
-                    <button class="btn--text">신고</button>
-                </div>
-                <div class="detail--replies--item--contents">내용</div>
-                <div class="detail--replies--item--button--list">
-                    <button class="detail--replies--item--button detail--replies--item--button__reply">
-                        <span class="detail--replies--item--button--title">답글</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                    <button class="detail--replies--item--button detail--replies--item--button__like activated">
-                        <span class="detail--replies--item--button--title">좋아요</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                    <button class="detail--replies--item--button detail--replies--item--button__dislike">
-                        <span class="detail--replies--item--button--title">싫어요</span>
-                        <span class="detail--replies--item--button--num">108</span>
-                    </button>
-                </div>
-            </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+<!--메인페이지, detail에 사용.-->
+<a class="item--column--image" href="./column.view.html">
+    <div class="item--column--image--image background-cover-center" style="background-image:url('/assets/img/fakeImg/landscape.jpg');"></div>
+    <div class="item--column--image--text">
+        <div class="contents--small--title">수험생에게 인기 폭발!! <br/>고대 유니스토어를 털어보았습니다</div>
+        <div class="item--column--image--bottom">
+<div class="box--tags">
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+    <span class="item--tag">태그</span>
+</div>
+        </div>
+    </div>
+</a>
+        </div>
+        <div class="detail--column--link--box">
+            <a class="detail--column--link" href="./column.list.html">
+                <i class="material-icons">add</i>
+                <span>더보기</span>
+            </a>
         </div>
     </div>
 </div>
+        <hr/>
+<div class="box--replies">
+    <div class="contents--title">
+        <span>댓글</span><span class="contents--title--num">42</span>
+    </div>
+    <div class="contents--padding contents__replies">
+        <div class="replies--form">
+            <div class="replies--write">
+                <div class="replies--write--header">닉네임</div>
+                <label class="replies--write--contents">
+                    <textarea placeholder="타인의 권리를 침해하거나 명예를 훼손하는 게시물은 통보 없이 제재를 받을 수 있습니다."></textarea>
+                </label>
+            </div>
+            <div class="replies--submit">
+                <span class="replies--submit--info">(0/1000)</span>
+                <button class="replies--submit--button button--submit">등록</button>
+            </div>
+        </div>
+        <div class="replies--sort">
+<div class="btn--sort--list">
+    <button class="btn--sort__text btn--text activated">추천순</button>
+    <button class="btn--sort__text btn--text">최신순</button>
+</div>
+        </div>
+        <div class="replies--list">
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text" onclick="$('.modal--report').fadeIn()">신고</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <button class="item--reply--button item--reply--button__reply">
+            <span class="item--reply--button--title">답글</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__like">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text" onclick="$('.modal--report').fadeIn()">신고</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <button class="item--reply--button item--reply--button__reply">
+            <span class="item--reply--button--title">답글</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__like">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike activated">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+<!--@todo 답글 클릭하면 activated 클래스 추가.-->
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text" onclick="$('.modal--report').fadeIn()">신고</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <button class="item--reply--button item--reply--button__reply activated">
+            <span class="item--reply--button--title">답글</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__like">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+            <!--여기부터 대댓글. @todo 답글버튼 없어짐.-->
+            <div class="replies--list">
+                <div class="replies--form">
+                    <div class="replies--write">
+                        <div class="replies--write--header">닉네임</div>
+                        <label class="replies--write--contents">
+                            <textarea placeholder="타인의 권리를 침해하거나 명예를 훼손하는 게시물은 통보 없이 제재를 받을 수 있습니다."></textarea>
+                        </label>
+                    </div>
+                    <div class="replies--submit">
+                        <span class="replies--submit--info">(0/1000)</span>
+                        <button class="replies--submit--button button--submit">등록</button>
+                    </div>
+                </div>
+<!--답글은 답글버튼 없음-->
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text" onclick="$('.modal--report').fadeIn()">신고</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <button class="item--reply--button item--reply--button__like">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+<!--답글은 답글버튼 없음-->
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text" onclick="$('.modal--report').fadeIn()">신고</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <button class="item--reply--button item--reply--button__like">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike activated">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+<!--답글은 답글버튼 없음-->
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text" onclick="$('.modal--report').fadeIn()">신고</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <button class="item--reply--button item--reply--button__like activated">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+<!--내가 쓴 댓글. @todo (글쓴이), 신고대신 삭제. -->
+<!--답글은 답글버튼 없음-->
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--mine">(글쓴이)</span>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text">삭제</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <!--@todo 자기글 좋아요 가능??-->
+        <button class="item--reply--button item--reply--button__like activated">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+            </div>
+            <!--여기까지 대댓글-->
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text" onclick="$('.modal--report').fadeIn()">신고</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <button class="item--reply--button item--reply--button__reply">
+            <span class="item--reply--button--title">답글</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__like activated">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+<!--내가 쓴 댓글. @todo (글쓴이), 신고대신 삭제. -->
+<div class="item--reply">
+    <div class="item--reply--header">
+        <b>닉네임</b>
+        <span class="item--reply--header--mine">(글쓴이)</span>
+        <span class="item--reply--header--timestamp">2018-04-11 04:41</span>
+        <button class="btn--text">삭제</button>
+    </div>
+    <div class="item--reply--contents">내용</div>
+    <div class="item--reply--button--list">
+        <button class="item--reply--button item--reply--button__reply">
+            <span class="item--reply--button--title">답글</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <!--@todo 자기글 좋아요 가능??-->
+        <button class="item--reply--button item--reply--button__like activated">
+            <span class="item--reply--button--title">좋아요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+        <button class="item--reply--button item--reply--button__dislike">
+            <span class="item--reply--button--title">싫어요</span>
+            <span class="item--reply--button--num">108</span>
+        </button>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="modal modal--share">
+    <div class="modal--section modal--section__share">
+        <button class="modal--share--button">페이스북 공유하기</button>
+        <hr/>
+        <button class="modal--share--button">카카오톡 공유하기</button>
+        <hr/>
+        <button class="modal--share--button">URL 복사하기</button>
+    </div>
+</div>
+<div class="modal modal--report">
+    <div class="modal--section modal--section__report">
+        <div class="contents--title contents--title__modal">
+            <span>신고하기</span>
+            <button class="modal--close btn--text" onclick="$(this).parents('.modal').fadeOut();"><i class="material-icons">close</i></button>
+        </div>
+        <hr/>
+        <div class="modal--body">
+            <label class="label--text label--text__button">
+                <textarea class="modal--report--textarea"></textarea>
+            </label>
+            <button class="button--submit">제출하기</button>
+        </div>
     </div>
 </div>
 
 <!--맨 밑에 회사정보.-->
 <footer class="section__footer">
-    <div class="container container__footer">
+    <div class="container--padding container__footer">
         <div class="footer--box">
-            <div class="footer footer__title">MajorMap<a href="#" class="footer--go-to-top">↑</a></div>
-            <div class="footer">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
+            <div class="footer">
+                <b style="letter-spacing: 0.05em;">MajorMap</b>
+                <a href="#" class="footer--go-to-top"><i class="material-icons">arrow_upward</i></a>
+            </div>
+            <div class="footer" style="font-weight:500">(주)잡쇼퍼 | 대표: 권기원 X 와이즈멘토</div>
             <div class="footer">사업자등록번호: 315-87-00617</div>
             <div class="footer">서울특별시 관악구 관악로 1<br class="footer--br"/> 서울대학교 연구공원 SK센터 1층 T1</div>
             <div class="footer--link--list">
@@ -718,7 +1282,7 @@
             </div>
         </div>
         <div class="footer--box">
-            <div class="footer footer__title">고객센터</div>
+            <div class="footer"><b>고객센터</b></div>
             <div class="footer"><a>카카오톡 플러스친구</a></div>
             <div class="footer"><a href="mailto:cs@jobshopper.co.kr">cs@jobshopper.co.kr</a></div>
         </div>
@@ -750,335 +1314,56 @@ $(document).ready(function(){        $(window).bind('beforeunload', function(){
     });
 </script>
 <!--@todo 여기까지 없앨 것.-->
-<script src="//www.amcharts.com/lib/4/core.js"></script>
-<script src="//www.amcharts.com/lib/4/charts.js"></script>
-<script src="//www.amcharts.com/lib/4/plugins/wordCloud.js"></script>
-<script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <script>
-    let chart = am4core.create('detail--wordclouds--amcharts', am4plugins_wordCloud.WordCloud);
-    chart.fontFamily ='Noto Sans KR';
-
-    let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
-    series.maxCount = 100;
-    series.minWordLength = 1;
-    series.colors = new am4core.ColorSet();
-    series.colors.passOptions = {};
-    series.data = [{
-        'tag': 'Breaking News',
-        'weight': 60
-    }, {
-        'tag': 'Environment',
-        'weight': 80
-    }, {
-        'tag': 'Politics',
-        'weight': 90
-    }, {
-        'tag': 'Business',
-        'weight': 25
-    }, {
-        'tag': 'Lifestyle',
-        'weight': 30
-    }, {
-        'tag': 'World',
-        'weight': 45
-    }, {
-        'tag': 'Sports',
-        'weight': 160
-    }, {
-        'tag': 'Fashion',
-        'weight': 20
-    }, {
-        'tag': 'Education',
-        'weight': 78
-    }];
-
-    series.dataFields.word = 'tag';
-    series.dataFields.value = 'weight';
-    series.labels.template.url = './detail.category.html?keyword={word}';
-    series.labels.template.tooltipText = '{word}';
-    series.labels.template.urlTarget = '_blank';
+    $(document).click(function(event) {
+        if($(event.target).closest('.modal').length&&!$(event.target).closest('.modal--section').length) {
+            $(".modal").fadeOut();
+        }
+    });
 </script>
+<script src="./assets/lib/echarts.min.js"></script>
+<script src="./assets/data/majormapData.js"></script>
 <script>
-    am4core.ready(function() {
-
-// Themes begin
-        am4core.useTheme(am4themes_animated);
-// Themes end
-        var chart = am4core.create("detail--majormap--amcharts", am4plugins_forceDirected.ForceDirectedTree);
-        chart.legend = new am4charts.Legend();
-
-        var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
-
-        networkSeries.data = [{
-            name: 'Flora',
-            children: [{
-                name: 'Black Tea', value: 1
-            }, {
-                name: 'Floral',
-                children: [{
-                    name: 'Chamomile', value: 1
-                }, {
-                    name: 'Rose', value: 1
-                }, {
-                    name: 'Jasmine', value: 1
-                }]
-            }]
-        }, {
-            name: 'Fruity',
-            children: [{
-                name: 'Berry',
-                children: [{
-                    name: 'Blackberry', value: 1
-                }, {
-                    name: 'Raspberry', value: 1
-                }, {
-                    name: 'Blueberry', value: 1
-                }, {
-                    name: 'Strawberry', value: 1
-                }]
-            }, {
-                name: 'Dried Fruit',
-                children: [{
-                    name: 'Raisin', value: 1
-                }, {
-                    name: 'Prune', value: 1
-                }]
-            }, {
-                name: 'Other Fruit',
-                children: [{
-                    name: 'Coconut', value: 1
-                }, {
-                    name: 'Cherry', value: 1
-                }, {
-                    name: 'Pomegranate', value: 1
-                }, {
-                    name: 'Pineapple', value: 1
-                }, {
-                    name: 'Grape', value: 1
-                }, {
-                    name: 'Apple', value: 1
-                }, {
-                    name: 'Peach', value: 1
-                }, {
-                    name: 'Pear', value: 1
-                }]
-            }, {
-                name: 'Citrus Fruit',
-                children: [{
-                    name: 'Grapefruit', value: 1
-                }, {
-                    name: 'Orange', value: 1
-                }, {
-                    name: 'Lemon', value: 1
-                }, {
-                    name: 'Lime', value: 1
-                }]
-            }]
-        }, {
-            name: 'Sour/Fermented',
-            children: [{
-                name: 'Sour',
-                children: [{
-                    name: 'Sour Aromatics', value: 1
-                }, {
-                    name: 'Acetic Acid', value: 1
-                }, {
-                    name: 'Butyric Acid', value: 1
-                }, {
-                    name: 'Isovaleric Acid', value: 1
-                }, {
-                    name: 'Citric Acid', value: 1
-                }, {
-                    name: 'Malic Acid', value: 1
-                }]
-            }, {
-                name: 'Alcohol/Fremented',
-                children: [{
-                    name: 'Winey', value: 1
-                }, {
-                    name: 'Whiskey', value: 1
-                }, {
-                    name: 'Fremented', value: 1
-                }, {
-                    name: 'Overripe', value: 1
-                }]
-            }]
-        }, {
-            name: 'Green/Vegetative',
-            children: [{
-                name: 'Olive Oil', value: 1
-            }, {
-                name: 'Raw', value: 1
-            }, {
-                name: 'Green/Vegetative',
-                children: [{
-                    name: 'Under-ripe', value: 1
-                }, {
-                    name: 'Peapod', value: 1
-                }, {
-                    name: 'Fresh', value: 1
-                }, {
-                    name: 'Dark Green', value: 1
-                }, {
-                    name: 'Vegetative', value: 1
-                }, {
-                    name: 'Hay-like', value: 1
-                }, {
-                    name: 'Herb-like', value: 1
-                }]
-            }, {
-                name: 'Beany', value: 1
-            }]
-        }, {
-            name: 'Other',
-            children: [{
-                name: 'Papery/Musty',
-                children: [{
-                    name: 'Stale', value: 1
-                }, {
-                    name: 'Cardboard', value: 1
-                }, {
-                    name: 'Papery', value: 1
-                }, {
-                    name: 'Woody', value: 1
-                }, {
-                    name: 'Moldy/Damp', value: 1
-                }, {
-                    name: 'Musty/Dusty', value: 1
-                }, {
-                    name: 'Musty/Earthy', value: 1
-                }, {
-                    name: 'Animalic', value: 1
-                }, {
-                    name: 'Meaty Brothy', value: 1
-                }, {
-                    name: 'Phenolic', value: 1
-                }]
-            }, {
-                name: 'Chemical',
-                children: [{
-                    name: 'Bitter', value: 1
-                }, {
-                    name: 'Salty', value: 1
-                }, {
-                    name: 'Medicinal', value: 1
-                }, {
-                    name: 'Petroleum', value: 1
-                }, {
-                    name: 'Skunky', value: 1
-                }, {
-                    name: 'Rubber', value: 1
-                }]
-            }]
-        }, {
-            name: 'Roasted',
-            children: [{
-                name: 'Pipe Tobacco', value: 1
-            }, {
-                name: 'Tobacco', value: 1
-            }, {
-                name: 'Burnt',
-                children: [{
-                    name: 'Acrid', value: 1
-                }, {
-                    name: 'Ashy', value: 1
-                }, {
-                    name: 'Smoky', value: 1
-                }, {
-                    name: 'Brown, Roast', value: 1
-                }]
-            }, {
-                name: 'Cereal',
-                children: [{
-                    name: 'Grain', value: 1
-                }, {
-                    name: 'Malt', value: 1
-                }]
-            }]
-        }, {
-            name: 'Spices',
-            children: [{
-                name: 'Pungent', value: 1
-            }, {
-                name: 'Pepper', value: 1
-            }, {
-                name: 'Brown Spice',
-                children: [{
-                    name: 'Anise', value: 1
-                }, {
-                    name: 'Nutmeg', value: 1
-                }, {
-                    name: 'Cinnamon', value: 1
-                }, {
-                    name: 'Clove', value: 1
-                }]
-            }]
-        }, {
-            name: 'Nutty/Cocoa',
-            children: [{
-                name: 'Nutty',
-                children: [{
-                    name: 'Peanuts', value: 1
-                }, {
-                    name: 'Hazelnut', value: 1
-                }, {
-                    name: 'Almond', value: 1
-                }]
-            }, {
-                name: 'Cocoa',
-                children: [{
-                    name: 'Chocolate', value: 1
-                }, {
-                    name: 'Dark Chocolate', value: 1
-                }]
-            }]
-        }, {
-            name: 'Sweet',
-            children: [{
-                name: 'Brown Sugar',
-                children: [{
-                    name: 'Molasses', value: 1
-                }, {
-                    name: 'Maple Syrup', value: 1
-                }, {
-                    name: 'Caramelized', value: 1
-                }, {
-                    name: 'Honey', value: 1
-                }]
-            }, {
-                name: 'Vanilla', value: 1
-            }, {
-                name: 'Vanillin', value: 1
-            }, {
-                name: 'Overall Sweet', value: 1
-            }, {
-                name: 'Sweet Aromatics', value: 1
-            }]
-        }];
-
-        networkSeries.dataFields.linkWith = "linkWith";
-        networkSeries.dataFields.name = "name";
-        networkSeries.dataFields.id = "name";
-        networkSeries.dataFields.value = "value";
-        networkSeries.dataFields.children = "children";
-
-        networkSeries.nodes.template.tooltipText = "{name}";
-        networkSeries.nodes.template.fillOpacity = 1;
-
-        networkSeries.nodes.template.label.text = "{name}";
-        networkSeries.fontSize = 8;
-        networkSeries.maxLevels = 2;
-        networkSeries.maxRadius = am4core.percent(6);
-        networkSeries.manyBodyStrength = -16;
-        networkSeries.nodes.template.label.hideOversized = true;
-        networkSeries.nodes.template.label.truncate = true;
-
-    }); // end am4core.ready()
+    let showAllLegend,toggleLegend;
+$(document).ready(function(){        let majormapChart=echarts.init(document.getElementById("detail--majors--echarts"));
+        majormapChart.on('click', function (params){if(params.dataType==='node'){
+            // 노드 클릭 이벤트
+        }});
+        $(window).on('resize',function(){
+            majormapChart.resize();
+        });
+        $('#detailMapLegends').html(getMajormapChartLegendHtml(majormapData));
+        majormapChart.setOption(getMajormapChartOption(majormapData));
+        showAllLegend=function($legend){
+            let hasClass=$legend.hasClass('checked');
+            $('#detailMapLegends>.category').each(function(){
+                if($(this).hasClass('checked')===hasClass){toggleLegend($(this));}
+            });
+            $legend.html('전체'+(hasClass?'선택':'해제')).toggleClass('checked');
+        };
+        toggleLegend=function($legend){
+            majormapChart.dispatchAction({type:'legendToggleSelect',name:$legend.data('cname')});
+            $legend.toggleClass('checked');
+        };
+    });
+</script>
+<script src="./assets/lib/echarts-wordcloud.min.js"></script>
+<script src="./assets/data/wordcloudData.js"></script>
+<script>
+$(document).ready(function(){        let wordCloudChart=echarts.init(document.getElementById('detail--wordcloud--echarts'));
+        wordCloudChart.on('click', function (params){
+            $('.detail--wordcloud--search--header--keyword').css({color:params.color}).html(params.name);
+        });
+        $(window).on('resize',function(){
+            if (navigator.platform&&"win16|win32|win64|mac".indexOf(navigator.platform.toLowerCase())>=0){wordCloudChart.resize();}
+        });
+        // @todo 그래프 데이터 넣기
+        wordCloudChart.setOption(getWordcloudChartOption(wordcloudData));
+    });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
-$(document).ready(function(){        $('.owl-carousel').owlCarousel({
+$(document).ready(function(){        $('.owl-carousel__detail--book').owlCarousel({
             loop:true,
             margin:40,
             items:6,
@@ -1086,7 +1371,15 @@ $(document).ready(function(){        $('.owl-carousel').owlCarousel({
             nav:true,
             dots:false,
             navText: ['<i class="material-icons">chevron_left</i>', '<i class="material-icons">chevron_right</i>']
-        })
+        });
+        $('.owl-carousel__detail--column').owlCarousel({
+            loop:true,
+            margin:40,
+            items:5,
+            autoWidth:true,
+            nav:false,
+            dots:false
+        });
     });
 </script>
 </body>

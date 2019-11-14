@@ -1,4 +1,4 @@
-.login--email--box{flex:0 1 380px;}
+.login--email--box{flex:0 1 380px;width:380px;}
 .contents--title__login--email{margin-bottom:40px;}
 @media (max-width:920px) {
     .login--email--box{margin-left:auto;margin-right:auto;}

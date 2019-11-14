@@ -1,0 +1,5 @@
+.box--columns{display:flex;flex-wrap:wrap;margin-right:-60px;max-width:none;justify-content:space-between;}
+.box--columns .item--column--image{margin-right:60px;margin-bottom:60px;}
+@media(max-width:320px) {
+    .box--columns{margin-right:0;}
+}

@@ -1,3 +1,4 @@
+# ~ 10.31
 제이쿼리는 owl-carousel(메인페이지 슬라이드 배너, 추천도서 슬라이드), beforeunload(입력하다가 나가는 경우 경고창) 빼고 전부 인라인으로 넣었음. hover 효과는 전부 css로 처리.
 vue.js 보니까 스타일링을 component별로 해도 되는 거 같아서 css 합치지않고 component 폴더 그대로 첨부.
 

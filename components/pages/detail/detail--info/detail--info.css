@@ -1,4 +1,4 @@
-.contents--detail--info{border:1px solid #A1A1A1;}
+.contents__detail--info{border:1px solid #A1A1A1;}
 .detail--info--list{display:flex;flex-wrap:wrap;padding:16px 16px 4px;height:160px;overflow-y:auto}
 .detail--info{margin-bottom:12px;width:50%;}
 @media(max-width:576px) {

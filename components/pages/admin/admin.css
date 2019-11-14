@@ -1,8 +1,8 @@
 .section__admin{margin-top:40px;margin-bottom:100px;}
-.container__admin{display:flex;}
-.container__admin>hr{width:0;flex:none;border-left: 1px solid #e1e1e1;border-right:0;height: 600px;border-top: 0;margin-left:40px;margin-right:40px;}
+.container__admin__flex{display:flex;}
+.container__admin__flex>hr{width:0;flex:none;border-left: 1px solid #a1a1a1;border-right:0;height: 600px;border-top: 0;margin-left:40px;margin-right:40px;}
 @media(max-width:920px) {
     .section__admin{margin-bottom:113px;}
-    .container__admin{display:block;}
-    .container__admin>hr{height:0;width:100%;border-left:0;border-bottom: 1px solid #e1e1e1;margin:40px 0;}
+    .container__admin__flex{display:block;}
+    .container__admin__flex>hr{height:0;width:100%;border-left:0;border-bottom: 1px solid #a1a1a1;margin:40px 0;}
 }

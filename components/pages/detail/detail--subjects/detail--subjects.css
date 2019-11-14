@@ -1,6 +1,6 @@
 .detail--subjects--table{text-align:left;}
-.detail--subjects--table th{border-bottom: 1px solid #A1A1A1;}
-.detail--subjects--table td{border-bottom: 1px solid #e1e1e1;}
+.detail--subjects--table th{font-size: 18px;line-height: 26px;border-bottom:1px solid #A1A1A1;}
+.detail--subjects--table td{border-top: 1px solid #e1e1e1;}
 .detail--subjects--table tr>*{padding:16px;vertical-align:top;}
 .detail--subjects--table td div{margin-bottom:8px;}
 .detail--subjects--table td div:last-child{margin-bottom:0;}

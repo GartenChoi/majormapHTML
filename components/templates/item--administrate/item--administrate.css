@@ -1,0 +1,17 @@
+.item--administrate{margin-top:16px;padding:16px;}
+.item--administrate--header{margin-bottom:8px;font-size:0;}
+.item--administrate--header--title{font-size:16px;line-height: 23px;margin-right:16px;}
+.item--administrate--header--subtitle--list{display:inline-block;}
+.item--administrate--header--subtitle{display:inline-block;margin-right:16px;font-weight: 500;font-size: 14px;line-height: 20px;}
+.item--administrate--header--button--list{float:right;display:flex;height:23px;align-items:center;font-size:12px;line-height:17px;}
+.item--administrate--header--button__modify{color:#666;}
+.item--administrate--header--button__delete{margin-left:8px;color:#EB5757;}
+.item--administrate--text{font-size:14px;line-height: 20px;}
+
+.item--administrate.passed .item--administrate--header--title{text-decoration:line-through;}
+.item--administrate.passed .item--administrate--header--subtitle{text-decoration:line-through;}
+.item--administrate.passed .item--administrate--text{text-decoration:line-through;}
+
+@media(max-width:920px) {
+    .item--administrate--header--subtitle--list{display:block;margin-top:8px;}
+}

@@ -1,2 +1,3 @@
-.btn--more{color:#0F75BC;border-left:0;border-top:0;border-right:0;border-bottom:1px solid #E1E1E1;background-color:transparent;padding:0;width:100%;height:40px;}
+.btn--more{color:#0F75BC;border:0;background-color:transparent;padding:0;width:100%;height:40px;}
+.btn--more .material-icons{font-size:32px;}
 .btn--more:disabled{display:none;}

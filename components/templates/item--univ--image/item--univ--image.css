@@ -1,0 +1,31 @@
+.item--univ--image{display:flex;padding:24px 0 20px;border-top: 1px solid #E1E1E1;border-bottom:1px solid #e1e1e1;margin-bottom:-1px;word-break:break-all;}
+.item--univ--image--logo{margin-right:16px;width:100px;height:100px;border:1px solid #E1E1E1;}
+.item--univ--image--text{flex:auto;}
+.contents--small--title__item--univ--image{margin-bottom:8px;display:block;}
+.item--univ--image--info--list{font-size:14px;line-height:20px;height:76px;min-height:76px;margin-bottom:-4px;display:flex;flex-direction:column;flex-wrap:wrap;position:relative;}
+.item--univ--image--info{margin-bottom:4px;display:flex;}
+.item--univ--image--info--title{width:80px;color:#959595;font-weight:bold;}
+
+.item--univ--image--info--button--mobile{transition:transform .5s;display:none;margin-left:auto;}
+
+@media(max-width:920px) {
+    .contents--small--title__item--univ--image{font-size:14px;line-height:20px;}
+    .item--univ--image{padding-top:16px;padding-bottom:16px;}
+    .item--univ--image--info--list{font-size:12px;line-height:17px;flex-wrap:nowrap;padding-bottom:30px;height:auto;}
+
+    .item--univ--image--info--title{font-weight:500;}
+    .item--univ--image--info__mobile__1 .item--univ--image--info--title{display:none;}
+    .item--univ--image--info--mobile__tags .item--univ--image--info--title{display:none;}
+    .item--univ--image--info__mobile__2{display:none;}
+    .item--univ--image--info{flex: 1 1 150px;}
+
+    .item--univ--image--info--bottom--mobile{display:flex;position:absolute;left:0;bottom:0;width:100%;}
+    .item--univ--image--info--mobile__tags{overflow-x:auto;flex:1 1 100px;white-space: nowrap;}
+    .item--univ--image--info--mobile__tags .item--univ--image--info{margin-right:4px;padding:2px 8px;background-color:#f2f2f2;display:inline-block;width:auto;}
+    .item--univ--image--info--button--mobile{display:block;}
+
+    .item--univ--image.activated .item--univ--image--logo{display:none;}
+    .item--univ--image.activated .item--univ--image--info__mobile__1{display:none;}
+    .item--univ--image.activated .item--univ--image--info__mobile__2{display:flex;flex-wrap:wrap;}
+    .item--univ--image.activated .item--univ--image--info--button--mobile{transform:rotate(45deg);}
+}

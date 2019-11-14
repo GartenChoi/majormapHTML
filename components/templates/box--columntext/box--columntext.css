@@ -1,0 +1,10 @@
+.box--columntext{display:flex;}
+.box--columntext hr{display:none;margin-top:16px;margin-bottom:16px;}
+.columntext--list{flex:1 1 300px;margin-bottom:-20px;font-size:16px;line-height:23px;margin-left:24px;}
+.columntext{margin-bottom:20px;width:300px;display:inline-block;}
+@media(max-width:1400px) {
+    .box--columntext{display:block;}
+    .box--columntext hr{display:block;}
+    .columntext--list{margin-left:0;}
+    .columntext{width:100%;}
+}

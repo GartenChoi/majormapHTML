@@ -1,0 +1,16 @@
+.contents__replies{font-size: 14px;line-height: 20px;word-break:break-all;}
+.replies--input{border:1px solid #e1e1e1;padding:16px;}
+.replies--form{background-color:#fff;border:1px solid #e1e1e1;}
+.replies--write{background-color:#fff;padding:16px;}
+.replies--write--header{margin-bottom:8px;}
+.replies--write--contents{width:100%;}
+.replies--write--contents>textarea{border:0;width:100%;height:40px;}
+.replies--submit{text-align:right;border-top:1px solid #e1e1e1;color:#959595;font-size:12px;line-height:17px;}
+.replies--submit--button{display:inline-block;margin-left:4px;width:100px;height:40px;margin-top:0;}
+.replies--sort{padding-bottom:8px;margin-top:24px;text-align:right;}
+.replies--list .replies--list{padding:16px 16px 16px 32px;background-color:#f2f2f2;}
+.replies--list .replies--list .item--reply:before{content:"ㄴ";position:absolute;top:16px;left:-21px;}
+@media(max-width:576px) {
+    .replies--write--header{font-weight:500;}
+    .replies--write--contents>textarea{height:100px;}
+}

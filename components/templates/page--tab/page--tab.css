@@ -1,0 +1,5 @@
+.section__page--tab{font-weight: 500;font-size: 18px;line-height: 26px;border-bottom:1px solid #e1e1e1;}
+.page--tab{padding-top:16px;padding-bottom:16px;width:140px;display:inline-block;text-align: center;}
+@media (max-width:920px) {
+    .section__page--tab{display:none}
+}

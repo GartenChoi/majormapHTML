@@ -1,17 +1,17 @@
 .section__index--shortcut{margin-top:40px;margin-bottom:40px;}
-.contents--index--shortcut{display:flex;}
+.contents__index--shortcut{display:flex;justify-content:space-between;}
 .index--shortcut--box{flex:0 1 400px;color:#fff;display:flex;align-items:center;flex-wrap:wrap;position:relative;padding:20px 40px;}
 .index--shortcut--box:before{content:'';position:absolute;top:0;left:0;right:0;height:0;border-left:0 solid transparent;border-right:140px solid transparent;border-top-width:140px;border-top-style:solid;}
 .index--shortcut--box__green{background-color:#4DC186;}
 .index--shortcut--box__green:before{background-color:#3EBC7B;border-top-color: #4DC186;}
 .index--shortcut--box__green .material-icons{background-color: #09A957;}
-.index--shortcut--box__violet{background-color:#686591;margin-left:auto;margin-right:auto;}
+.index--shortcut--box__violet{background-color:#686591;}
 .index--shortcut--box__violet:before{background-color: #5B5888;border-top-color: #686591;}
 .index--shortcut--box__violet .material-icons{background:  #302C69;;}
 .index--shortcut--box__blue{background-color:#579FD0;}
 .index--shortcut--box__blue:before{background-color: #4997CC;border-top-color: #579FD0;}
 .index--shortcut--box__blue .material-icons{background-color: #1A7BBF;}
-.index--shortcut--icon{background-color:#fff;height:100px;width:100px;z-index:1;}
+.index--shortcut--icon{background-color:#fff;height:100px;width:100px;z-index:1;display:block;}
 .index--shortcut--text{flex:auto;text-align:right;z-index:1}
 .index--shortcut--subtitle{margin-bottom:16px;}
 .index--shortcut--title{font-weight:bold;font-size:24px;}

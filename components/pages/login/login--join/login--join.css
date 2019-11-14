@@ -1,18 +1,18 @@
 .section__login--join{margin-bottom:117px;}
-.container__login--join{max-width:952px;padding-left:16px;padding-right:16px;}
+.container__login--join{width:952px;padding-left:16px;padding-right:16px;}
 .login--join--box{padding:32px 24px;border:1px solid #a1a1a1;display:flex;align-items:center;}
 .login--join--contents--title--list{flex:1 1 300px;font-size: 20px;line-height: 29px;}
-.contents--title__login--join{margin-bottom:8px;font-weight:normal;}
+.login--join--contents--title{margin-bottom:8px;font-weight:normal;}
 .login--join--title--underline{width:36px;border-top:1px solid #000;margin-left:0;margin-top:16px;}
 .login--join--contents{flex:1 1 300px;}
 .login--join--text{color:#666;line-height: 20px;font-size:14px;}
-.login--join--text a{font-weight:bold;color:#0F75BC;margin-left:4px;}
 .login--join--link{color:#333;margin-top:8px;display:inline-block;padding:8px 17px;border:1px solid #555555;;text-align:center}
-.login--join--link .material-icons{margin-right:8px;}
+.login--join--link span{margin-left:8px;}
 @media (max-width:920px) {
     .section__login--join{margin-bottom:56px;}
-    .contents--title__login--join{display:inline-block;font-weight:500}
+    .login--join--contents--title{display:inline-block;font-weight:500;font-size:18px;line-height:26px;}
+    .login--join--contents{margin-top:8px;}
     .login--join--box{padding:24px 16px;display:block;text-align:center;}
     .login--join--title--underline{display:none;}
-    .login--join--link{font-weight:500;padding:9px 28px;}
+    .login--join--link{font-weight:500;padding:10px 23px;margin-top:16px;}
 }

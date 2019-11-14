@@ -1,0 +1,10 @@
+.btn--tooptip{display:inline-flex;position:relative;margin-left:2px;color:#666;margin-left:4px;}
+.btn--tooptip--contents{max-width:none;display:none;opacity:0;transition:opacity .5s;z-index:1;position:absolute;top:100%;left:0;font-size:14px;line-height:20px;font-weight:normal;color:#333;background-color:#fff;padding:16px 16px 8px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);border-radius:6px;border:1px solid #E1E1E1;margin-top:4px;}
+.btn--tooptip--contents--right{max-width:none;display:none;opacity:0;transition:opacity .5s;z-index:1;position:absolute;top:100%;right:0;font-size:14px;line-height:20px;font-weight:normal;color:#333;background-color:#fff;padding:16px 16px 8px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);border-radius:6px;border:1px solid #E1E1E1;margin-top:4px;}
+.btn--tooptip--contents b{font-weight:500;font-size:16px;line-height:23px;}
+.btn--tooptip--contents a{text-decoration:underline;}
+.btn--tooptip--contents p{margin-bottom:8px;margin-top:0;}
+.btn--tooptip:hover .btn--tooptip--contents{display:block;opacity:1}
+.btn--tooptip:hover .btn--tooptip--contents--right{display:block;opacity:1}
+.btn--tooptip.activated .btn--tooptip--contents{display:block;opacity:1}
+.btn--tooptip.activated .btn--tooptip--contents--right{display:block;opacity:1}

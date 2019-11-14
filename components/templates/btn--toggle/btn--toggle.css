@@ -1,0 +1,15 @@
+.btn--toggle__bookmark{color:#0F75BC;}
+.btn--toggle__bookmark .material-icons-round:before{content:'bookmark_border'}
+.btn--toggle__bookmark.activated .material-icons-round:before{content:'bookmark'}
+
+.btn--toggle__star{color:#0F75BC;}
+.btn--toggle__star .material-icons-round:before{content:'star_border'}
+.btn--toggle__star.activated .material-icons-round:before{content:'star'}
+
+.btn--toggle__arrow{color:#666;}
+.btn--toggle__arrow .material-icons:before{content:'keyboard_arrow_down'}
+.btn--toggle__arrow.activated .material-icons:before{content:'keyboard_arrow_up'}
+
+.btn--toggle__x{color:#666;opacity:0;}
+.btn--toggle__x .material-icons:before{content:'close'}
+.btn--toggle__x.activated{opacity:1}

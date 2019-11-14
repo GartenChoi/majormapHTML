@@ -1,5 +1,4 @@
 .detail--majors--majormap--tab--list{display:flex;}
-.detail--majors--majormap--tab{border:1px solid #E1E1E1;border-radius:6px 6px 0 0;width:120px;padding:8px;background-color:#fff;color:#666;}
-.detail--majors--majormap--tab.activated{background-color:#0F75BC;color:#fff;}
-#detail--majormap--amcharts{border: 1px solid #A1A1A1;height:380px;margin-bottom:8px;}
-#detail--majormap--amcharts g[role='widget']+g{display:none!important;}
+.detail--majors--majormap--tab{border:1px solid #E1E1E1;border-radius:6px 6px 0 0;width:120px;padding:8px;background-color:#fff;color:#666;font-weight: 500;font-size: 18px;line-height: 26px;}
+.detail--majors--majormap--tab.activated{background-color:#0F75BC;color:#fff;border:0;}
+#detail--majors--echarts{border: 1px solid #A1A1A1;height:380px;margin-bottom:8px;}

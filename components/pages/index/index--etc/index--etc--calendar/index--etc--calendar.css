@@ -1,5 +1,4 @@
-.index--etc--calendar--box{flex:360px;height:360px;padding:16px;}
-.contents--title__index--etc--calendar{margin-bottom:16px;}
+.index--etc--calendar--box{flex:360px;padding:16px;order:0;}
 .index--etc--calendar{margin-bottom:24px;}
 .index--etc--calendar:last-child{margin-bottom:0;}
 .index--etc--calendar--title{margin-bottom:8px;align-items:center;}

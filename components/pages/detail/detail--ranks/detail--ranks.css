@@ -1,10 +1,10 @@
-.contents--detail--ranks{display:flex;flex-wrap:wrap;justify-content:space-between;}
+.contents__detail--ranks{display:flex;flex-wrap:wrap;justify-content:space-between;}
 .detail--ranks__large{width:450px;margin-bottom:-16px;}
 .detail--ranks__small{width:320px;margin-bottom:-16px;}
-.contents--detail--ranks .rank--box{margin-bottom:16px;}
+.contents__detail--ranks .rank--box{margin-bottom:16px;}
 
 @media(max-width:920px) {
-    .contents--detail--ranks{display:block;}
+    .contents__detail--ranks{display:block;}
     .detail--ranks__large{margin:auto}
     .detail--ranks__small{margin:auto;width:450px;}
 }
